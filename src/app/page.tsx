@@ -3,6 +3,39 @@ import { useState, useCallback, useEffect } from 'react'
 import { RefreshCw, Trophy, Users, Zap, ChevronRight, Clock, AlertCircle, TrendingUp, CheckCircle, XCircle } from 'lucide-react'
 import { groups, knockoutMatches, news, LAST_UPDATED, type Match, type KnockoutMatch, type NewsItem } from '@/data/worldcup'
 
+// ─── FLAG IMAGE ─────────────────────────────────────────────────────────────
+
+const FLAG_CODES: Record<string, string> = {
+  '🇲🇽': 'mx', '🇰🇷': 'kr', '🇨🇿': 'cz', '🇿🇦': 'za',
+  '🇨🇦': 'ca', '🇧🇦': 'ba', '🇶🇦': 'qa', '🇨🇭': 'ch',
+  '🏴󠁧󠁢󠁳󠁣󠁴󠁿': 'gb-sct', '🇧🇷': 'br', '🇲🇦': 'ma', '🇭🇹': 'ht',
+  '🇺🇸': 'us', '🇦🇺': 'au', '🇹🇷': 'tr', '🇵🇾': 'py',
+  '🇩🇪': 'de', '🇨🇮': 'ci', '🇪🇨': 'ec', '🇨🇼': 'cw',
+  '🇸🇪': 'se', '🇳🇱': 'nl', '🇯🇵': 'jp', '🇹🇳': 'tn',
+  '🇧🇪': 'be', '🇪🇬': 'eg', '🇮🇷': 'ir', '🇳🇿': 'nz',
+  '🇪🇸': 'es', '🇨🇻': 'cv', '🇸🇦': 'sa', '🇺🇾': 'uy',
+  '🇫🇷': 'fr', '🇳🇴': 'no', '🇸🇳': 'sn', '🇮🇶': 'iq',
+  '🇦🇷': 'ar', '🇦🇹': 'at', '🇩🇿': 'dz', '🇯🇴': 'jo',
+  '🇵🇹': 'pt', '🇨🇴': 'co', '🇨🇩': 'cd', '🇺🇿': 'uz',
+  '🏴󠁧󠁢󠁥󠁮󠁧󠁿': 'gb-eng', '🇭🇷': 'hr', '🇬🇭': 'gh', '🇵🇦': 'pa',
+}
+
+function FlagImg({ emoji, size = 20 }: { emoji: string; size?: number }) {
+  const code = FLAG_CODES[emoji]
+  if (!code) return <span>{emoji}</span>
+  const w2x = size <= 20 ? 40 : 80
+  return (
+    <img
+      src={`https://flagcdn.com/w${size}/${code}.png`}
+      srcSet={`https://flagcdn.com/w${w2x}/${code}.png 2x`}
+      width={size}
+      alt={emoji}
+      loading="lazy"
+      style={{ display: 'inline-block', verticalAlign: 'middle', borderRadius: 2 }}
+    />
+  )
+}
+
 // ─── HELPERS ────────────────────────────────────────────────────────────────
 
 function fmtDate(iso: string) {
@@ -87,7 +120,7 @@ function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, home
     <div className="flex items-center justify-between gap-2 py-2">
       {/* Home */}
       <div className="flex items-center gap-2 flex-1 min-w-0">
-        <span className="text-xl leading-none shrink-0">{homeFlag}</span>
+        <FlagImg emoji={homeFlag} size={20} />
         <span className="text-sm font-medium text-white truncate">{home}</span>
       </div>
       {/* Score / Prediction */}
@@ -112,7 +145,7 @@ function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, home
       {/* Away */}
       <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
         <span className="text-sm font-medium text-white truncate text-right">{away}</span>
-        <span className="text-xl leading-none shrink-0">{awayFlag}</span>
+        <FlagImg emoji={awayFlag} size={20} />
       </div>
     </div>
   )
@@ -191,7 +224,7 @@ function GroupsView() {
                 <tr key={t.name} className={`border-t border-white/5 ${i < 2 ? 'bg-green-900/10' : ''}`}>
                   <td className="px-4 py-2.5 flex items-center gap-2">
                     <span className="text-gray-600 text-xs w-4">{i+1}</span>
-                    <span>{t.flag}</span>
+                    <FlagImg emoji={t.flag} size={20} />
                     <span className="text-white font-medium">{t.name}</span>
                     {i < 2 && <span className="w-1.5 h-1.5 rounded-full bg-green-400 ml-1" title="Clasifica"/>}
                   </td>
@@ -277,7 +310,7 @@ function KnockoutView({ round }: { round: string }) {
           <div className="text-gray-400 text-sm mb-2">MetLife Stadium, Nueva Jersey</div>
           <div className="flex items-center justify-center gap-6 my-6">
             <div className="text-center">
-              <div className="text-5xl mb-2">{m.homeFlag}</div>
+              <div className="mb-2"><FlagImg emoji={m.homeFlag} size={48} /></div>
               <div className="font-display text-xl font-bold text-white">{m.home}</div>
             </div>
             <div className="text-center">
@@ -290,14 +323,14 @@ function KnockoutView({ round }: { round: string }) {
               {m.status === 'upcoming' && <div className="text-gray-500 text-xs mt-1">predicción</div>}
             </div>
             <div className="text-center">
-              <div className="text-5xl mb-2">{m.awayFlag}</div>
+              <div className="mb-2"><FlagImg emoji={m.awayFlag} size={48} /></div>
               <div className="font-display text-xl font-bold text-white">{m.away}</div>
             </div>
           </div>
           {m.winner && (
             <div className="bg-gold/10 rounded-xl p-3 mt-2">
               <div className="text-gold text-xs mb-1 uppercase tracking-widest">Campeón proyectado</div>
-              <div className="font-display text-2xl font-bold text-gold">{m.winnerFlag} {m.winner}</div>
+              <div className="font-display text-2xl font-bold text-gold flex items-center justify-center gap-2"><FlagImg emoji={m.winnerFlag!} size={24} /> {m.winner}</div>
             </div>
           )}
           {m.notes && <p className="text-gray-500 text-xs mt-3">{m.notes}</p>}
@@ -314,7 +347,7 @@ function KnockoutView({ round }: { round: string }) {
               p.pos === '🏆' ? 'bg-gold/10 border-gold/30' : 'bg-pitch-mid border-white/5'
             }`}>
               <div className="text-2xl mb-1">{p.pos}</div>
-              <div className="text-xl mb-1">{p.flag}</div>
+              <div className="mb-1"><FlagImg emoji={p.flag} size={28} /></div>
               <div className={`font-bold text-sm ${p.pos === '🏆' ? 'text-gold' : 'text-white'}`}>{p.team}</div>
               <div className="text-[10px] text-gray-500 mt-1">{p.note}</div>
             </div>
@@ -347,7 +380,8 @@ function KnockoutView({ round }: { round: string }) {
           {m.winner && m.status === 'upcoming' && (
             <div className="flex items-center gap-1 mt-1.5 pt-1.5 border-t border-white/5">
               <span className="text-[11px] text-gray-500">Avanza:</span>
-              <span className="text-[11px] font-medium text-grass">{m.winnerFlag} {m.winner}</span>
+              <FlagImg emoji={m.winnerFlag!} size={14} />
+              <span className="text-[11px] font-medium text-grass">{m.winner}</span>
             </div>
           )}
           {m.notes && <p className="text-[11px] text-gray-500 mt-1">{m.notes}</p>}
