@@ -455,6 +455,19 @@ export default function Home() {
 
   const playedCount = groups.flatMap(g => g.matches).filter(m => m.status === 'played').length
   const totalGroupMatches = groups.flatMap(g => g.matches).length
+  const hasAnyLive = groups.some(g => g.matches.some(m => m.status === 'live'))
+
+  // Auto-poll every 5 min when there are live matches
+  useEffect(() => {
+    if (!hasAnyLive) return
+    const id = setInterval(() => {
+      fetch('/api/sync', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => { if (d.committed) window.location.reload() })
+        .catch(() => {})
+    }, 5 * 60 * 1000)
+    return () => clearInterval(id)
+  }, [hasAnyLive])
 
   return (
     <div className="pitch-bg min-h-screen">
