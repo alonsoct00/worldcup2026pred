@@ -121,26 +121,42 @@ function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, home
 // ─── GROUPS VIEW ────────────────────────────────────────────────────────────
 
 function GroupsView() {
-  const [activeGroup, setActiveGroup] = useState<string>('A')
+  const [activeGroup, setActiveGroup] = useState<string>(() => {
+    if (typeof window !== 'undefined') return sessionStorage.getItem('activeGroup') ?? 'A'
+    return 'A'
+  })
   const group = groups.find(g => g.id === activeGroup)!
+
+  const selectGroup = (id: string) => {
+    setActiveGroup(id)
+    sessionStorage.setItem('activeGroup', id)
+  }
 
   return (
     <div className="space-y-4">
       {/* Group selector */}
       <div className="flex gap-1 flex-wrap">
-        {groups.map(g => (
-          <button
-            key={g.id}
-            onClick={() => setActiveGroup(g.id)}
-            className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
-              activeGroup === g.id
-                ? 'bg-gold text-pitch font-bold'
-                : 'bg-pitch-mid text-gray-400 hover:text-white hover:bg-pitch-light'
-            }`}
-          >
-            {g.id}
-          </button>
-        ))}
+        {groups.map(g => {
+          const hasLive = g.matches.some(m => m.status === 'live')
+          return (
+            <button
+              key={g.id}
+              onClick={() => selectGroup(g.id)}
+              className={`relative px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                activeGroup === g.id
+                  ? 'bg-gold text-pitch font-bold'
+                  : hasLive
+                    ? 'bg-pitch-mid text-gray-300 ring-1 ring-white/30 hover:text-white hover:bg-pitch-light'
+                    : 'bg-pitch-mid text-gray-400 hover:text-white hover:bg-pitch-light'
+              }`}
+            >
+              {g.id}
+              {hasLive && activeGroup !== g.id && (
+                <span className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-red-500" />
+              )}
+            </button>
+          )
+        })}
       </div>
 
       {/* Standings table */}
@@ -195,10 +211,12 @@ function GroupsView() {
       {/* Matches */}
       <div className="grid gap-2">
         {group.matches.map(match => (
-          <div key={match.id} className={`match-card bg-pitch-mid rounded-xl px-4 pt-2 pb-3 border ${
-            match.status === 'played' ? 'border-white/10' :
-            match.status === 'live' ? 'border-red-500/40' :
-            'border-white/5'
+          <div key={match.id} className={`match-card rounded-xl px-4 pt-2 pb-3 border transition-opacity ${
+            match.status === 'played'
+              ? 'bg-pitch-mid/60 border-white/5 opacity-70 hover:opacity-100'
+              : match.status === 'live'
+                ? 'bg-pitch-mid border-red-500/40'
+                : 'bg-pitch-mid border-white/5'
           }`}>
             <div className="flex items-center justify-between mb-1">
               <span className="text-[11px] text-gray-500">{match.date} · {match.venue}</span>
@@ -390,7 +408,14 @@ const TABS = [
 ]
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('groups')
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined') return sessionStorage.getItem('activeTab') ?? 'groups'
+    return 'groups'
+  })
+  const handleTabChange = (id: string) => {
+    setActiveTab(id)
+    sessionStorage.setItem('activeTab', id)
+  }
   const [syncing, setSyncing] = useState(false)
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' | 'info' } | null>(null)
@@ -438,50 +463,73 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-pitch/95 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">26</div>
+            <div className="w-8 h-8 rounded-lg bg-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm">
+              26
+            </div>
             <div>
-              <h1 className="font-display text-lg font-bold text-white tracking-wide leading-none">MUNDIAL 2026</h1>
-              <p className="text-[10px] text-gray-500 leading-none mt-0.5">Predicciones · Claude</p>
+              <h1 className="font-display text-lg font-bold text-white tracking-wide leading-none">
+                MUNDIAL 2026
+              </h1>
+              <p className="text-[10px] text-gray-500 leading-none mt-0.5">
+                Predicciones · Claude
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
-              <div className="text-[11px] text-gray-500" suppressHydrationWarning>
+              <div
+                className="text-[11px] text-gray-500"
+                suppressHydrationWarning
+              >
                 {syncMsg ?? `Actualizado: ${fmtDate(LAST_UPDATED)}`}
               </div>
-              <div className="text-[11px] text-gold/70">{playedCount}/{totalGroupMatches} partidos grupo jugados</div>
+              <div className="text-[11px] text-gold/70">
+                {playedCount}/{totalGroupMatches} partidos grupo jugados
+              </div>
             </div>
             <button
               onClick={handleSync}
               disabled={syncing}
               className="flex items-center gap-2 bg-gold hover:bg-gold-dim disabled:opacity-60 text-pitch font-bold text-sm px-4 py-2 rounded-lg transition-colors"
             >
-              <RefreshCw size={14} className={syncing ? 'spin' : ''} />
-              {syncing ? 'Syncing...' : 'Sync'}
+              <RefreshCw size={14} className={syncing ? "spin" : ""} />
+              {syncing ? "Syncing..." : "Sync"}
             </button>
           </div>
         </div>
 
         {/* Stats bar */}
         <div className="max-w-5xl mx-auto px-4 pb-2 flex gap-4 text-[11px] text-gray-500 flex-wrap">
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-400 inline-block"/>Francia — 🏆 pred.</span>
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block"/>Marruecos — 🥈</span>
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-400 inline-block"/>Argentina — 🥉</span>
-          <span className="flex items-center gap-1 text-red-400"><AlertCircle size={10}/>España en crisis (0–0 Cabo Verde)</span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
+            Francia — 🏆 pred.
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />
+            Marruecos — 🥈
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
+            Argentina — 🥉
+          </span>
+          <span className="flex items-center gap-1 text-red-400">
+            <AlertCircle size={10} />
+            España en crisis (0–0 Cabo Verde)
+          </span>
         </div>
       </header>
 
       {/* Tabs */}
       <nav className="sticky top-[88px] z-40 bg-pitch/90 backdrop-blur border-b border-white/5 overflow-x-auto scrollbar-hide">
         <div className="max-w-5xl mx-auto px-4 flex gap-0">
-          {TABS.map(tab => (
+          {TABS.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabChange(tab.id)}
               className={`relative shrink-0 px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'text-gold tab-active'
-                  : 'text-gray-500 hover:text-gray-300'
+                  ? "text-gold tab-active"
+                  : "text-gray-500 hover:text-gray-300"
               }`}
             >
               {tab.label}
@@ -492,43 +540,66 @@ export default function Home() {
 
       {/* Content */}
       <main className="max-w-5xl mx-auto px-4 py-6">
-        {activeTab === 'groups' && <GroupsView />}
-        {activeTab === 'news' && <NewsView />}
-        {['r32','r16','qf','sf','third','final'].includes(activeTab) && (
+        {activeTab === "groups" && <GroupsView />}
+        {activeTab === "news" && <NewsView />}
+        {["r32", "r16", "qf", "sf", "third", "final"].includes(activeTab) && (
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Trophy size={20} className="text-gold" />
               <h2 className="font-display text-2xl font-bold text-white tracking-wide">
                 {ROUND_LABELS[activeTab]}
               </h2>
-              {activeTab !== 'final' && activeTab !== 'third' && (
+              {activeTab !== "final" && activeTab !== "third" && (
                 <span className="text-xs text-gray-500 bg-pitch-mid px-2 py-1 rounded-full">
-                  {knockoutMatches.filter(m => m.round === activeTab).length} partidos
+                  {knockoutMatches.filter((m) => m.round === activeTab).length}{" "}
+                  partidos
                 </span>
               )}
             </div>
             <div className="bg-pitch-mid/40 rounded-xl p-3 border border-white/5 flex items-center gap-2 text-sm text-gray-400">
               <Clock size={14} className="text-gold/60 shrink-0" />
-              <span>Los marcadores mostrados son <strong className="text-gold/80">predicciones</strong> — se actualizan con resultados reales al jugarse cada partido.</span>
+              <span>
+                Los marcadores mostrados son{" "}
+                <strong className="text-gold/80">predicciones</strong> — se
+                actualizan con resultados reales al jugarse cada partido.
+              </span>
             </div>
             <KnockoutView round={activeTab} />
             {/* Round navigation */}
             <div className="flex justify-between mt-4 pt-4 border-t border-white/5">
               {ROUND_ORDER.indexOf(activeTab) > 0 && (
                 <button
-                  onClick={() => setActiveTab(ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) - 1])}
+                  onClick={() =>
+                    handleTabChange(
+                      ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) - 1],
+                    )
+                  }
                   className="text-sm text-gray-400 hover:text-white flex items-center gap-1"
                 >
-                  ← {ROUND_LABELS[ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) - 1]]}
+                  ←{" "}
+                  {
+                    ROUND_LABELS[
+                      ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) - 1]
+                    ]
+                  }
                 </button>
               )}
               <div className="flex-1" />
               {ROUND_ORDER.indexOf(activeTab) < ROUND_ORDER.length - 1 && (
                 <button
-                  onClick={() => setActiveTab(ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) + 1])}
+                  onClick={() =>
+                    handleTabChange(
+                      ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) + 1],
+                    )
+                  }
                   className="text-sm text-gray-400 hover:text-white flex items-center gap-1"
                 >
-                  {ROUND_LABELS[ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) + 1]]} <ChevronRight size={14} />
+                  {
+                    ROUND_LABELS[
+                      ROUND_ORDER[ROUND_ORDER.indexOf(activeTab) + 1]
+                    ]
+                  }{" "}
+                  <ChevronRight size={14} />
                 </button>
               )}
             </div>
@@ -538,9 +609,16 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-white/5 mt-8 py-6 text-center text-[11px] text-gray-600">
-        <p>Mundial 2026 · Predicciones generadas por Claude · Actualización diaria 00:00 MT</p>
-        <p className="mt-1">Para actualizar: edita <code className="bg-pitch-mid px-1 rounded">src/data/worldcup.ts</code> y despliega en Vercel</p>
+        <p>
+          Mundial 2026 · Predicciones y resultados de los partidos ·
+          Actualización diaria 00:00 MT
+        </p>
+        <p className="mt-1">
+          Created with{" "}
+          <code className="bg-pitch-mid px-1 rounded">Claudio AI</code>{" "}
+          <a href="alonsoct.dev" target="_blank">alonsoct.dev</a>
+        </p>
       </footer>
     </div>
-  )
+  );
 }
