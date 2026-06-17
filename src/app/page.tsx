@@ -121,10 +121,11 @@ function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, home
 // ─── GROUPS VIEW ────────────────────────────────────────────────────────────
 
 function GroupsView() {
-  const [activeGroup, setActiveGroup] = useState<string>(() => {
-    if (typeof window !== 'undefined') return sessionStorage.getItem('activeGroup') ?? 'A'
-    return 'A'
-  })
+  const [activeGroup, setActiveGroup] = useState<string>('A')
+  useEffect(() => {
+    const saved = sessionStorage.getItem('activeGroup')
+    if (saved) setActiveGroup(saved)
+  }, [])
   const group = groups.find(g => g.id === activeGroup)!
 
   const selectGroup = (id: string) => {
@@ -408,10 +409,11 @@ const TABS = [
 ]
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(() => {
-    if (typeof window !== 'undefined') return sessionStorage.getItem('activeTab') ?? 'groups'
-    return 'groups'
-  })
+  const [activeTab, setActiveTab] = useState('groups')
+  useEffect(() => {
+    const saved = sessionStorage.getItem('activeTab')
+    if (saved) setActiveTab(saved)
+  }, [])
   const handleTabChange = (id: string) => {
     setActiveTab(id)
     sessionStorage.setItem('activeTab', id)

@@ -7,7 +7,7 @@ const GH_REPO = 'worldcup2026pred'
 const GH_FILE = 'src/data/worldcup.ts'
 const GH_BRANCH = 'main'
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// ── Name normalization ────────────────────────────────────────────────────────
 
 const NAME_MAP: Record<string, string> = {
   'Mexico': 'México', 'South Korea': 'Corea del Sur', 'Korea Republic': 'Corea del Sur',
@@ -36,13 +36,52 @@ function normalizeTeam(name: string): string {
   return NAME_MAP[name] ?? name
 }
 
+// ── Interfaces ────────────────────────────────────────────────────────────────
+
 interface APIMatch {
   home: string; away: string
   homeScore: number | null; awayScore: number | null
   status: 'played' | 'live' | 'upcoming'
   extra?: 'AET' | 'PEN'
   homeYellow?: number; awayYellow?: number; homeRed?: number; awayRed?: number
+  utcDate?: string
 }
+
+interface TeamStats {
+  name: string; flag: string
+  played: number; w: number; d: number; l: number; gf: number; ga: number; pts: number
+}
+
+interface MatchLike {
+  home: string; away: string
+  homeScore: number | null; awayScore: number | null
+  status: string; result: string | null; extra?: string
+  homeYellow?: number; awayYellow?: number; homeRed?: number; awayRed?: number
+  [key: string]: unknown
+}
+
+interface GroupLike {
+  id: string; label: string
+  teams: TeamStats[]
+  matches: MatchLike[]
+  projected: string[]
+}
+
+interface KnockoutLike extends MatchLike {
+  id: string; round: string
+  homeFlag: string; awayFlag: string
+  homePrediction: number; awayPrediction: number
+  winner: string | null; winnerFlag: string | null
+  date?: string
+}
+
+interface NewsItem {
+  id: string; date: string
+  tag: 'lesion' | 'tarjeta' | 'resultado' | 'sorpresa' | 'estadistica'
+  title: string; body: string
+}
+
+// ── Fetch from football-data.org ──────────────────────────────────────────────
 
 async function fetchMatches(): Promise<APIMatch[]> {
   const res = await fetch('https://api.football-data.org/v4/competitions/WC/matches?season=2026', {
@@ -53,7 +92,9 @@ async function fetchMatches(): Promise<APIMatch[]> {
   const data = await res.json() as any
   return (data.matches ?? []).map((m: any) => {
     const rawStatus: string = m.status ?? ''
-    const status = rawStatus === 'FINISHED' ? 'played' : rawStatus === 'IN_PLAY' || rawStatus === 'PAUSED' ? 'live' : 'upcoming'
+    const status: APIMatch['status'] =
+      rawStatus === 'FINISHED' ? 'played' :
+      rawStatus === 'IN_PLAY' || rawStatus === 'PAUSED' ? 'live' : 'upcoming'
     let extra: 'AET' | 'PEN' | undefined
     if (m.score?.penalties?.home != null) extra = 'PEN'
     else if (m.score?.extraTime?.home != null) extra = 'AET'
@@ -63,6 +104,7 @@ async function fetchMatches(): Promise<APIMatch[]> {
       homeScore: m.score?.fullTime?.home ?? null,
       awayScore: m.score?.fullTime?.away ?? null,
       status,
+      utcDate: m.utcDate,
     }
     if (extra) match.extra = extra
     return match
@@ -105,19 +147,51 @@ async function commitFile(content: string, sha: string, message: string): Promis
   }
 }
 
-// ── Data update logic ────────────────────────────────────────────────────────
+// ── Parse worldcup.ts ─────────────────────────────────────────────────────────
 
-interface MatchLike {
-  home: string; away: string
-  homeScore: number | null; awayScore: number | null
-  status: string; result: string | null; extra?: string
-  homeYellow?: number; awayYellow?: number; homeRed?: number; awayRed?: number
-  [key: string]: unknown
+function extractBlock(src: string, exportName: string): string {
+  const pattern = new RegExp(`export const ${exportName}[^=]+=\\s*`)
+  const match = pattern.exec(src)
+  if (!match) return '[]'
+  const start = match.index + match[0].length
+  let depth = 0; let i = start
+  while (i < src.length) {
+    if (src[i] === '[' || src[i] === '{') depth++
+    if (src[i] === ']' || src[i] === '}') { depth--; if (depth === 0) return src.slice(start, i + 1) }
+    i++
+  }
+  return '[]'
 }
+
+function parseCurrentData(src: string): { groups: GroupLike[]; knockoutMatches: KnockoutLike[]; news: NewsItem[] } {
+  // eslint-disable-next-line no-new-func
+  const evalSafe = (code: string) => new Function(`return (${code})`)()
+  return {
+    groups: evalSafe(extractBlock(src, 'groups')),
+    knockoutMatches: evalSafe(extractBlock(src, 'knockoutMatches')),
+    news: evalSafe(extractBlock(src, 'news')),
+  }
+}
+
+function extractTypeBlock(src: string): string {
+  const start = src.indexOf('export type MatchStatus')
+  if (start === -1) return ''
+  const end = src.indexOf('// ─── NEWS')
+  if (end === -1) return src.slice(start)
+  return src.slice(start, end).trimEnd()
+}
+
+// ── Apply scores ──────────────────────────────────────────────────────────────
 
 function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
   if (api.status !== 'played' && api.status !== 'live') return false
   if (api.homeScore == null || api.awayScore == null) return false
+
+  const changed =
+    match.homeScore !== api.homeScore ||
+    match.awayScore !== api.awayScore ||
+    match.status !== api.status
+
   match.homeScore = api.homeScore
   match.awayScore = api.awayScore
   match.status = api.status
@@ -125,51 +199,199 @@ function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
     ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
     : null
   if (api.extra) match.extra = api.extra
-  return true
+  if (api.homeYellow != null) match.homeYellow = api.homeYellow
+  if (api.awayYellow != null) match.awayYellow = api.awayYellow
+  if (api.homeRed != null) match.homeRed = api.homeRed
+  if (api.awayRed != null) match.awayRed = api.awayRed
+  return changed
 }
 
-// Minimal regex-based score patch — avoids full TS parse/serialize
-function patchScores(src: string, apiMatches: APIMatch[]): { content: string; updated: number } {
-  let content = src
-  let updated = 0
+// ── Standings recalculation ───────────────────────────────────────────────────
+
+function recalcStandings(groups: GroupLike[]): void {
+  for (const group of groups) {
+    const stats: Record<string, TeamStats> = {}
+    for (const t of group.teams) {
+      stats[t.name] = { ...t, played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 }
+    }
+    for (const m of group.matches) {
+      if (m.status !== 'played' || m.homeScore == null || m.awayScore == null) continue
+      const home = stats[m.home]; const away = stats[m.away]
+      if (!home || !away) continue
+      home.played++; away.played++
+      home.gf += m.homeScore; home.ga += m.awayScore
+      away.gf += m.awayScore; away.ga += m.homeScore
+      if (m.homeScore > m.awayScore) { home.w++; home.pts += 3; away.l++ }
+      else if (m.homeScore < m.awayScore) { away.w++; away.pts += 3; home.l++ }
+      else { home.d++; away.d++; home.pts++; away.pts++ }
+    }
+    group.teams = group.teams.map(t => stats[t.name] ?? t)
+  }
+}
+
+// ── Auto news from results ────────────────────────────────────────────────────
+
+function generateNewsFromResults(
+  apiMatches: APIMatch[],
+  existingNews: NewsItem[],
+): NewsItem[] {
+  const today = new Date().toISOString().slice(0, 10)
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
+
+  const maxId = existingNews.reduce((max, n) => {
+    const num = parseInt((n.id ?? '').replace(/\D/g, '')) || 0
+    return Math.max(max, num)
+  }, 0)
+
+  const recentPlayed = apiMatches.filter(m =>
+    m.status === 'played' &&
+    m.utcDate &&
+    (m.utcDate.startsWith(today) || m.utcDate.startsWith(yesterday))
+  )
+
+  const newItems: NewsItem[] = []
+  let idx = 0
+
+  for (const m of recentPlayed) {
+    if (!m.home || !m.away || m.homeScore == null || m.awayScore == null) continue
+
+    const alreadyExists = existingNews.some(n =>
+      n.title.toLowerCase().includes(m.home.toLowerCase()) &&
+      n.title.toLowerCase().includes(m.away.toLowerCase())
+    ) || newItems.some(n =>
+      n.title.toLowerCase().includes(m.home.toLowerCase()) &&
+      n.title.toLowerCase().includes(m.away.toLowerCase())
+    )
+    if (alreadyExists) continue
+
+    const score = `${m.homeScore}–${m.awayScore}`
+    const margin = Math.abs(m.homeScore - m.awayScore)
+    const isDraw = m.homeScore === m.awayScore
+    const winner = isDraw ? null : (m.homeScore > m.awayScore ? m.home : m.away)
+    const suffix = m.extra === 'PEN' ? ' (pen.)' : m.extra === 'AET' ? ' (p.e.)' : ''
+
+    let title: string
+    let body: string
+    let tag: NewsItem['tag'] = 'resultado'
+
+    if (isDraw) {
+      title = `${m.home} ${score} ${m.away}: empate`
+      body = `El partido terminó igualado ${score}. Ambos equipos suman 1 punto.`
+    } else {
+      title = `${m.home} ${score} ${m.away}${suffix}`
+      body = `${winner} suma 3 puntos con marcador ${score}${suffix ? ` ${suffix}` : ''}.`
+      if (margin >= 4) tag = 'sorpresa'
+    }
+
+    const matchDate = m.utcDate ? m.utcDate.slice(0, 10) : today
+    newItems.push({ id: `n${maxId + idx + 1}`, date: matchDate, tag, title, body })
+    idx++
+  }
+
+  return newItems
+}
+
+// ── Serialization ─────────────────────────────────────────────────────────────
+
+function serializeGroups(groups: GroupLike[]): string {
+  const items = groups.map(g => {
+    const teams = g.teams.map(t =>
+      `      { name: ${JSON.stringify(t.name)}, flag: ${JSON.stringify(t.flag)}, played: ${t.played}, w: ${t.w}, d: ${t.d}, l: ${t.l}, gf: ${t.gf}, ga: ${t.ga}, pts: ${t.pts} }`
+    ).join(',\n')
+    const matches = g.matches.map(m => {
+      const parts: string[] = []
+      for (const [k, v] of Object.entries(m)) {
+        if (v === undefined) continue
+        parts.push(`${k}:${typeof v === 'string' ? JSON.stringify(v) : v === null ? 'null' : v}`)
+      }
+      return `      { ${parts.join(', ')} }`
+    }).join(',\n')
+    return `  {\n    id: ${JSON.stringify(g.id)}, label: ${JSON.stringify(g.label)},\n    teams: [\n${teams},\n    ],\n    projected: ${JSON.stringify(g.projected)},\n    matches: [\n${matches},\n    ]\n  }`
+  })
+  return `[\n${items.join(',\n')}\n]`
+}
+
+function serializeKnockout(matches: KnockoutLike[]): string {
+  const items = matches.map(m => {
+    const parts: string[] = []
+    for (const [k, v] of Object.entries(m)) {
+      if (v === undefined) continue
+      parts.push(`${k}:${typeof v === 'string' ? JSON.stringify(v) : v === null ? 'null' : v}`)
+    }
+    return `  { ${parts.join(', ')} }`
+  })
+  return `[\n${items.join(',\n')}\n]`
+}
+
+function serializeNews(news: NewsItem[]): string {
+  const items = news.map(n =>
+    `  { id:${JSON.stringify(n.id)}, date:${JSON.stringify(n.date)}, tag:${JSON.stringify(n.tag)},\n    title:${JSON.stringify(n.title)},\n    body:${JSON.stringify(n.body)}\n  }`
+  )
+  return `[\n${items.join(',\n')}\n]`
+}
+
+// ── Build updated file content ────────────────────────────────────────────────
+
+function buildUpdatedContent(
+  src: string,
+  apiMatches: APIMatch[],
+): { content: string; updated: number; newNews: number } {
+  const { groups, knockoutMatches, news } = parseCurrentData(src)
+  const typeBlock = extractTypeBlock(src)
 
   const apiByKey = new Map<string, APIMatch>()
   for (const m of apiMatches) {
     if (m.home && m.away) apiByKey.set(`${m.home}|${m.away}`, m)
   }
 
-  // Match lines like: { id:"X1", home:"Argentina", away:"Argelia", ..., homeScore:2, awayScore:0, ... status:"played"|"upcoming" ... }
-  content = content.replace(
-    /(\{ id:"[^"]+",\s*(?:round:"[^"]+",\s*)?home:"([^"]+)",\s*away:"([^"]+)",[^}]+?\})/g,
-    (block, _full, home, away) => {
-      const api = apiByKey.get(`${home}|${away}`)
-      if (!api || (api.status !== 'played' && api.status !== 'live')) return block
-      if (api.homeScore == null || api.awayScore == null) return block
+  let updated = 0
 
-      const result = api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw'
-
-      let patched = block
-        .replace(/homeScore:\s*(?:\d+|null)/, `homeScore:${api.homeScore}`)
-        .replace(/awayScore:\s*(?:\d+|null)/, `awayScore:${api.awayScore}`)
-        .replace(/status:\s*"[^"]+"/, `status:"${api.status}"`)
-        .replace(/result:\s*(?:"[^"]+"|null)/, `result:"${result}"`)
-
-      if (patched !== block) updated++
-      return patched
+  for (const group of groups) {
+    for (const match of group.matches) {
+      const api = apiByKey.get(`${match.home}|${match.away}`)
+      if (api && applyApiMatch(match, api)) updated++
     }
-  )
+  }
+  for (const match of knockoutMatches) {
+    const api = apiByKey.get(`${match.home}|${match.away}`)
+    if (api && applyApiMatch(match, api)) updated++
+  }
 
-  // Update LAST_UPDATED timestamp
+  recalcStandings(groups)
+
+  const generatedNews = generateNewsFromResults(apiMatches, news)
+  const mergedNews = [...generatedNews, ...news]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 25)
+
   const timestamp = new Date().toISOString()
-  content = content.replace(/export const LAST_UPDATED = "[^"]+"/, `export const LAST_UPDATED = "${timestamp}"`)
+  const content = `// src/data/worldcup.ts
+// Auto-synced: ${timestamp}
+// DO NOT EDIT SCORES MANUALLY — run npm run sync
 
-  return { content, updated }
+${typeBlock}
+
+// ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
+
+export const LAST_UPDATED = "${timestamp}"
+
+export const news: NewsItem[] = ${serializeNews(mergedNews)}
+
+// ─── GRUPOS ─────────────────────────────────────────────────────────────────
+
+export const groups: Group[] = ${serializeGroups(groups)}
+
+// ─── KNOCKOUT BRACKET ───────────────────────────────────────────────────────
+
+export const knockoutMatches: KnockoutMatch[] = ${serializeKnockout(knockoutMatches)}
+`
+
+  return { content, updated, newNews: generatedNews.length }
 }
 
 // ── Route handler ─────────────────────────────────────────────────────────────
 
 export async function POST(req: Request) {
-  // Simple secret check for cron calls
   const authHeader = req.headers.get('authorization')
   const cronSecret = process.env.CRON_SECRET
   if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
@@ -177,27 +399,29 @@ export async function POST(req: Request) {
   }
 
   try {
-    // 1. Fetch from API
     const apiMatches = await fetchMatches()
     const played = apiMatches.filter(m => m.status === 'played').length
+    const live = apiMatches.filter(m => m.status === 'live').length
 
-    // 2. Get current file from GitHub
     const { content: currentContent, sha } = await getFileSha()
+    const { content: newContent, updated, newNews } = buildUpdatedContent(currentContent, apiMatches)
 
-    // 3. Patch scores
-    const { content: newContent, updated } = patchScores(currentContent, apiMatches)
-
-    // 4. Commit only if something changed
-    if (updated > 0) {
-      await commitFile(newContent, sha, `sync: update ${updated} match result(s) [auto]`)
+    const hasChanges = updated > 0 || newNews > 0
+    if (hasChanges) {
+      const parts: string[] = []
+      if (updated > 0) parts.push(`${updated} score(s)`)
+      if (newNews > 0) parts.push(`${newNews} news`)
+      await commitFile(newContent, sha, `sync: update ${parts.join(', ')} [auto]`)
     }
 
     return NextResponse.json({
       ok: true,
       matchesFetched: apiMatches.length,
       playedMatches: played,
+      liveMatches: live,
       matchesUpdated: updated,
-      committed: updated > 0,
+      newNewsItems: newNews,
+      committed: hasChanges,
       timestamp: new Date().toISOString(),
     })
   } catch (err) {
@@ -206,7 +430,6 @@ export async function POST(req: Request) {
   }
 }
 
-// Allow GET for easy browser testing
 export async function GET() {
   return POST(new Request('http://localhost', { method: 'POST' }))
 }
