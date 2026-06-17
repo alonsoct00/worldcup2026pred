@@ -330,13 +330,27 @@ const TABS = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState('groups')
   const [syncing, setSyncing] = useState(false)
-  const [lastSync, setLastSync] = useState<string | null>(null)
+  const [syncMsg, setSyncMsg] = useState<string | null>(null)
 
   const handleSync = useCallback(async () => {
     setSyncing(true)
-    await new Promise(r => setTimeout(r, 1200))
-    setLastSync(new Date().toLocaleString('es-MX', { timeZone: 'America/Mexico_City' }))
-    setSyncing(false)
+    setSyncMsg(null)
+    try {
+      const res = await fetch('/api/sync', { method: 'POST' })
+      const data = await res.json()
+      if (data.ok) {
+        setSyncMsg(data.committed
+          ? `✓ ${data.matchesUpdated} partidos actualizados — recargando...`
+          : '✓ Sin cambios nuevos')
+        if (data.committed) setTimeout(() => window.location.reload(), 3000)
+      } else {
+        setSyncMsg(`Error: ${data.error}`)
+      }
+    } catch {
+      setSyncMsg('Error de red')
+    } finally {
+      setSyncing(false)
+    }
   }, [])
 
   const playedCount = groups.flatMap(g => g.matches).filter(m => m.status === 'played').length
@@ -357,7 +371,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
               <div className="text-[11px] text-gray-500" suppressHydrationWarning>
-                {lastSync ? `Sync: ${lastSync}` : `Actualizado: ${fmtDate(LAST_UPDATED)}`}
+                {syncMsg ?? `Actualizado: ${fmtDate(LAST_UPDATED)}`}
               </div>
               <div className="text-[11px] text-gold/70">{playedCount}/{totalGroupMatches} partidos grupo jugados</div>
             </div>
