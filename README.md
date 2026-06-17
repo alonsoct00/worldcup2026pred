@@ -43,8 +43,8 @@ Go to: GitHub repo → Settings → Secrets and variables → Actions → New se
 
 | Secret | Where to get it |
 |--------|----------------|
-| `FOOTBALL_DATA_TOKEN` | Already provided: d77238a4915a4fac81bb936ba7956666 |
-| `OPENFOOTBALL_TOKEN` | Already provided: cf9cde84eb5190e3500f4b3d04d5ba75 |
+| `FOOTBALL_DATA_TOKEN` | Already provided: |
+| `OPENFOOTBALL_TOKEN` | Already provided:  |
 | `ANTHROPIC_API_KEY` | console.anthropic.com → API Keys |
 | `GH_PAT` | github.com → Settings → Developer settings → Personal access tokens → repo scope |
 
