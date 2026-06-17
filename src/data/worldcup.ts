@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-17T05:37:03.660Z
+// Auto-synced: 2026-06-17T06:16:16.494Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,25 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-17T05:42:42.738Z"
+export const LAST_UPDATED = "2026-06-17T06:16:16.494Z"
 
 export const news: NewsItem[] = [
+  { id:"n13", date:"2026-06-17", tag:"resultado",
+    title:"Argentina 3–0 Argelia",
+    body:"Argentina suma 3 puntos con marcador 3–0."
+  },
+  { id:"n14", date:"2026-06-17", tag:"resultado",
+    title:"Austria 3–1 Jordania",
+    body:"Austria suma 3 puntos con marcador 3–1."
+  },
+  { id:"n11", date:"2026-06-16", tag:"resultado",
+    title:"Irán 2–2 Nueva Zelanda: empate",
+    body:"El partido terminó igualado 2–2. Ambos equipos suman 1 punto."
+  },
+  { id:"n12", date:"2026-06-16", tag:"resultado",
+    title:"Francia 3–1 Senegal",
+    body:"Francia suma 3 puntos con marcador 3–1."
+  },
   { id:"n1", date:"2026-06-16", tag:"estadistica",
     title:"Mbappé: máximo goleador histórico de Francia",
     body:"Con su doblete vs Senegal (3–1), Mbappé superó el récord de goles de Francia en Mundiales y se convirtió en el máximo goleador histórico de la selección."
@@ -278,14 +294,14 @@ export const groups: Group[] = [
     id: "J", label: "Grupo J",
     teams: [
       { name: "Argentina", flag: "🇦🇷", played: 1, w: 1, d: 0, l: 0, gf: 3, ga: 0, pts: 3 },
-      { name: "Austria", flag: "🇦🇹", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+      { name: "Austria", flag: "🇦🇹", played: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
       { name: "Argelia", flag: "🇩🇿", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 3, pts: 0 },
-      { name: "Jordania", flag: "🇯🇴", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+      { name: "Jordania", flag: "🇯🇴", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
     ],
     projected: ["🇦🇷 Argentina (1°)","🇦🇹 Austria (2°)"],
     matches: [
       { id:"J1", home:"Argentina", away:"Argelia", homeFlag:"🇦🇷", awayFlag:"🇩🇿", homeScore:3, awayScore:0, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Arrowhead, Kansas City", status:"played", result:"home", notes:"Messi (17') + Álvarez. Gol inicial de Messi anulado por offside. Casi 80% del estadio con camiseta albiceleste." },
-      { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"live", result:"home" },
+      { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
       { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
       { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
