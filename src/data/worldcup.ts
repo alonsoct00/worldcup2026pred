@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-17T18:22:42.324Z
+// Auto-synced: 2026-06-17T19:12:59.484Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-17T18:22:42.324Z"
+export const LAST_UPDATED = "2026-06-17T19:12:59.484Z"
 
 export const news: NewsItem[] = [
+  { id:"n15", date:"2026-06-17", tag:"resultado",
+    title:"Portugal 1–1 RD Congo: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
   { id:"n13", date:"2026-06-17", tag:"resultado",
     title:"Argentina 3–0 Argelia",
     body:"Argentina suma 3 puntos con marcador 3–0."
@@ -311,14 +315,14 @@ export const groups: Group[] = [
   {
     id: "K", label: "Grupo K",
     teams: [
-      { name: "Portugal", flag: "🇵🇹", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+      { name: "Portugal", flag: "🇵🇹", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
       { name: "Colombia", flag: "🇨🇴", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
-      { name: "RD Congo", flag: "🇨🇩", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
+      { name: "RD Congo", flag: "🇨🇩", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
       { name: "Uzbekistán", flag: "🇺🇿", played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 },
     ],
     projected: ["🇵🇹 Portugal (1°)","🇨🇴 Colombia (2°)"],
     matches: [
-      { id:"K1", home:"Portugal", away:"RD Congo", homeFlag:"🇵🇹", awayFlag:"🇨🇩", homeScore:1, awayScore:1, homePrediction:3, awayPrediction:0, date:"17 jun", venue:"NRG Stadium, Houston", status:"live", result:null },
+      { id:"K1", home:"Portugal", away:"RD Congo", homeFlag:"🇵🇹", awayFlag:"🇨🇩", homeScore:1, awayScore:1, homePrediction:3, awayPrediction:0, date:"17 jun", venue:"NRG Stadium, Houston", status:"played", result:"draw" },
       { id:"K2", home:"Uzbekistán", away:"Colombia", homeFlag:"🇺🇿", awayFlag:"🇨🇴", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, date:"17 jun", venue:"Estadio Azteca, CDMX", status:"upcoming", result:null },
       { id:"K3", home:"Portugal", away:"Uzbekistán", homeFlag:"🇵🇹", awayFlag:"🇺🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"NRG Stadium, Houston", status:"upcoming", result:null },
       { id:"K4", home:"Colombia", away:"RD Congo", homeFlag:"🇨🇴", awayFlag:"🇨🇩", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, date:"23 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null },
