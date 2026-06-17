@@ -111,13 +111,15 @@ function parseCurrentData(src: string): { groups: GroupLike[]; knockoutMatches: 
 // ── Match updating ────────────────────────────────────────────────────────────
 
 function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
-  if (api.status !== 'played') return false
+  if (api.status !== 'played' && api.status !== 'live') return false
   if (api.homeScore == null || api.awayScore == null) return false
 
   match.homeScore = api.homeScore
   match.awayScore = api.awayScore
-  match.status = 'played'
-  match.result = api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw'
+  match.status = api.status
+  match.result = api.status === 'played'
+    ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
+    : null
   if (api.extra) match.extra = api.extra
   if (api.homeYellow != null) match.homeYellow = api.homeYellow
   if (api.awayYellow != null) match.awayYellow = api.awayYellow

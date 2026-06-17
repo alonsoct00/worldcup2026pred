@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-17T03:38:23.904Z
+// Auto-synced: 2026-06-17T05:37:03.660Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"

@@ -1,6 +1,6 @@
 'use client'
-import { useState, useCallback } from 'react'
-import { RefreshCw, Trophy, Users, Zap, ChevronRight, Clock, AlertCircle, TrendingUp } from 'lucide-react'
+import { useState, useCallback, useEffect } from 'react'
+import { RefreshCw, Trophy, Users, Zap, ChevronRight, Clock, AlertCircle, TrendingUp, CheckCircle, XCircle } from 'lucide-react'
 import { groups, knockoutMatches, news, LAST_UPDATED, type Match, type KnockoutMatch, type NewsItem } from '@/data/worldcup'
 
 // ─── HELPERS ────────────────────────────────────────────────────────────────
@@ -33,6 +33,53 @@ function ResultBadge({ match }: { match: Match | KnockoutMatch }) {
   )
 }
 
+function Toast({ msg, type }: { msg: string; type: 'success' | 'error' | 'info' }) {
+  return (
+    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-3 rounded-xl shadow-lg text-sm font-medium transition-all animate-fade-in ${
+      type === 'success' ? 'bg-green-900/90 text-green-300 border border-green-700/50' :
+      type === 'error'   ? 'bg-red-900/90 text-red-300 border border-red-700/50' :
+                           'bg-pitch-mid text-gray-300 border border-white/10'
+    }`}>
+      {type === 'success' ? <CheckCircle size={15} /> : type === 'error' ? <XCircle size={15} /> : <RefreshCw size={15} />}
+      {msg}
+    </div>
+  )
+}
+
+function PredRow({ homeScore, awayScore, homePrediction, awayPrediction, isLive }: {
+  homeScore: number | null; awayScore: number | null
+  homePrediction: number; awayPrediction: number; isLive?: boolean
+}) {
+  const exactMatch = homeScore === homePrediction && awayScore === awayPrediction
+  const actualResult = homeScore != null && awayScore != null
+    ? homeScore > awayScore ? 'home' : awayScore > homeScore ? 'away' : 'draw'
+    : null
+  const predResult = homePrediction > awayPrediction ? 'home' : awayPrediction > homePrediction ? 'away' : 'draw'
+  const resultMatch = actualResult === predResult
+
+  return (
+    <div className={`flex items-center justify-between mt-1 pt-1.5 border-t border-white/5 text-[11px] ${isLive ? 'text-red-400/80' : 'text-gray-500'}`}>
+      <span>{isLive ? '🔴 En vivo' : 'Resultado'}</span>
+      <div className="flex items-center gap-2">
+        <span className="font-mono">
+          {homeScore ?? '?'} – {awayScore ?? '?'}
+        </span>
+        <span className="text-gray-600">vs pred.</span>
+        <span className={`font-mono ${exactMatch ? 'text-green-400' : resultMatch ? 'text-gold' : 'text-gray-500'}`}>
+          {homePrediction}–{awayPrediction}
+        </span>
+        {exactMatch
+          ? <span className="text-green-400">✓ exacto</span>
+          : resultMatch
+            ? <span className="text-gold">~ ganador ✓</span>
+            : !isLive
+              ? <span className="text-gray-600">✗</span>
+              : null}
+      </div>
+    </div>
+  )
+}
+
 function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, homePrediction, awayPrediction, status, extra }:
   { home: string; away: string; homeFlag: string; awayFlag: string; homeScore: number | null; awayScore: number | null; homePrediction: number; awayPrediction: number; status: string; extra?: string }) {
   const played = status === 'played' || status === 'live'
@@ -59,6 +106,7 @@ function ScoreBlock({ home, away, homeFlag, awayFlag, homeScore, awayScore, home
           </div>
         )}
         {extra && played && <span className="text-[10px] text-gold/70 mt-0.5">{extra}</span>}
+        {status === 'live' && <span className="text-[10px] text-red-400 mt-0.5 animate-pulse font-bold">EN VIVO</span>}
         {!played && <span className="text-[10px] text-gray-600 mt-0.5">pred.</span>}
       </div>
       {/* Away */}
@@ -166,6 +214,13 @@ function GroupsView() {
               homePrediction={match.homePrediction} awayPrediction={match.awayPrediction}
               status={match.status} extra={match.extra}
             />
+            {(match.status === 'played' || match.status === 'live') && (
+              <PredRow
+                homeScore={match.homeScore} awayScore={match.awayScore}
+                homePrediction={match.homePrediction} awayPrediction={match.awayPrediction}
+                isLive={match.status === 'live'}
+              />
+            )}
             {match.notes && (
               <p className="text-[11px] text-gray-500 mt-1 border-t border-white/5 pt-1.5">{match.notes}</p>
             )}
@@ -263,6 +318,13 @@ function KnockoutView({ round }: { round: string }) {
             homePrediction={m.homePrediction} awayPrediction={m.awayPrediction}
             status={m.status} extra={m.extra}
           />
+          {(m.status === 'played' || m.status === 'live') && (
+            <PredRow
+              homeScore={m.homeScore} awayScore={m.awayScore}
+              homePrediction={m.homePrediction} awayPrediction={m.awayPrediction}
+              isLive={m.status === 'live'}
+            />
+          )}
           {m.winner && m.status === 'upcoming' && (
             <div className="flex items-center gap-1 mt-1.5 pt-1.5 border-t border-white/5">
               <span className="text-[11px] text-gray-500">Avanza:</span>
@@ -331,33 +393,47 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('groups')
   const [syncing, setSyncing] = useState(false)
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
+  const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' | 'info' } | null>(null)
+
+  const showToast = useCallback((msg: string, type: 'success' | 'error' | 'info', duration = 4000) => {
+    setToast({ msg, type })
+    setTimeout(() => setToast(null), duration)
+  }, [])
 
   const handleSync = useCallback(async () => {
     setSyncing(true)
     setSyncMsg(null)
+    showToast('Sincronizando...', 'info', 30000)
     try {
       const res = await fetch('/api/sync', { method: 'POST' })
       const data = await res.json()
       if (data.ok) {
-        setSyncMsg(data.committed
-          ? `✓ ${data.matchesUpdated} partidos actualizados — recargando...`
-          : '✓ Sin cambios nuevos')
-        if (data.committed) setTimeout(() => window.location.reload(), 3000)
+        if (data.committed) {
+          setSyncMsg(`✓ ${data.matchesUpdated} partidos actualizados`)
+          showToast(`✓ ${data.matchesUpdated} partidos actualizados — recargando en 3s`, 'success', 3500)
+          setTimeout(() => window.location.reload(), 3000)
+        } else {
+          setSyncMsg('✓ Sin cambios nuevos')
+          showToast('Sin cambios — datos al día', 'success')
+        }
       } else {
         setSyncMsg(`Error: ${data.error}`)
+        showToast(`Error: ${data.error}`, 'error')
       }
     } catch {
       setSyncMsg('Error de red')
+      showToast('Error de red', 'error')
     } finally {
       setSyncing(false)
     }
-  }, [])
+  }, [showToast])
 
   const playedCount = groups.flatMap(g => g.matches).filter(m => m.status === 'played').length
   const totalGroupMatches = groups.flatMap(g => g.matches).length
 
   return (
     <div className="pitch-bg min-h-screen">
+      {toast && <Toast msg={toast.msg} type={toast.type} />}
       {/* Header */}
       <header className="sticky top-0 z-50 bg-pitch/95 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
