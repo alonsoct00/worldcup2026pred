@@ -20,15 +20,19 @@ const FLAG_CODES: Record<string, string> = {
   '🏴󠁧󠁢󠁥󠁮󠁧󠁿': 'gb-eng', '🇭🇷': 'hr', '🇬🇭': 'gh', '🇵🇦': 'pa',
 }
 
+const CDN_SIZES = [20, 40, 80, 160, 320]
+
 function FlagImg({ emoji, size = 20 }: { emoji: string; size?: number }) {
   const code = FLAG_CODES[emoji]
   if (!code) return <span>{emoji}</span>
-  const w2x = size <= 20 ? 40 : 80
+  const cdnSize = CDN_SIZES.find(s => s >= size) ?? 80
+  const cdn2x = CDN_SIZES.find(s => s >= size * 2) ?? 160
   return (
     <img
-      src={`https://flagcdn.com/w${size}/${code}.png`}
-      srcSet={`https://flagcdn.com/w${w2x}/${code}.png 2x`}
+      src={`https://flagcdn.com/w${cdnSize}/${code}.png`}
+      srcSet={`https://flagcdn.com/w${cdn2x}/${code}.png 2x`}
       width={size}
+      height={Math.round(size * 0.75)}
       alt={emoji}
       loading="lazy"
       style={{ display: 'inline-block', verticalAlign: 'middle', borderRadius: 2 }}
