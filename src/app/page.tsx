@@ -356,7 +356,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
-              <div className="text-[11px] text-gray-500">
+              <div className="text-[11px] text-gray-500" suppressHydrationWarning>
                 {lastSync ? `Sync: ${lastSync}` : `Actualizado: ${fmtDate(LAST_UPDATED)}`}
               </div>
               <div className="text-[11px] text-gold/70">{playedCount}/{totalGroupMatches} partidos grupo jugados</div>
