@@ -134,14 +134,17 @@ Rules:
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-sonnet-4-6-20251001',
       max_tokens: 2000,
       system: systemPrompt,
       messages: [{ role: 'user', content: userPrompt }],
     }),
   })
 
-  if (!res.ok) throw new Error(`Anthropic API returned ${res.status}`)
+  if (!res.ok) {
+    const errBody = await res.text()
+    throw new Error(`Anthropic API returned ${res.status}: ${errBody.substring(0, 300)}`)
+  }
   const data = await res.json() as any
   const text: string = data.content?.[0]?.text ?? ''
 

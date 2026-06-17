@@ -1,4 +1,7 @@
 #!/usr/bin/env tsx
+import { config } from 'dotenv'
+import { resolve } from 'path'
+config({ path: resolve(process.cwd(), '.env.local') })
 import { fetchMatchResults } from './api-fetch.js'
 import { scrapeWebSources } from './web-scraper.js'
 import { extractWithClaude, type Extraction } from './claude-extract.js'

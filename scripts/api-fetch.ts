@@ -81,6 +81,7 @@ async function fetchFromFootballData(): Promise<APIMatch[]> {
     if (extra) match.extra = extra
 
     if (status === 'played' && m.id) {
+      await new Promise(r => setTimeout(r, 700))
       const bookings = await fetchBookings(m.id, token)
       if (bookings.homeYellow) match.homeYellow = bookings.homeYellow
       if (bookings.awayYellow) match.awayYellow = bookings.awayYellow

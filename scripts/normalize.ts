@@ -45,8 +45,11 @@ const NAME_MAP: Record<string, string> = {
   "New Zealand": "Nueva Zelanda",
   "Bosnia and Herzegovina": "Bosnia",
   "Bosnia & Herzegovina": "Bosnia",
+  "Bosnia-Herzegovina": "Bosnia",
   "DR Congo": "RD Congo",
   "Democratic Republic of Congo": "RD Congo",
+  "Congo DR": "RD Congo",
+  "Cape Verde Islands": "Cabo Verde",
   "Uzbekistan": "Uzbekistán",
   "Jordan": "Jordania",
   "Iraq": "Iraq",
@@ -98,6 +101,7 @@ const NAME_MAP: Record<string, string> = {
 }
 
 export function normalizeTeam(name: string): string {
+  if (!name) return name
   if (NAME_MAP[name]) return NAME_MAP[name]
 
   const lower = name.toLowerCase()
