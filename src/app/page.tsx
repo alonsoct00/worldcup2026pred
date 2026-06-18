@@ -343,9 +343,9 @@ function KnockoutView({ round }: { round: string }) {
         {/* Podium */}
         <div className="grid grid-cols-3 gap-3 mt-6">
           {[
-            { pos: '🥈', team: 'Marruecos', flag: '🇲🇦', note: 'La gran sorpresa' },
-            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Campeón proyectado' },
-            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: 'Tercer lugar' },
+            { pos: '🥈', team: 'Marruecos', flag: '🇲🇦', note: 'Solidez vs Brasil (1-1)' },
+            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico' },
+            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: 'Messi en modo campeón' },
           ].map(p => (
             <div key={p.team} className={`rounded-xl p-3 text-center border ${
               p.pos === '🏆' ? 'bg-gold/10 border-gold/30' : 'bg-pitch-mid border-white/5'
@@ -567,7 +567,7 @@ export default function Home() {
           </span>
           <span className="flex items-center gap-1 text-red-400">
             <AlertCircle size={10} />
-            España en crisis (0–0 Cabo Verde)
+            España y Portugal en crisis
           </span>
         </div>
       </header>

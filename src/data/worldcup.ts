@@ -67,29 +67,33 @@ export interface NewsItem {
 export const LAST_UPDATED = "2026-06-18T10:27:39.394Z"
 
 export const news: NewsItem[] = [
-  { id:"n18", date:"2026-06-18", tag:"resultado",
-    title:"Uzbekistán 1–3 Colombia",
-    body:"Colombia suma 3 puntos con marcador 1–3."
+  { id:"n19", date:"2026-06-18", tag:"estadistica",
+    title:"J1 completa: los favoritos confirmados y las crisis reveladas",
+    body:"Mejor debut: Alemania 7-1, Argentina 3-0, Inglaterra 4-2, Noruega 5-1, USA 4-1. En crisis: España 0-0 vs Cabo Verde, Portugal 1-1 vs RD Congo, Brasil 1-1 vs Marruecos. El torneo ya tiene ganadores y sorpresas claras."
   },
-  { id:"n17", date:"2026-06-17", tag:"resultado",
-    title:"Ghana 1–0 Panamá",
-    body:"Ghana suma 3 puntos con marcador 1–0."
+  { id:"n18", date:"2026-06-18", tag:"sorpresa",
+    title:"Colombia 3–1 a Uzbekistán: Los Cafeteros lideran el Grupo K sobre Portugal",
+    body:"Luis Díaz y Córdoba brillaron. Colombia aplastó con juego vistoso y ocupa el 1° del Grupo K mientras Portugal solo empató 1-1 vs RD Congo. Los Cafeteros son la revelación sudamericana del torneo junto a Argentina."
+  },
+  { id:"n17", date:"2026-06-17", tag:"sorpresa",
+    title:"Ghana 1–0 Panamá: los Black Stars amenazan el Grupo L",
+    body:"Gol de Jordan Ayew (38'). Ghana iguala en puntos con Inglaterra tras la J1 y deja a Croacia y Panamá con 0 pts. El 2° lugar del Grupo L está más disputado de lo esperado."
   },
   { id:"n16", date:"2026-06-17", tag:"resultado",
-    title:"Inglaterra 4–2 Croacia",
-    body:"Inglaterra suma 3 puntos con marcador 4–2."
+    title:"Inglaterra 4–2 Croacia: los Tres Leones rugen en Dallas",
+    body:"Kane doblete, Saka y Bellingham. La revancha del EURO 2020 fue contundente. Uno de los mejores debuts del torneo junto a Alemania (7-1) y Argentina (3-0)."
   },
-  { id:"n15", date:"2026-06-17", tag:"resultado",
-    title:"Portugal 1–1 RD Congo: empate",
-    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  { id:"n15", date:"2026-06-17", tag:"sorpresa",
+    title:"Portugal 1–1 RD Congo: Ronaldo y cía. en crisis desde J1",
+    body:"El favorito del Grupo K no pudo pasar a RD Congo, que igualó con un golazo de media distancia. Portugal tuvo posesión pero careció de profundidad. Colombia le roba el liderato del grupo. Grave advertencia para el r32."
   },
-  { id:"n13", date:"2026-06-17", tag:"resultado",
-    title:"Argentina 3–0 Argelia",
-    body:"Argentina suma 3 puntos con marcador 3–0."
+  { id:"n13", date:"2026-06-17", tag:"estadistica",
+    title:"Messi 1G+1A: Argentina aplasta 3–0 a Argelia en Kansas City",
+    body:"Messi marcó al 17' (gol anterior anulado por offside) y asistió a Álvarez. El 80% del estadio en Kansas City vistió camiseta albiceleste. Argentina es el equipo más en forma del torneo — Messi camina hacia su segunda Copa del Mundo."
   },
   { id:"n14", date:"2026-06-17", tag:"resultado",
-    title:"Austria 3–1 Jordania",
-    body:"Austria suma 3 puntos con marcador 3–1."
+    title:"Austria 3–1 Jordania: alerta para Francia en la r32",
+    body:"Sabitzer y Arnautovic guiaron a Austria. El rival de Francia en la r32 mostró contundencia, velocidad en bandas y solidez defensiva. El debut austriaco es la mejor noticia de la jornada para los que buscan sorpresas en el cuadro de Mbappé."
   },
   { id:"n11", date:"2026-06-16", tag:"resultado",
     title:"Irán 2–2 Nueva Zelanda: empate",
@@ -332,7 +336,7 @@ export const groups: Group[] = [
       { name: "RD Congo", flag: "🇨🇩", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
       { name: "Uzbekistán", flag: "🇺🇿", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
     ],
-    projected: ["🇵🇹 Portugal (1°)","🇨🇴 Colombia (2°)"],
+    projected: ["🇨🇴 Colombia (1°) ⚡","🇵🇹 Portugal (2°) ⚠️"],
     matches: [
       { id:"K1", home:"Portugal", away:"RD Congo", homeFlag:"🇵🇹", awayFlag:"🇨🇩", homeScore:1, awayScore:1, homePrediction:3, awayPrediction:0, date:"17 jun", venue:"NRG Stadium, Houston", status:"played", result:"draw" },
       { id:"K2", home:"Uzbekistán", away:"Colombia", homeFlag:"🇺🇿", awayFlag:"🇨🇴", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:2, date:"17 jun", venue:"Estadio Azteca, CDMX", status:"played", result:"away" },
@@ -350,7 +354,7 @@ export const groups: Group[] = [
       { name: "Ghana", flag: "🇬🇭", played: 1, w: 1, d: 0, l: 0, gf: 1, ga: 0, pts: 3 },
       { name: "Panamá", flag: "🇵🇦", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 1, pts: 0 },
     ],
-    projected: ["🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra (1°)","🇭🇷 Croacia (2°)","🇬🇭 Ghana (3°)*"],
+    projected: ["🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra (1°)","🇬🇭 Ghana (2°) ⚡","🇭🇷 Croacia (3°)*"],
     matches: [
       { id:"L1", home:"Inglaterra", away:"Croacia", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇭🇷", homeScore:4, awayScore:2, homePrediction:2, awayPrediction:1, date:"17 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home" },
       { id:"L2", home:"Ghana", away:"Panamá", homeFlag:"🇬🇭", awayFlag:"🇵🇦", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"17 jun", venue:"BMO Field, Toronto", status:"played", result:"home" },
@@ -365,12 +369,12 @@ export const groups: Group[] = [
 // ─── KNOCKOUT BRACKET ───────────────────────────────────────────────────────
 
 export const knockoutMatches: KnockoutMatch[] = [
-  { id:"r32-1", round:"r32", home:"Argentina", away:"Irán", homeFlag:"🇦🇷", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Messi dominante" },
+  { id:"r32-1", round:"r32", home:"Argentina", away:"Irán", homeFlag:"🇦🇷", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Argentina aplastó 3-0 a Argelia — el equipo más en forma del torneo. Irán solo empató 2-2 vs NZ. Mismatch claro." },
   { id:"r32-2", round:"r32", home:"España", away:"Corea del Sur", homeFlag:"🇪🇸", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", notes:"España en crisis severa (0-0 Cabo Verde) — Corea del Sur puede dar la sorpresa" },
   { id:"r32-3", round:"r32", home:"Inglaterra", away:"Noruega", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, extra:"PEN", winner:"Inglaterra", winnerFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", status:"upcoming", notes:"Haaland x2 vs Iraq — el duelo más parejo del r32, penaltis" },
   { id:"r32-4", round:"r32", home:"Brasil", away:"Escocia", homeFlag:"🇧🇷", awayFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming", notes:"Brasil decepcionó vs Marruecos (1-1). Escocia lidera el Grupo C ⚡" },
-  { id:"r32-5", round:"r32", home:"Portugal", away:"Ghana", homeFlag:"🇵🇹", awayFlag:"🇬🇭", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Portugal", winnerFlag:"🇵🇹", status:"upcoming" },
-  { id:"r32-6", round:"r32", home:"Francia", away:"Austria", homeFlag:"🇫🇷", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"Austria 3-1 vs Jordania impresionó — no será paseo. Mbappé sigue letal" },
+  { id:"r32-5", round:"r32", home:"Portugal", away:"Ghana", homeFlag:"🇵🇹", awayFlag:"🇬🇭", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Portugal", winnerFlag:"🇵🇹", status:"upcoming", notes:"Portugal en crisis (1-1 vs RD Congo). Ghana ganó J1 vs Panamá. El choque más incierto del r32 — Ghana puede dar la sorpresa ⚡" },
+  { id:"r32-6", round:"r32", home:"Francia", away:"Austria", homeFlag:"🇫🇷", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"Austria contundente 3-1 vs Jordania (Sabitzer, Arnautovic). Mbappé en modo histórico (2G vs Senegal). Francia favorita pero Austria es el rival más peligroso del cuadro ⚠️" },
   { id:"r32-7", round:"r32", home:"Alemania", away:"Japón", homeFlag:"🇩🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", extra:"AET" },
   { id:"r32-8", round:"r32", home:"Marruecos", away:"C. de Marfil", homeFlag:"🇲🇦", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming" },
@@ -380,7 +384,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
   { id:"r32-14", round:"r32", home:"Suecia", away:"Egipto", homeFlag:"🇸🇪", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Suecia", winnerFlag:"🇸🇪", status:"upcoming" },
   { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"upcoming", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32" },
-  { id:"r32-16", round:"r32", home:"Colombia", away:"Irán", homeFlag:"🇨🇴", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming" },
+  { id:"r32-16", round:"r32", home:"Colombia", away:"Irán", homeFlag:"🇨🇴", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", notes:"Colombia aplastó 3-1 a Uzbekistán — Los Cafeteros son la revelación de J1. Irán solo empató 2-2. Colombia avanza con autoridad." },
   { id:"r16-1", round:"r16", home:"Argentina", away:"México", homeFlag:"🇦🇷", awayFlag:"🇲🇽", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming" },
   { id:"r16-2", round:"r16", home:"España", away:"Inglaterra", homeFlag:"🇪🇸", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET" },
   { id:"r16-3", round:"r16", home:"Brasil", away:"Portugal", homeFlag:"🇧🇷", awayFlag:"🇵🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming" },
@@ -390,10 +394,10 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r16-7", round:"r16", home:"Países Bajos", away:"Noruega", homeFlag:"🇳🇱", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming" },
   { id:"r16-8", round:"r16", home:"Ecuador", away:"Suecia", homeFlag:"🇪🇨", awayFlag:"🇸🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, winner:"Suecia", winnerFlag:"🇸🇪", status:"upcoming", notes:"Suecia 5-1 es el mejor debut del torneo. Ecuador perdió J1 vs Marfil. CAMBIO ⚡" },
   { id:"qf-1", round:"qf", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"España en crisis severa (0-0 Cabo Verde). Francia 3-1 vs Senegal. Favorita clara" },
-  { id:"qf-2", round:"qf", home:"Argentina", away:"Brasil", homeFlag:"🇦🇷", awayFlag:"🇧🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Argentina arrolló 3-0. Brasil empató 1-1 vs Marruecos — ventaja anímica clara" },
+  { id:"qf-2", round:"qf", home:"Argentina", away:"Brasil", homeFlag:"🇦🇷", awayFlag:"🇧🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Argentina 3-0 vs Argelia (Messi magistral) vs Brasil 1-1 vs Marruecos. El Superclásico de América — Argentina llega como favorita clara por forma y moral" },
   { id:"qf-3", round:"qf", home:"Marruecos", away:"Países Bajos", homeFlag:"🇲🇦", awayFlag:"🇳🇱", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming", notes:"Bounou imbatible" },
   { id:"qf-4", round:"qf", home:"Uruguay", away:"Suecia", homeFlag:"🇺🇾", awayFlag:"🇸🇪", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming", notes:"Suecia es la gran revelación — Uruguay lo resuelve en el alargue" },
-  { id:"sf-1", round:"sf", home:"Francia", away:"Argentina", homeFlag:"🇫🇷", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", notes:"Revancha Qatar 2022 — Mbappé (2G) vs Messi (3-0 vs Argelia). El partido del torneo" },
+  { id:"sf-1", round:"sf", home:"Francia", away:"Argentina", homeFlag:"🇫🇷", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", notes:"La revancha de Qatar 2022 — Mbappé máximo goleador histórico de Francia vs Messi buscando su segundo título. Ambos brillaron en J1. El partido del siglo." },
   { id:"sf-2", round:"sf", home:"Marruecos", away:"Uruguay", homeFlag:"🇲🇦", awayFlag:"🇺🇾", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"third", round:"third", home:"Argentina", away:"Uruguay", homeFlag:"🇦🇷", awayFlag:"🇺🇾", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", date:"18 jul", notes:"Clásico rioplatense por el bronce" },
   { id:"final", round:"final", home:"Francia", away:"Marruecos", homeFlag:"🇫🇷", awayFlag:"🇲🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", date:"19 jul", notes:"MetLife Stadium, Nueva Jersey. Mbappé 34' · Griezmann 97' — Ziyech 78'" }
