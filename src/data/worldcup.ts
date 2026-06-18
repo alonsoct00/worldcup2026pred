@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-18T16:48:31.252Z
+// Auto-synced: 2026-06-18T21:27:12.835Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,17 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-18T16:48:31.252Z"
+export const LAST_UPDATED = "2026-06-18T21:27:12.835Z"
 
 export const news: NewsItem[] = [
+  { id:"n20", date:"2026-06-18", tag:"resultado",
+    title:"Chequia 1–1 Sudáfrica: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
+  { id:"n21", date:"2026-06-18", tag:"resultado",
+    title:"Suiza 4–1 Bosnia",
+    body:"Suiza suma 3 puntos con marcador 4–1."
+  },
   { id:"n19", date:"2026-06-18", tag:"estadistica",
     title:"J1 completa: los favoritos confirmados y las crisis reveladas",
     body:"Mejor debut: Alemania 7-1, Argentina 3-0, Inglaterra 4-2, Noruega 5-1, USA 4-1. En crisis: España 0-0 vs Cabo Verde, Portugal 1-1 vs RD Congo, Brasil 1-1 vs Marruecos. El torneo ya tiene ganadores y sorpresas claras."
@@ -153,15 +161,15 @@ export const groups: Group[] = [
     teams: [
       { name: "México", flag: "🇲🇽", played: 1, w: 1, d: 0, l: 0, gf: 2, ga: 0, pts: 3 },
       { name: "Corea del Sur", flag: "🇰🇷", played: 1, w: 1, d: 0, l: 0, gf: 2, ga: 1, pts: 3 },
-      { name: "Chequia", flag: "🇨🇿", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 2, pts: 0 },
-      { name: "Sudáfrica", flag: "🇿🇦", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 2, pts: 0 },
+      { name: "Chequia", flag: "🇨🇿", played: 2, w: 0, d: 1, l: 1, gf: 2, ga: 3, pts: 1 },
+      { name: "Sudáfrica", flag: "🇿🇦", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 3, pts: 1 },
     ],
     projected: ["🇲🇽 México (1°)","🇰🇷 Corea del Sur (2°)","🇨🇿 Chequia (3°)*"],
     matches: [
       { id:"A1", home:"México", away:"Sudáfrica", homeFlag:"🇲🇽", awayFlag:"🇿🇦", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"11 jun", venue:"Estadio Azteca, CDMX", status:"played", result:"home", notes:"Quiñones y Jiménez. Roja a Montes (80'). Sudáfrica 2 expulsados.", homeRed:1, awayRed:2 },
       { id:"A2", home:"Corea del Sur", away:"Chequia", homeFlag:"🇰🇷", awayFlag:"🇨🇿", homeScore:2, awayScore:1, homePrediction:0, awayPrediction:1, date:"11 jun", venue:"Estadio BBVA, Guadalajara", status:"played", result:"home", notes:"Oh Hyeon-gyu decisivo de sub al 80'. Son Heung-min lideró." },
       { id:"A3", home:"México", away:"Corea del Sur", homeFlag:"🇲🇽", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"18 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null, notes:"Sin Montes (susp.). Partido crucial para el liderato." },
-      { id:"A4", home:"Chequia", away:"Sudáfrica", homeFlag:"🇨🇿", awayFlag:"🇿🇦", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"Atlanta Stadium", status:"live", result:null },
+      { id:"A4", home:"Chequia", away:"Sudáfrica", homeFlag:"🇨🇿", awayFlag:"🇿🇦", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"Atlanta Stadium", status:"played", result:"draw" },
       { id:"A5", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null },
       { id:"A6", home:"Sudáfrica", away:"Corea del Sur", homeFlag:"🇿🇦", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"23 jun", venue:"Estadio BBVA, Monterrey", status:"upcoming", result:null },
     ]
@@ -170,15 +178,15 @@ export const groups: Group[] = [
     id: "B", label: "Grupo B",
     teams: [
       { name: "Canadá", flag: "🇨🇦", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
-      { name: "Bosnia", flag: "🇧🇦", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+      { name: "Bosnia", flag: "🇧🇦", played: 2, w: 0, d: 1, l: 1, gf: 2, ga: 5, pts: 1 },
       { name: "Qatar", flag: "🇶🇦", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
-      { name: "Suiza", flag: "🇨🇭", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+      { name: "Suiza", flag: "🇨🇭", played: 2, w: 1, d: 1, l: 0, gf: 5, ga: 2, pts: 4 },
     ],
     projected: ["🇨🇭 Suiza (1°)","🇨🇦 Canadá (2°)"],
     matches: [
       { id:"B1", home:"Canadá", away:"Bosnia", homeFlag:"🇨🇦", awayFlag:"🇧🇦", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:1, date:"12 jun", venue:"BMO Field, Toronto", status:"played", result:"draw", notes:"Lukic (Bosnia) temprano. Larin (78') empató con desvío." },
       { id:"B2", home:"Qatar", away:"Suiza", homeFlag:"🇶🇦", awayFlag:"🇨🇭", homeScore:1, awayScore:1, homePrediction:0, awayPrediction:2, date:"13 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"draw", notes:"Khoukhi igualó para Qatar en el descuento. Suiza dominó." },
-      { id:"B3", home:"Suiza", away:"Bosnia", homeFlag:"🇨🇭", awayFlag:"🇧🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, date:"18 jun", venue:"SoFi Stadium, LA", status:"upcoming", result:null },
+      { id:"B3", home:"Suiza", away:"Bosnia", homeFlag:"🇨🇭", awayFlag:"🇧🇦", homeScore:4, awayScore:1, homePrediction:2, awayPrediction:1, date:"18 jun", venue:"SoFi Stadium, LA", status:"played", result:"home" },
       { id:"B4", home:"Canadá", away:"Qatar", homeFlag:"🇨🇦", awayFlag:"🇶🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
       { id:"B5", home:"Suiza", away:"Canadá", homeFlag:"🇨🇭", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"24 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
       { id:"B6", home:"Bosnia", away:"Qatar", homeFlag:"🇧🇦", awayFlag:"🇶🇦", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, date:"24 jun", venue:"Lumen Field, Seattle", status:"upcoming", result:null },
