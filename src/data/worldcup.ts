@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-18T10:27:39.394Z
+// Auto-synced: 2026-06-18T16:48:31.252Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-18T10:27:39.394Z"
+export const LAST_UPDATED = "2026-06-18T16:48:31.252Z"
 
 export const news: NewsItem[] = [
   { id:"n19", date:"2026-06-18", tag:"estadistica",
@@ -161,7 +161,7 @@ export const groups: Group[] = [
       { id:"A1", home:"México", away:"Sudáfrica", homeFlag:"🇲🇽", awayFlag:"🇿🇦", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"11 jun", venue:"Estadio Azteca, CDMX", status:"played", result:"home", notes:"Quiñones y Jiménez. Roja a Montes (80'). Sudáfrica 2 expulsados.", homeRed:1, awayRed:2 },
       { id:"A2", home:"Corea del Sur", away:"Chequia", homeFlag:"🇰🇷", awayFlag:"🇨🇿", homeScore:2, awayScore:1, homePrediction:0, awayPrediction:1, date:"11 jun", venue:"Estadio BBVA, Guadalajara", status:"played", result:"home", notes:"Oh Hyeon-gyu decisivo de sub al 80'. Son Heung-min lideró." },
       { id:"A3", home:"México", away:"Corea del Sur", homeFlag:"🇲🇽", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"18 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null, notes:"Sin Montes (susp.). Partido crucial para el liderato." },
-      { id:"A4", home:"Chequia", away:"Sudáfrica", homeFlag:"🇨🇿", awayFlag:"🇿🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"Atlanta Stadium", status:"upcoming", result:null },
+      { id:"A4", home:"Chequia", away:"Sudáfrica", homeFlag:"🇨🇿", awayFlag:"🇿🇦", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"Atlanta Stadium", status:"live", result:null },
       { id:"A5", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null },
       { id:"A6", home:"Sudáfrica", away:"Corea del Sur", homeFlag:"🇿🇦", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"23 jun", venue:"Estadio BBVA, Monterrey", status:"upcoming", result:null },
     ]
