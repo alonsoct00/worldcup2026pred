@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-19T10:45:21.710Z
+// Auto-synced: 2026-06-19T20:50:24.753Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-19T10:45:21.710Z"
+export const LAST_UPDATED = "2026-06-19T20:50:24.753Z"
 
 export const news: NewsItem[] = [
   { id:"n23", date:"2026-06-19", tag:"resultado",
@@ -230,7 +230,7 @@ export const groups: Group[] = [
     matches: [
       { id:"D1", home:"USA", away:"Paraguay", homeFlag:"🇺🇸", awayFlag:"🇵🇾", homeScore:4, awayScore:1, homePrediction:2, awayPrediction:1, date:"12 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"home", notes:"OG 7', Balogun x2, Reyna. Mejor debut en historia de USMNT." },
       { id:"D2", home:"Australia", away:"Türkiye", homeFlag:"🇦🇺", awayFlag:"🇹🇷", homeScore:2, awayScore:0, homePrediction:0, awayPrediction:2, date:"13 jun", venue:"BC Place, Vancouver", status:"played", result:"home", notes:"Irankunda (27') + Metcalfe (75'). Gran sorpresa del torneo." },
-      { id:"D3", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"19 jun", venue:"Lumen Field, Seattle", status:"upcoming", result:null, notes:"Pulisic en duda (pantorrilla)." },
+      { id:"D3", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"19 jun", venue:"Lumen Field, Seattle", status:"live", result:null, notes:"Pulisic en duda (pantorrilla)." },
       { id:"D4", home:"Türkiye", away:"Paraguay", homeFlag:"🇹🇷", awayFlag:"🇵🇾", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
       { id:"D5", home:"Türkiye", away:"USA", homeFlag:"🇹🇷", awayFlag:"🇺🇸", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"25 jun", venue:"SoFi Stadium, Los Ángeles", status:"upcoming", result:null },
       { id:"D6", home:"Paraguay", away:"Australia", homeFlag:"🇵🇾", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, date:"25 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
@@ -399,7 +399,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-12", round:"r32", home:"Ecuador", away:"Türkiye", homeFlag:"🇪🇨", awayFlag:"🇹🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Ecuador", winnerFlag:"🇪🇨", status:"upcoming" },
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
   { id:"r32-14", round:"r32", home:"Suecia", away:"Egipto", homeFlag:"🇸🇪", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Suecia", winnerFlag:"🇸🇪", status:"upcoming" },
-  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"upcoming", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32" },
+  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"live", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32", result:null },
   { id:"r32-16", round:"r32", home:"Colombia", away:"Irán", homeFlag:"🇨🇴", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", notes:"Colombia aplastó 3-1 a Uzbekistán — Los Cafeteros son la revelación de J1. Irán solo empató 2-2. Colombia avanza con autoridad." },
   { id:"r16-1", round:"r16", home:"Argentina", away:"México", homeFlag:"🇦🇷", awayFlag:"🇲🇽", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming" },
   { id:"r16-2", round:"r16", home:"España", away:"Inglaterra", homeFlag:"🇪🇸", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET" },
