@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-19T02:20:05.768Z
+// Auto-synced: 2026-06-19T03:15:16.682Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-19T02:20:05.768Z"
+export const LAST_UPDATED = "2026-06-19T03:15:16.682Z"
 
 export const news: NewsItem[] = [
+  { id:"n23", date:"2026-06-19", tag:"resultado",
+    title:"México 1–0 Corea del Sur",
+    body:"México suma 3 puntos con marcador 1–0."
+  },
   { id:"n22", date:"2026-06-18", tag:"sorpresa",
     title:"Canadá 6–0 Qatar",
     body:"Canadá suma 3 puntos con marcador 6–0."
@@ -163,8 +167,8 @@ export const groups: Group[] = [
   {
     id: "A", label: "Grupo A",
     teams: [
-      { name: "México", flag: "🇲🇽", played: 1, w: 1, d: 0, l: 0, gf: 2, ga: 0, pts: 3 },
-      { name: "Corea del Sur", flag: "🇰🇷", played: 1, w: 1, d: 0, l: 0, gf: 2, ga: 1, pts: 3 },
+      { name: "México", flag: "🇲🇽", played: 2, w: 2, d: 0, l: 0, gf: 3, ga: 0, pts: 6 },
+      { name: "Corea del Sur", flag: "🇰🇷", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 2, pts: 3 },
       { name: "Chequia", flag: "🇨🇿", played: 2, w: 0, d: 1, l: 1, gf: 2, ga: 3, pts: 1 },
       { name: "Sudáfrica", flag: "🇿🇦", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 3, pts: 1 },
     ],
@@ -172,7 +176,7 @@ export const groups: Group[] = [
     matches: [
       { id:"A1", home:"México", away:"Sudáfrica", homeFlag:"🇲🇽", awayFlag:"🇿🇦", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"11 jun", venue:"Estadio Azteca, CDMX", status:"played", result:"home", notes:"Quiñones y Jiménez. Roja a Montes (80'). Sudáfrica 2 expulsados.", homeRed:1, awayRed:2 },
       { id:"A2", home:"Corea del Sur", away:"Chequia", homeFlag:"🇰🇷", awayFlag:"🇨🇿", homeScore:2, awayScore:1, homePrediction:0, awayPrediction:1, date:"11 jun", venue:"Estadio BBVA, Guadalajara", status:"played", result:"home", notes:"Oh Hyeon-gyu decisivo de sub al 80'. Son Heung-min lideró." },
-      { id:"A3", home:"México", away:"Corea del Sur", homeFlag:"🇲🇽", awayFlag:"🇰🇷", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"18 jun", venue:"Estadio BBVA, Guadalajara", status:"live", result:null, notes:"Sin Montes (susp.). Partido crucial para el liderato." },
+      { id:"A3", home:"México", away:"Corea del Sur", homeFlag:"🇲🇽", awayFlag:"🇰🇷", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"18 jun", venue:"Estadio BBVA, Guadalajara", status:"played", result:"home", notes:"Sin Montes (susp.). Partido crucial para el liderato." },
       { id:"A4", home:"Chequia", away:"Sudáfrica", homeFlag:"🇨🇿", awayFlag:"🇿🇦", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:0, date:"18 jun", venue:"Atlanta Stadium", status:"played", result:"draw" },
       { id:"A5", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"Estadio BBVA, Guadalajara", status:"upcoming", result:null },
       { id:"A6", home:"Sudáfrica", away:"Corea del Sur", homeFlag:"🇿🇦", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"23 jun", venue:"Estadio BBVA, Monterrey", status:"upcoming", result:null },
