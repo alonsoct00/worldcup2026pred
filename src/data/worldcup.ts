@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-20T09:25:04.541Z
+// Auto-synced: 2026-06-20T15:43:48.487Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,21 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-20T09:25:04.541Z"
+export const LAST_UPDATED = "2026-06-20T15:43:48.487Z"
 
 export const news: NewsItem[] = [
+  { id:"n25", date:"2026-06-20", tag:"resultado",
+    title:"Brasil 3–0 Haití",
+    body:"Brasil suma 3 puntos con marcador 3–0."
+  },
+  { id:"n26", date:"2026-06-20", tag:"resultado",
+    title:"Türkiye 0–1 Paraguay",
+    body:"Paraguay suma 3 puntos con marcador 0–1."
+  },
+  { id:"n24", date:"2026-06-19", tag:"resultado",
+    title:"Escocia 0–1 Marruecos",
+    body:"Marruecos suma 3 puntos con marcador 0–1."
+  },
   { id:"n23", date:"2026-06-19", tag:"resultado",
     title:"México 1–0 Corea del Sur",
     body:"México suma 3 puntos con marcador 1–0."
@@ -154,10 +166,6 @@ export const news: NewsItem[] = [
   { id:"n9", date:"2026-06-13", tag:"resultado",
     title:"USA 4–1 Paraguay: mejor debut americano en historia del Mundial",
     body:"Balogun doblete, gol propio en el 7' y Gio Reyna al final. La selección más goleadora del torneo hasta ahora."
-  },
-  { id:"n10", date:"2026-06-11", tag:"tarjeta",
-    title:"Montes (México) expulsado vs Sudáfrica — suspendido para J2",
-    body:"Red card en el minuto 80 de la inauguración. México deberá enfrentar a Corea del Sur sin su capitán."
   }
 ]
 
