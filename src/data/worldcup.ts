@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-19T22:55:53.316Z
+// Auto-synced: 2026-06-20T09:25:04.541Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-19T22:55:53.316Z"
+export const LAST_UPDATED = "2026-06-20T09:25:04.541Z"
 
 export const news: NewsItem[] = [
   { id:"n23", date:"2026-06-19", tag:"resultado",
@@ -203,17 +203,17 @@ export const groups: Group[] = [
   {
     id: "C", label: "Grupo C",
     teams: [
-      { name: "Escocia", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", played: 1, w: 1, d: 0, l: 0, gf: 1, ga: 0, pts: 3 },
-      { name: "Brasil", flag: "🇧🇷", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
-      { name: "Marruecos", flag: "🇲🇦", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
-      { name: "Haití", flag: "🇭🇹", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 1, pts: 0 },
+      { name: "Escocia", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", played: 2, w: 1, d: 0, l: 1, gf: 1, ga: 1, pts: 3 },
+      { name: "Brasil", flag: "🇧🇷", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 1, pts: 4 },
+      { name: "Marruecos", flag: "🇲🇦", played: 2, w: 1, d: 1, l: 0, gf: 2, ga: 1, pts: 4 },
+      { name: "Haití", flag: "🇭🇹", played: 2, w: 0, d: 0, l: 2, gf: 0, ga: 4, pts: 0 },
     ],
     projected: ["🇧🇷 Brasil (1°)","🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia (2°) ⚡","🇲🇦 Marruecos (3°)*"],
     matches: [
       { id:"C1", home:"Brasil", away:"Marruecos", homeFlag:"🇧🇷", awayFlag:"🇲🇦", homeScore:1, awayScore:1, homePrediction:3, awayPrediction:1, date:"13 jun", venue:"MetLife Stadium, NJ", status:"played", result:"draw", notes:"Vinícius Jr. salvó a Brasil con empate tardío. Marruecos muy sólido." },
       { id:"C2", home:"Haití", away:"Escocia", homeFlag:"🇭🇹", awayFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", homeScore:0, awayScore:1, homePrediction:0, awayPrediction:2, date:"13 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"away", notes:"McGinn (28'). Escocia líder del grupo." },
-      { id:"C3", home:"Escocia", away:"Marruecos", homeFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", awayFlag:"🇲🇦", homeScore:0, awayScore:1, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Gillette Stadium, Boston", status:"live", result:null },
-      { id:"C4", home:"Brasil", away:"Haití", homeFlag:"🇧🇷", awayFlag:"🇭🇹", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, date:"19 jun", venue:"Lincoln Financial, Philadelphia", status:"upcoming", result:null },
+      { id:"C3", home:"Escocia", away:"Marruecos", homeFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", awayFlag:"🇲🇦", homeScore:0, awayScore:1, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away" },
+      { id:"C4", home:"Brasil", away:"Haití", homeFlag:"🇧🇷", awayFlag:"🇭🇹", homeScore:3, awayScore:0, homePrediction:3, awayPrediction:0, date:"19 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home" },
       { id:"C5", home:"Brasil", away:"Escocia", homeFlag:"🇧🇷", awayFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"24 jun", venue:"Lincoln Financial, Philadelphia", status:"upcoming", result:null },
       { id:"C6", home:"Marruecos", away:"Haití", homeFlag:"🇲🇦", awayFlag:"🇭🇹", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, date:"24 jun", venue:"Gillette Stadium, Boston", status:"upcoming", result:null },
     ]
@@ -223,15 +223,15 @@ export const groups: Group[] = [
     teams: [
       { name: "USA", flag: "🇺🇸", played: 2, w: 2, d: 0, l: 0, gf: 6, ga: 1, pts: 6 },
       { name: "Australia", flag: "🇦🇺", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 2, pts: 3 },
-      { name: "Türkiye", flag: "🇹🇷", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 2, pts: 0 },
-      { name: "Paraguay", flag: "🇵🇾", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 4, pts: 0 },
+      { name: "Türkiye", flag: "🇹🇷", played: 2, w: 0, d: 0, l: 2, gf: 0, ga: 3, pts: 0 },
+      { name: "Paraguay", flag: "🇵🇾", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 4, pts: 3 },
     ],
     projected: ["🇺🇸 USA (1°)","🇦🇺 Australia (2°) ⚡sorpresa"],
     matches: [
       { id:"D1", home:"USA", away:"Paraguay", homeFlag:"🇺🇸", awayFlag:"🇵🇾", homeScore:4, awayScore:1, homePrediction:2, awayPrediction:1, date:"12 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"home", notes:"OG 7', Balogun x2, Reyna. Mejor debut en historia de USMNT." },
       { id:"D2", home:"Australia", away:"Türkiye", homeFlag:"🇦🇺", awayFlag:"🇹🇷", homeScore:2, awayScore:0, homePrediction:0, awayPrediction:2, date:"13 jun", venue:"BC Place, Vancouver", status:"played", result:"home", notes:"Irankunda (27') + Metcalfe (75'). Gran sorpresa del torneo." },
       { id:"D3", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"19 jun", venue:"Lumen Field, Seattle", status:"played", result:"home", notes:"Pulisic en duda (pantorrilla)." },
-      { id:"D4", home:"Türkiye", away:"Paraguay", homeFlag:"🇹🇷", awayFlag:"🇵🇾", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
+      { id:"D4", home:"Türkiye", away:"Paraguay", homeFlag:"🇹🇷", awayFlag:"🇵🇾", homeScore:0, awayScore:1, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"away" },
       { id:"D5", home:"Türkiye", away:"USA", homeFlag:"🇹🇷", awayFlag:"🇺🇸", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"25 jun", venue:"SoFi Stadium, Los Ángeles", status:"upcoming", result:null },
       { id:"D6", home:"Paraguay", away:"Australia", homeFlag:"🇵🇾", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, date:"25 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
     ]
