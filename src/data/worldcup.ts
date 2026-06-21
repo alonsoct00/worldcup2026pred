@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-20T23:06:54.865Z
+// Auto-synced: 2026-06-21T09:57:00.766Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-20T23:06:54.865Z"
+export const LAST_UPDATED = "2026-06-21T09:57:00.766Z"
 
 export const news: NewsItem[] = [
   { id:"n25", date:"2026-06-20", tag:"resultado",
@@ -249,15 +249,15 @@ export const groups: Group[] = [
     teams: [
       { name: "Alemania", flag: "🇩🇪", played: 2, w: 2, d: 0, l: 0, gf: 9, ga: 2, pts: 6 },
       { name: "Costa de Marfil", flag: "🇨🇮", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 2, pts: 3 },
-      { name: "Ecuador", flag: "🇪🇨", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 1, pts: 0 },
-      { name: "Curazao", flag: "🇨🇼", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 7, pts: 0 },
+      { name: "Ecuador", flag: "🇪🇨", played: 2, w: 0, d: 1, l: 1, gf: 0, ga: 1, pts: 1 },
+      { name: "Curazao", flag: "🇨🇼", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 7, pts: 1 },
     ],
     projected: ["🇩🇪 Alemania (1°)","🇨🇮 Costa de Marfil (2°) ⚡","🇪🇨 Ecuador (3°)*"],
     matches: [
       { id:"E1", home:"Alemania", away:"Curazao", homeFlag:"🇩🇪", awayFlag:"🇨🇼", homeScore:7, awayScore:1, homePrediction:4, awayPrediction:0, date:"14 jun", venue:"NRG Stadium, Houston", status:"played", result:"home", notes:"Havertz x2, Musiala, Schlotterbeck. Comenencia: 1er gol de Curazao en Mundiales." },
       { id:"E2", home:"Costa de Marfil", away:"Ecuador", homeFlag:"🇨🇮", awayFlag:"🇪🇨", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"14 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home", notes:"Amad Diallo (sub, 90'). Ecuador pegó 2 veces en el palo." },
       { id:"E3", home:"Alemania", away:"Costa de Marfil", homeFlag:"🇩🇪", awayFlag:"🇨🇮", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:1, date:"20 jun", venue:"BMO Field, Toronto", status:"played", result:"home" },
-      { id:"E4", home:"Ecuador", away:"Curazao", homeFlag:"🇪🇨", awayFlag:"🇨🇼", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, date:"20 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null, notes:"Ecuador necesita ganar sí o sí." },
+      { id:"E4", home:"Ecuador", away:"Curazao", homeFlag:"🇪🇨", awayFlag:"🇨🇼", homeScore:0, awayScore:0, homePrediction:3, awayPrediction:0, date:"20 jun", venue:"Arrowhead, Kansas City", status:"played", result:"draw", notes:"Ecuador necesita ganar sí o sí." },
       { id:"E5", home:"Ecuador", away:"Alemania", homeFlag:"🇪🇨", awayFlag:"🇩🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, date:"25 jun", venue:"NRG Stadium, Houston", status:"upcoming", result:null },
       { id:"E6", home:"Curazao", away:"Costa de Marfil", homeFlag:"🇨🇼", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, date:"25 jun", venue:"Lincoln Financial, Philadelphia", status:"upcoming", result:null },
     ]
@@ -267,15 +267,15 @@ export const groups: Group[] = [
     teams: [
       { name: "Suecia", flag: "🇸🇪", played: 2, w: 1, d: 0, l: 1, gf: 6, ga: 6, pts: 3 },
       { name: "Países Bajos", flag: "🇳🇱", played: 2, w: 1, d: 1, l: 0, gf: 7, ga: 3, pts: 4 },
-      { name: "Japón", flag: "🇯🇵", played: 1, w: 0, d: 1, l: 0, gf: 2, ga: 2, pts: 1 },
-      { name: "Túnez", flag: "🇹🇳", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 5, pts: 0 },
+      { name: "Japón", flag: "🇯🇵", played: 2, w: 1, d: 1, l: 0, gf: 6, ga: 2, pts: 4 },
+      { name: "Túnez", flag: "🇹🇳", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 9, pts: 0 },
     ],
     projected: ["🇸🇪 Suecia (1°) ⚡","🇳🇱 Países Bajos (2°)","🇯🇵 Japón (3°)*"],
     matches: [
       { id:"F1", home:"Países Bajos", away:"Japón", homeFlag:"🇳🇱", awayFlag:"🇯🇵", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:1, date:"14 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"draw", notes:"Van Dijk, Summerville (PB). Nakamura y Ogawa (cabeza) para Japón al 88'." },
       { id:"F2", home:"Túnez", away:"Suecia", homeFlag:"🇹🇳", awayFlag:"🇸🇪", homeScore:1, awayScore:5, homePrediction:0, awayPrediction:2, date:"14 jun", venue:"Estadio BBVA, Monterrey", status:"played", result:"away", notes:"Isak, Gyökeres, Ayari x2, Svanberg. Gol anulado revertido por VAR." },
       { id:"F3", home:"Países Bajos", away:"Suecia", homeFlag:"🇳🇱", awayFlag:"🇸🇪", homeScore:5, awayScore:1, homePrediction:1, awayPrediction:1, date:"20 jun", venue:"NRG Stadium, Houston", status:"played", result:"home" },
-      { id:"F4", home:"Túnez", away:"Japón", homeFlag:"🇹🇳", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, date:"20 jun", venue:"Estadio BBVA, Monterrey", status:"upcoming", result:null },
+      { id:"F4", home:"Túnez", away:"Japón", homeFlag:"🇹🇳", awayFlag:"🇯🇵", homeScore:0, awayScore:4, homePrediction:0, awayPrediction:2, date:"20 jun", venue:"Estadio BBVA, Monterrey", status:"played", result:"away" },
       { id:"F5", home:"Suecia", away:"Japón", homeFlag:"🇸🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, date:"25 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"F6", home:"Países Bajos", away:"Túnez", homeFlag:"🇳🇱", awayFlag:"🇹🇳", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, date:"25 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
     ]
