@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-21T23:11:36.825Z
+// Auto-synced: 2026-06-22T12:13:36.078Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-21T23:11:36.825Z"
+export const LAST_UPDATED = "2026-06-22T12:13:36.078Z"
 
 export const news: NewsItem[] = [
   { id:"n25", date:"2026-06-20", tag:"resultado",
@@ -284,16 +284,16 @@ export const groups: Group[] = [
     id: "G", label: "Grupo G",
     teams: [
       { name: "Bélgica", flag: "🇧🇪", played: 2, w: 0, d: 2, l: 0, gf: 1, ga: 1, pts: 2 },
-      { name: "Egipto", flag: "🇪🇬", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+      { name: "Egipto", flag: "🇪🇬", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 2, pts: 4 },
       { name: "Irán", flag: "🇮🇷", played: 2, w: 0, d: 2, l: 0, gf: 2, ga: 2, pts: 2 },
-      { name: "Nueva Zelanda", flag: "🇳🇿", played: 1, w: 0, d: 1, l: 0, gf: 2, ga: 2, pts: 1 },
+      { name: "Nueva Zelanda", flag: "🇳🇿", played: 2, w: 0, d: 1, l: 1, gf: 3, ga: 5, pts: 1 },
     ],
     projected: ["🇧🇪 Bélgica (1°)","🇪🇬 Egipto (2°)","🇮🇷 Irán (3°)*"],
     matches: [
       { id:"G1", home:"Bélgica", away:"Egipto", homeFlag:"🇧🇪", awayFlag:"🇪🇬", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:0, date:"15 jun", venue:"Lumen Field, Seattle", status:"played", result:"draw", notes:"De Bruyne vs Salah. Empate que sorprendió a los favoritos." },
       { id:"G2", home:"Irán", away:"Nueva Zelanda", homeFlag:"🇮🇷", awayFlag:"🇳🇿", homeScore:2, awayScore:2, homePrediction:1, awayPrediction:0, date:"15 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw", notes:"Rezaeian: gol + asistencia, 1er iraní con G+A en Mundiales. Just: 2 goles NZ." },
       { id:"G3", home:"Bélgica", away:"Irán", homeFlag:"🇧🇪", awayFlag:"🇮🇷", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:1, date:"21 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw" },
-      { id:"G4", home:"Nueva Zelanda", away:"Egipto", homeFlag:"🇳🇿", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"21 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
+      { id:"G4", home:"Nueva Zelanda", away:"Egipto", homeFlag:"🇳🇿", awayFlag:"🇪🇬", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:1, date:"21 jun", venue:"BC Place, Vancouver", status:"played", result:"away" },
       { id:"G5", home:"Egipto", away:"Irán", homeFlag:"🇪🇬", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"26 jun", venue:"Lumen Field, Seattle", status:"upcoming", result:null },
       { id:"G6", home:"Nueva Zelanda", away:"Bélgica", homeFlag:"🇳🇿", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"26 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
     ]
@@ -302,16 +302,16 @@ export const groups: Group[] = [
     id: "H", label: "Grupo H 🔥",
     teams: [
       { name: "España", flag: "🇪🇸", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 0, pts: 4 },
-      { name: "Cabo Verde", flag: "🇨🇻", played: 1, w: 0, d: 1, l: 0, gf: 0, ga: 0, pts: 1 },
+      { name: "Cabo Verde", flag: "🇨🇻", played: 2, w: 0, d: 2, l: 0, gf: 2, ga: 2, pts: 2 },
       { name: "Arabia Saudita", flag: "🇸🇦", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 5, pts: 1 },
-      { name: "Uruguay", flag: "🇺🇾", played: 1, w: 0, d: 1, l: 0, gf: 1, ga: 1, pts: 1 },
+      { name: "Uruguay", flag: "🇺🇾", played: 2, w: 0, d: 2, l: 0, gf: 3, ga: 3, pts: 2 },
     ],
     projected: ["🇪🇸 España (1°) ⚠️","🇺🇾 Uruguay (2°)"],
     matches: [
       { id:"H1", home:"España", away:"Cabo Verde", homeFlag:"🇪🇸", awayFlag:"🇨🇻", homeScore:0, awayScore:0, homePrediction:4, awayPrediction:0, date:"15 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"draw", notes:"27 remates de España, xG 2.29. Vozinha (40 años) infranqueable. Mayor sorpresa del torneo." },
       { id:"H2", home:"Arabia Saudita", away:"Uruguay", homeFlag:"🇸🇦", awayFlag:"🇺🇾", homeScore:1, awayScore:1, homePrediction:0, awayPrediction:2, date:"15 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw", notes:"Olivera (Uruguay) 106 toques: récord uruguayo en Mundiales." },
       { id:"H3", home:"España", away:"Arabia Saudita", homeFlag:"🇪🇸", awayFlag:"🇸🇦", homeScore:4, awayScore:0, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"home", notes:"España DEBE ganar para mantenerse viva." },
-      { id:"H4", home:"Uruguay", away:"Cabo Verde", homeFlag:"🇺🇾", awayFlag:"🇨🇻", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Hard Rock Stadium, Miami", status:"live", result:null },
+      { id:"H4", home:"Uruguay", away:"Cabo Verde", homeFlag:"🇺🇾", awayFlag:"🇨🇻", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw" },
       { id:"H5", home:"Cabo Verde", away:"Arabia Saudita", homeFlag:"🇨🇻", awayFlag:"🇸🇦", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"26 jun", venue:"NRG Stadium, Houston", status:"upcoming", result:null },
       { id:"H6", home:"Uruguay", away:"España", homeFlag:"🇺🇾", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Estadio Akron, Guadalajara", status:"upcoming", result:null },
     ]
