@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-22T12:13:36.078Z
+// Auto-synced: 2026-06-22T23:18:44.277Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-22T12:13:36.078Z"
+export const LAST_UPDATED = "2026-06-22T23:18:44.277Z"
 
 export const news: NewsItem[] = [
   { id:"n25", date:"2026-06-20", tag:"resultado",
@@ -328,7 +328,7 @@ export const groups: Group[] = [
     matches: [
       { id:"I1", home:"Francia", away:"Senegal", homeFlag:"🇫🇷", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"MetLife Stadium, NJ", status:"played", result:"home", notes:"Mbappé x2 → máximo goleador histórico de Francia. Olise estelar." },
       { id:"I2", home:"Iraq", away:"Noruega", homeFlag:"🇮🇶", awayFlag:"🇳🇴", homeScore:1, awayScore:4, homePrediction:0, awayPrediction:2, date:"16 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away", notes:"Haaland doblete en 1ª parte. Noruega goleó en su regreso al Mundial." },
-      { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"upcoming", result:null },
+      { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:1, awayScore:0, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"live", result:null },
       { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"upcoming", result:null },
       { id:"I5", home:"Noruega", away:"Francia", homeFlag:"🇳🇴", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Gillette Stadium, Boston", status:"upcoming", result:null },
       { id:"I6", home:"Senegal", away:"Iraq", homeFlag:"🇸🇳", awayFlag:"🇮🇶", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"26 jun", venue:"BMO Field, Toronto", status:"upcoming", result:null },
@@ -337,8 +337,8 @@ export const groups: Group[] = [
   {
     id: "J", label: "Grupo J",
     teams: [
-      { name: "Argentina", flag: "🇦🇷", played: 1, w: 1, d: 0, l: 0, gf: 3, ga: 0, pts: 3 },
-      { name: "Austria", flag: "🇦🇹", played: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
+      { name: "Argentina", flag: "🇦🇷", played: 2, w: 2, d: 0, l: 0, gf: 5, ga: 0, pts: 6 },
+      { name: "Austria", flag: "🇦🇹", played: 2, w: 1, d: 0, l: 1, gf: 3, ga: 3, pts: 3 },
       { name: "Argelia", flag: "🇩🇿", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 3, pts: 0 },
       { name: "Jordania", flag: "🇯🇴", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
     ],
@@ -346,7 +346,7 @@ export const groups: Group[] = [
     matches: [
       { id:"J1", home:"Argentina", away:"Argelia", homeFlag:"🇦🇷", awayFlag:"🇩🇿", homeScore:3, awayScore:0, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Arrowhead, Kansas City", status:"played", result:"home", notes:"Messi (17') + Álvarez. Gol inicial de Messi anulado por offside. Casi 80% del estadio con camiseta albiceleste." },
       { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
-      { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
+      { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home" },
       { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
       { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
