@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-23T01:34:52.680Z
+// Auto-synced: 2026-06-23T03:25:46.802Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-23T01:34:52.680Z"
+export const LAST_UPDATED = "2026-06-23T03:25:46.802Z"
 
 export const news: NewsItem[] = [
+  { id:"n34", date:"2026-06-23", tag:"resultado",
+    title:"Noruega 3–2 Senegal",
+    body:"Noruega suma 3 puntos con marcador 3–2."
+  },
   { id:"n32", date:"2026-06-22", tag:"resultado",
     title:"Argentina 2–0 Austria",
     body:"Argentina suma 3 puntos con marcador 2–0."
@@ -162,10 +166,6 @@ export const news: NewsItem[] = [
   { id:"n1", date:"2026-06-16", tag:"estadistica",
     title:"Mbappé: máximo goleador histórico de Francia",
     body:"Con su doblete vs Senegal (3–1), Mbappé superó el récord de goles de Francia en Mundiales y se convirtió en el máximo goleador histórico de la selección."
-  },
-  { id:"n2", date:"2026-06-16", tag:"resultado",
-    title:"Haaland debuta con brace en la goleada 4–1 de Noruega vs Iraq",
-    body:"El delantero del Manchester City marcó dos goles en la primera mitad. Noruega arranca liderando el Grupo I junto a Francia."
   }
 ]
 
@@ -320,8 +320,8 @@ export const groups: Group[] = [
     id: "I", label: "Grupo I",
     teams: [
       { name: "Francia", flag: "🇫🇷", played: 2, w: 2, d: 0, l: 0, gf: 6, ga: 1, pts: 6 },
-      { name: "Noruega", flag: "🇳🇴", played: 1, w: 1, d: 0, l: 0, gf: 4, ga: 1, pts: 3 },
-      { name: "Senegal", flag: "🇸🇳", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
+      { name: "Noruega", flag: "🇳🇴", played: 2, w: 2, d: 0, l: 0, gf: 7, ga: 3, pts: 6 },
+      { name: "Senegal", flag: "🇸🇳", played: 2, w: 0, d: 0, l: 2, gf: 3, ga: 6, pts: 0 },
       { name: "Iraq", flag: "🇮🇶", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 7, pts: 0 },
     ],
     projected: ["🇫🇷 Francia (1°)","🇳🇴 Noruega (2°)"],
@@ -329,7 +329,7 @@ export const groups: Group[] = [
       { id:"I1", home:"Francia", away:"Senegal", homeFlag:"🇫🇷", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"MetLife Stadium, NJ", status:"played", result:"home", notes:"Mbappé x2 → máximo goleador histórico de Francia. Olise estelar." },
       { id:"I2", home:"Iraq", away:"Noruega", homeFlag:"🇮🇶", awayFlag:"🇳🇴", homeScore:1, awayScore:4, homePrediction:0, awayPrediction:2, date:"16 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away", notes:"Haaland doblete en 1ª parte. Noruega goleó en su regreso al Mundial." },
       { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:3, awayScore:0, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home" },
-      { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"live", result:null },
+      { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:2, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"played", result:"home" },
       { id:"I5", home:"Noruega", away:"Francia", homeFlag:"🇳🇴", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Gillette Stadium, Boston", status:"upcoming", result:null },
       { id:"I6", home:"Senegal", away:"Iraq", homeFlag:"🇸🇳", awayFlag:"🇮🇶", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"26 jun", venue:"BMO Field, Toronto", status:"upcoming", result:null },
     ]
@@ -347,7 +347,7 @@ export const groups: Group[] = [
       { id:"J1", home:"Argentina", away:"Argelia", homeFlag:"🇦🇷", awayFlag:"🇩🇿", homeScore:3, awayScore:0, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Arrowhead, Kansas City", status:"played", result:"home", notes:"Messi (17') + Álvarez. Gol inicial de Messi anulado por offside. Casi 80% del estadio con camiseta albiceleste." },
       { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
       { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home", notes:"Argentina CLASIFICA. 6 pts, 5 GF, 0 GA. 1er equipo en asegurar el pase al torneo." },
-      { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
+      { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:0, awayScore:0, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"live", result:null },
       { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
     ]
@@ -402,7 +402,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-7", round:"r32", home:"Alemania", away:"Japón", homeFlag:"🇩🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", extra:"AET" },
   { id:"r32-8", round:"r32", home:"Marruecos", away:"C. de Marfil", homeFlag:"🇲🇦", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming", notes:"Uruguay en crisis: 2 empates (2 pts), necesita ganar J3 vs España para avanzar. Canadá goleó 6-0 a Qatar ⚡ — Si Uruguay no pasa, Cabo Verde podría estar aquí ⚠️" },
-  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"live", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia", result:null },
+  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:2, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"played", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia", result:"home" },
   { id:"r32-11", round:"r32", home:"Países Bajos", away:"Bélgica", homeFlag:"🇳🇱", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming", notes:"Países Bajos goleó 5-1 a Suecia y domina su grupo. Bélgica (180 min sin marcar) avanza si gana J3 vs NZ. Este duelo no será parejo — Países Bajos es superior." },
   { id:"r32-12", round:"r32", home:"C. de Marfil", away:"Paraguay", homeFlag:"🇨🇮", awayFlag:"🇵🇾", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"C. de Marfil", winnerFlag:"🇨🇮", status:"upcoming", notes:"CAMBIO ⚡ Ecuador (1pt) y Türkiye (0pts) eliminados. Costa de Marfil (Gpo E, 3pts) vs Paraguay (3pts, mejor 3°). Amad Diallo impone jerarquía." },
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
