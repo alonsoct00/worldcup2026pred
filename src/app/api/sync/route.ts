@@ -242,7 +242,7 @@ function extractTypeBlock(src: string): string {
 
 // ── Apply scores ──────────────────────────────────────────────────────────────
 
-function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
+function applyApiMatch(match: MatchLike, api: APIMatch, isKnockout = false): boolean {
   if (api.status !== 'played' && api.status !== 'live') return false
   if (api.homeScore == null || api.awayScore == null) return false
 
@@ -254,14 +254,16 @@ function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
   match.homeScore = api.homeScore
   match.awayScore = api.awayScore
   match.status = api.status
-  match.result = api.status === 'played'
-    ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
-    : null
+  if (!isKnockout) {
+    match.result = api.status === 'played'
+      ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
+      : null
+    if (api.homeYellow != null) match.homeYellow = api.homeYellow
+    if (api.awayYellow != null) match.awayYellow = api.awayYellow
+    if (api.homeRed != null) match.homeRed = api.homeRed
+    if (api.awayRed != null) match.awayRed = api.awayRed
+  }
   if (api.extra) match.extra = api.extra
-  if (api.homeYellow != null) match.homeYellow = api.homeYellow
-  if (api.awayYellow != null) match.awayYellow = api.awayYellow
-  if (api.homeRed != null) match.homeRed = api.homeRed
-  if (api.awayRed != null) match.awayRed = api.awayRed
   return changed
 }
 
@@ -416,7 +418,7 @@ function buildUpdatedContent(
   }
   for (const match of knockoutMatches) {
     const api = apiByKey.get(`${match.home}|${match.away}`)
-    if (api && applyApiMatch(match, api)) updated++
+    if (api && applyApiMatch(match, api, true)) updated++
   }
 
   recalcStandings(groups)

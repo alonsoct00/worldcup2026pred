@@ -110,21 +110,23 @@ function parseCurrentData(src: string): { groups: GroupLike[]; knockoutMatches: 
 
 // ── Match updating ────────────────────────────────────────────────────────────
 
-function applyApiMatch(match: MatchLike, api: APIMatch): boolean {
+function applyApiMatch(match: MatchLike, api: APIMatch, isKnockout = false): boolean {
   if (api.status !== 'played' && api.status !== 'live') return false
   if (api.homeScore == null || api.awayScore == null) return false
 
   match.homeScore = api.homeScore
   match.awayScore = api.awayScore
   match.status = api.status
-  match.result = api.status === 'played'
-    ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
-    : null
+  if (!isKnockout) {
+    match.result = api.status === 'played'
+      ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
+      : null
+    if (api.homeYellow != null) match.homeYellow = api.homeYellow
+    if (api.awayYellow != null) match.awayYellow = api.awayYellow
+    if (api.homeRed != null) match.homeRed = api.homeRed
+    if (api.awayRed != null) match.awayRed = api.awayRed
+  }
   if (api.extra) match.extra = api.extra
-  if (api.homeYellow != null) match.homeYellow = api.homeYellow
-  if (api.awayYellow != null) match.awayYellow = api.awayYellow
-  if (api.homeRed != null) match.homeRed = api.homeRed
-  if (api.awayRed != null) match.awayRed = api.awayRed
   return true
 }
 
@@ -279,7 +281,7 @@ export async function writeWorldcupTs(
   for (const match of knockoutMatches) {
     const key = matchKey(match.home, match.away)
     const api = apiByKey.get(key)
-    if (api && applyApiMatch(match, api)) matchesUpdated++
+    if (api && applyApiMatch(match, api, true)) matchesUpdated++
   }
 
   // Recalculate standings
