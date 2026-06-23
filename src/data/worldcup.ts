@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-23T03:43:24.622Z
+// Auto-synced: 2026-06-23T09:51:00.378Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-23T03:43:24.622Z"
+export const LAST_UPDATED = "2026-06-23T09:51:00.378Z"
 
 export const news: NewsItem[] = [
   { id:"n34", date:"2026-06-23", tag:"resultado",
@@ -339,15 +339,15 @@ export const groups: Group[] = [
     teams: [
       { name: "Argentina", flag: "🇦🇷", played: 2, w: 2, d: 0, l: 0, gf: 5, ga: 0, pts: 6 },
       { name: "Austria", flag: "🇦🇹", played: 2, w: 1, d: 0, l: 1, gf: 3, ga: 3, pts: 3 },
-      { name: "Argelia", flag: "🇩🇿", played: 1, w: 0, d: 0, l: 1, gf: 0, ga: 3, pts: 0 },
-      { name: "Jordania", flag: "🇯🇴", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
+      { name: "Argelia", flag: "🇩🇿", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 4, pts: 3 },
+      { name: "Jordania", flag: "🇯🇴", played: 2, w: 0, d: 0, l: 2, gf: 2, ga: 5, pts: 0 },
     ],
     projected: ["🇦🇷 Argentina (1°)","🇦🇹 Austria (2°)"],
     matches: [
       { id:"J1", home:"Argentina", away:"Argelia", homeFlag:"🇦🇷", awayFlag:"🇩🇿", homeScore:3, awayScore:0, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Arrowhead, Kansas City", status:"played", result:"home", notes:"Messi (17') + Álvarez. Gol inicial de Messi anulado por offside. Casi 80% del estadio con camiseta albiceleste." },
       { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
       { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home", notes:"Argentina CLASIFICA. 6 pts, 5 GF, 0 GA. 1er equipo en asegurar el pase al torneo." },
-      { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"live", result:null },
+      { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:1, awayScore:2, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"away" },
       { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
     ]
