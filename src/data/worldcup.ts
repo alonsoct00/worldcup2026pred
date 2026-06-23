@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-23T01:29:48.008Z
+// Auto-synced: 2026-06-23T01:34:52.680Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,17 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-23T01:29:48.008Z"
+export const LAST_UPDATED = "2026-06-23T01:34:52.680Z"
 
 export const news: NewsItem[] = [
+  { id:"n32", date:"2026-06-22", tag:"resultado",
+    title:"Argentina 2–0 Austria",
+    body:"Argentina suma 3 puntos con marcador 2–0."
+  },
+  { id:"n33", date:"2026-06-22", tag:"resultado",
+    title:"Francia 3–0 Iraq",
+    body:"Francia suma 3 puntos con marcador 3–0."
+  },
   { id:"n31", date:"2026-06-21", tag:"estadistica",
     title:"Argentina clasifica en 2 juegos: 6 pts, 5 goles a favor, 0 en contra",
     body:"Victoria 2-0 vs Austria. Argentina es el primer equipo en clasificar del torneo. Messi + Di María + Álvarez indeteniables. La mejor defensa entre los 12 grupos. Con J3 vs Jordania de descanso, llegan frescos al r32."
@@ -158,22 +166,6 @@ export const news: NewsItem[] = [
   { id:"n2", date:"2026-06-16", tag:"resultado",
     title:"Haaland debuta con brace en la goleada 4–1 de Noruega vs Iraq",
     body:"El delantero del Manchester City marcó dos goles en la primera mitad. Noruega arranca liderando el Grupo I junto a Francia."
-  },
-  { id:"n3", date:"2026-06-15", tag:"sorpresa",
-    title:"España frenada 0–0 por Cabo Verde",
-    body:"El portero Vozinha (40 años) fue infranqueable. España tuvo 27 remates, xG 2.29, y no pudo marcar. Oyarzabal jugó 30 minutos sin tocar el balón."
-  },
-  { id:"n4", date:"2026-06-15", tag:"estadistica",
-    title:"Día histórico: cuatro empates consecutivos el 15 jun",
-    body:"España 0–0, Bélgica 1–1, Arabia Saudita 1–1, Irán 2–2. Nunca en la historia del Mundial hubo un día entero de empates. Sudamérica suma 0W en 4 partidos."
-  },
-  { id:"n8", date:"2026-06-15", tag:"lesion",
-    title:"Pulisic: duda para USA vs Australia (19 jun)",
-    body:"El capitán americano salió lesionado en la pantorrilla a mitad del partido vs Paraguay (4–1). Downplay oficial pero su presencia en J2 está en duda."
-  },
-  { id:"n5", date:"2026-06-14", tag:"sorpresa",
-    title:"Australia 2–0 Türkiye: shock en el Grupo D",
-    body:"Irankunda (27') y Metcalfe (75') voltearon el pronóstico. Türkiye y Paraguay quedan con 0 puntos. Australia comparte liderato con USA."
   }
 ]
 
@@ -410,12 +402,12 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-7", round:"r32", home:"Alemania", away:"Japón", homeFlag:"🇩🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", extra:"AET" },
   { id:"r32-8", round:"r32", home:"Marruecos", away:"C. de Marfil", homeFlag:"🇲🇦", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming", notes:"Uruguay en crisis: 2 empates (2 pts), necesita ganar J3 vs España para avanzar. Canadá goleó 6-0 a Qatar ⚡ — Si Uruguay no pasa, Cabo Verde podría estar aquí ⚠️" },
-  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"upcoming", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia" },
+  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"live", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia", result:null },
   { id:"r32-11", round:"r32", home:"Países Bajos", away:"Bélgica", homeFlag:"🇳🇱", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming", notes:"Países Bajos goleó 5-1 a Suecia y domina su grupo. Bélgica (180 min sin marcar) avanza si gana J3 vs NZ. Este duelo no será parejo — Países Bajos es superior." },
   { id:"r32-12", round:"r32", home:"C. de Marfil", away:"Paraguay", homeFlag:"🇨🇮", awayFlag:"🇵🇾", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"C. de Marfil", winnerFlag:"🇨🇮", status:"upcoming", notes:"CAMBIO ⚡ Ecuador (1pt) y Türkiye (0pts) eliminados. Costa de Marfil (Gpo E, 3pts) vs Paraguay (3pts, mejor 3°). Amad Diallo impone jerarquía." },
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
   { id:"r32-14", round:"r32", home:"Japón", away:"Egipto", homeFlag:"🇯🇵", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, extra:"PEN", winner:"Japón", winnerFlag:"🇯🇵", status:"upcoming", notes:"Suecia perdió 1-5 vs Países Bajos → Japón toma el 2° del Grupo F. Salah (4 pts, Egipto) vs Japón (4 pts). El duelo más parejo del r32 — penaltis." },
-  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"played", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32" },
+  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"played", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32", result:"home" },
   { id:"r32-16", round:"r32", home:"Colombia", away:"Irán", homeFlag:"🇨🇴", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", notes:"Colombia aplastó 3-1 a Uzbekistán — Los Cafeteros son la revelación de J1. Irán solo empató 2-2. Colombia avanza con autoridad." },
   { id:"r16-1", round:"r16", home:"Argentina", away:"México", homeFlag:"🇦🇷", awayFlag:"🇲🇽", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming" },
   { id:"r16-2", round:"r16", home:"España", away:"Inglaterra", homeFlag:"🇪🇸", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET" },
