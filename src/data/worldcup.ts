@@ -67,17 +67,25 @@ export interface NewsItem {
 export const LAST_UPDATED = "2026-06-23T01:29:48.008Z"
 
 export const news: NewsItem[] = [
-  { id:"n27", date:"2026-06-22", tag:"resultado",
-    title:"Nueva Zelanda 1–3 Egipto",
-    body:"Egipto suma 3 puntos con marcador 1–3."
+  { id:"n31", date:"2026-06-21", tag:"estadistica",
+    title:"Argentina clasifica en 2 juegos: 6 pts, 5 goles a favor, 0 en contra",
+    body:"Victoria 2-0 vs Austria. Argentina es el primer equipo en clasificar del torneo. Messi + Di María + Álvarez indeteniables. La mejor defensa entre los 12 grupos. Con J3 vs Jordania de descanso, llegan frescos al r32."
   },
-  { id:"n28", date:"2026-06-22", tag:"resultado",
-    title:"Argentina 2–0 Austria",
-    body:"Argentina suma 3 puntos con marcador 2–0."
+  { id:"n30", date:"2026-06-21", tag:"sorpresa",
+    title:"España 4–0 Arabia Saudita: La Furia vuelve con venganza",
+    body:"Morata x2, Yamal y Pedri. España borró el mal sabor del 0-0 vs Cabo Verde con una goleada demoledora. 4 pts, GD +4, liderato del Grupo H. La Roja sigue viva en su camino al r32."
   },
-  { id:"n29", date:"2026-06-22", tag:"resultado",
-    title:"Francia 3–0 Iraq",
-    body:"Francia suma 3 puntos con marcador 3–0."
+  { id:"n29", date:"2026-06-21", tag:"sorpresa",
+    title:"Uruguay 2–2 Cabo Verde: La Celeste no puede ganar en dos intentos",
+    body:"Cabo Verde volvió a empatar a los favoritos (ya frenaron a España 0-0). Uruguay tiene 2 puntos en 2 juegos y necesita vencer a España en J3 para asegurar el pase. Sin victoria en fase de grupos, Uruguay roza la eliminación."
+  },
+  { id:"n28", date:"2026-06-21", tag:"sorpresa",
+    title:"Bélgica 0–0 Irán: 180 minutos sin marcar, De Bruyne impotente",
+    body:"Bélgica suma su segundo partido sin gol (1-1 y 0-0). De Bruyne jugó sin espacios, Lukaku desaparecido. Egipto lidera el Grupo G con 4 pts. Bélgica e Irán, con 2 pts cada uno, lo juegan todo en J3. La 'Generación Dorada' puede quedar fuera."
+  },
+  { id:"n27", date:"2026-06-21", tag:"resultado",
+    title:"Egipto 3–1 Nueva Zelanda: Salah comanda el Grupo G",
+    body:"Mohamed Salah 1G+1A. Egipto con 4 pts lidera el Grupo G sin haber perdido. Bélgica queda al borde con 2 empates. Irán igual a 2 pts. El boleto del 2° lugar del Grupo G se decide en J3: Bélgica vs NZ e Irán vs Egipto."
   },
   { id:"n25", date:"2026-06-20", tag:"resultado",
     title:"Brasil 3–0 Haití",
@@ -270,7 +278,7 @@ export const groups: Group[] = [
       { name: "Japón", flag: "🇯🇵", played: 2, w: 1, d: 1, l: 0, gf: 6, ga: 2, pts: 4 },
       { name: "Túnez", flag: "🇹🇳", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 9, pts: 0 },
     ],
-    projected: ["🇸🇪 Suecia (1°) ⚡","🇳🇱 Países Bajos (2°)","🇯🇵 Japón (3°)*"],
+    projected: ["🇳🇱 Países Bajos (1°)","🇯🇵 Japón (2°) ⚡","🇸🇪 Suecia (3°)*"],
     matches: [
       { id:"F1", home:"Países Bajos", away:"Japón", homeFlag:"🇳🇱", awayFlag:"🇯🇵", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:1, date:"14 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"draw", notes:"Van Dijk, Summerville (PB). Nakamura y Ogawa (cabeza) para Japón al 88'." },
       { id:"F2", home:"Túnez", away:"Suecia", homeFlag:"🇹🇳", awayFlag:"🇸🇪", homeScore:1, awayScore:5, homePrediction:0, awayPrediction:2, date:"14 jun", venue:"Estadio BBVA, Monterrey", status:"played", result:"away", notes:"Isak, Gyökeres, Ayari x2, Svanberg. Gol anulado revertido por VAR." },
@@ -288,12 +296,12 @@ export const groups: Group[] = [
       { name: "Irán", flag: "🇮🇷", played: 2, w: 0, d: 2, l: 0, gf: 2, ga: 2, pts: 2 },
       { name: "Nueva Zelanda", flag: "🇳🇿", played: 2, w: 0, d: 1, l: 1, gf: 3, ga: 5, pts: 1 },
     ],
-    projected: ["🇧🇪 Bélgica (1°)","🇪🇬 Egipto (2°)","🇮🇷 Irán (3°)*"],
+    projected: ["🇪🇬 Egipto (1°) ⚡","🇧🇪 Bélgica (2°) ⚠️","🇮🇷 Irán (3°)*"],
     matches: [
       { id:"G1", home:"Bélgica", away:"Egipto", homeFlag:"🇧🇪", awayFlag:"🇪🇬", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:0, date:"15 jun", venue:"Lumen Field, Seattle", status:"played", result:"draw", notes:"De Bruyne vs Salah. Empate que sorprendió a los favoritos." },
       { id:"G2", home:"Irán", away:"Nueva Zelanda", homeFlag:"🇮🇷", awayFlag:"🇳🇿", homeScore:2, awayScore:2, homePrediction:1, awayPrediction:0, date:"15 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw", notes:"Rezaeian: gol + asistencia, 1er iraní con G+A en Mundiales. Just: 2 goles NZ." },
-      { id:"G3", home:"Bélgica", away:"Irán", homeFlag:"🇧🇪", awayFlag:"🇮🇷", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:1, date:"21 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw" },
-      { id:"G4", home:"Nueva Zelanda", away:"Egipto", homeFlag:"🇳🇿", awayFlag:"🇪🇬", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:1, date:"21 jun", venue:"BC Place, Vancouver", status:"played", result:"away" },
+      { id:"G3", home:"Bélgica", away:"Irán", homeFlag:"🇧🇪", awayFlag:"🇮🇷", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:1, date:"21 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw", notes:"180 min sin gol para Bélgica. De Bruyne impotente. 'Generación Dorada' al borde." },
+      { id:"G4", home:"Nueva Zelanda", away:"Egipto", homeFlag:"🇳🇿", awayFlag:"🇪🇬", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:1, date:"21 jun", venue:"BC Place, Vancouver", status:"played", result:"away", notes:"Salah 1G+1A. Egipto lidera el Grupo G con 4 pts." },
       { id:"G5", home:"Egipto", away:"Irán", homeFlag:"🇪🇬", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"26 jun", venue:"Lumen Field, Seattle", status:"upcoming", result:null },
       { id:"G6", home:"Nueva Zelanda", away:"Bélgica", homeFlag:"🇳🇿", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"26 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
     ]
@@ -306,12 +314,12 @@ export const groups: Group[] = [
       { name: "Arabia Saudita", flag: "🇸🇦", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 5, pts: 1 },
       { name: "Uruguay", flag: "🇺🇾", played: 2, w: 0, d: 2, l: 0, gf: 3, ga: 3, pts: 2 },
     ],
-    projected: ["🇪🇸 España (1°) ⚠️","🇺🇾 Uruguay (2°)"],
+    projected: ["🇪🇸 España (1°) ✅","🇺🇾 Uruguay (2°) ⚠️","🇨🇻 Cabo Verde (3°)*"],
     matches: [
       { id:"H1", home:"España", away:"Cabo Verde", homeFlag:"🇪🇸", awayFlag:"🇨🇻", homeScore:0, awayScore:0, homePrediction:4, awayPrediction:0, date:"15 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"draw", notes:"27 remates de España, xG 2.29. Vozinha (40 años) infranqueable. Mayor sorpresa del torneo." },
       { id:"H2", home:"Arabia Saudita", away:"Uruguay", homeFlag:"🇸🇦", awayFlag:"🇺🇾", homeScore:1, awayScore:1, homePrediction:0, awayPrediction:2, date:"15 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw", notes:"Olivera (Uruguay) 106 toques: récord uruguayo en Mundiales." },
-      { id:"H3", home:"España", away:"Arabia Saudita", homeFlag:"🇪🇸", awayFlag:"🇸🇦", homeScore:4, awayScore:0, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"home", notes:"España DEBE ganar para mantenerse viva." },
-      { id:"H4", home:"Uruguay", away:"Cabo Verde", homeFlag:"🇺🇾", awayFlag:"🇨🇻", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw" },
+      { id:"H3", home:"España", away:"Arabia Saudita", homeFlag:"🇪🇸", awayFlag:"🇸🇦", homeScore:4, awayScore:0, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"home", notes:"Morata x2, Yamal, Pedri. La Furia regresa con venganza. Borran el 0-0 vs Cabo Verde." },
+      { id:"H4", home:"Uruguay", away:"Cabo Verde", homeFlag:"🇺🇾", awayFlag:"🇨🇻", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw", notes:"Segundo empate de Uruguay. 2 pts en 2 juegos — NECESITA ganar J3 vs España." },
       { id:"H5", home:"Cabo Verde", away:"Arabia Saudita", homeFlag:"🇨🇻", awayFlag:"🇸🇦", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"26 jun", venue:"NRG Stadium, Houston", status:"upcoming", result:null },
       { id:"H6", home:"Uruguay", away:"España", homeFlag:"🇺🇾", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Estadio Akron, Guadalajara", status:"upcoming", result:null },
     ]
@@ -346,7 +354,7 @@ export const groups: Group[] = [
     matches: [
       { id:"J1", home:"Argentina", away:"Argelia", homeFlag:"🇦🇷", awayFlag:"🇩🇿", homeScore:3, awayScore:0, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Arrowhead, Kansas City", status:"played", result:"home", notes:"Messi (17') + Álvarez. Gol inicial de Messi anulado por offside. Casi 80% del estadio con camiseta albiceleste." },
       { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
-      { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home" },
+      { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home", notes:"Argentina CLASIFICA. 6 pts, 5 GF, 0 GA. 1er equipo en asegurar el pase al torneo." },
       { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
       { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
       { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
@@ -394,20 +402,20 @@ export const groups: Group[] = [
 
 export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-1", round:"r32", home:"Argentina", away:"Irán", homeFlag:"🇦🇷", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Argentina aplastó 3-0 a Argelia — el equipo más en forma del torneo. Irán solo empató 2-2 vs NZ. Mismatch claro." },
-  { id:"r32-2", round:"r32", home:"España", away:"Corea del Sur", homeFlag:"🇪🇸", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", notes:"España en crisis severa (0-0 Cabo Verde) — Corea del Sur puede dar la sorpresa" },
+  { id:"r32-2", round:"r32", home:"España", away:"Corea del Sur", homeFlag:"🇪🇸", awayFlag:"🇰🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", notes:"España se recuperó con goleada 4-0 vs Arabia Saudita (Morata x2, Yamal, Pedri). La crisis quedó atrás. Corea del Sur es peligrosa pero España avanza." },
   { id:"r32-3", round:"r32", home:"Inglaterra", away:"Noruega", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, extra:"PEN", winner:"Inglaterra", winnerFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", status:"upcoming", notes:"Haaland x2 vs Iraq — el duelo más parejo del r32, penaltis" },
   { id:"r32-4", round:"r32", home:"Brasil", away:"Escocia", homeFlag:"🇧🇷", awayFlag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming", notes:"Brasil decepcionó vs Marruecos (1-1). Escocia lidera el Grupo C ⚡" },
   { id:"r32-5", round:"r32", home:"Portugal", away:"Ghana", homeFlag:"🇵🇹", awayFlag:"🇬🇭", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Portugal", winnerFlag:"🇵🇹", status:"upcoming", notes:"Portugal en crisis (1-1 vs RD Congo). Ghana ganó J1 vs Panamá. El choque más incierto del r32 — Ghana puede dar la sorpresa ⚡" },
   { id:"r32-6", round:"r32", home:"Francia", away:"Austria", homeFlag:"🇫🇷", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"Austria contundente 3-1 vs Jordania (Sabitzer, Arnautovic). Mbappé en modo histórico (2G vs Senegal). Francia favorita pero Austria es el rival más peligroso del cuadro ⚠️" },
   { id:"r32-7", round:"r32", home:"Alemania", away:"Japón", homeFlag:"🇩🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", extra:"AET" },
   { id:"r32-8", round:"r32", home:"Marruecos", away:"C. de Marfil", homeFlag:"🇲🇦", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
-  { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming" },
-  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"live", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia", result:null },
-  { id:"r32-11", round:"r32", home:"Países Bajos", away:"Bélgica", homeFlag:"🇳🇱", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming" },
-  { id:"r32-12", round:"r32", home:"Ecuador", away:"Türkiye", homeFlag:"🇪🇨", awayFlag:"🇹🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Ecuador", winnerFlag:"🇪🇨", status:"upcoming" },
+  { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming", notes:"Uruguay en crisis: 2 empates (2 pts), necesita ganar J3 vs España para avanzar. Canadá goleó 6-0 a Qatar ⚡ — Si Uruguay no pasa, Cabo Verde podría estar aquí ⚠️" },
+  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"upcoming", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia" },
+  { id:"r32-11", round:"r32", home:"Países Bajos", away:"Bélgica", homeFlag:"🇳🇱", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming", notes:"Países Bajos goleó 5-1 a Suecia y domina su grupo. Bélgica (180 min sin marcar) avanza si gana J3 vs NZ. Este duelo no será parejo — Países Bajos es superior." },
+  { id:"r32-12", round:"r32", home:"C. de Marfil", away:"Paraguay", homeFlag:"🇨🇮", awayFlag:"🇵🇾", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"C. de Marfil", winnerFlag:"🇨🇮", status:"upcoming", notes:"CAMBIO ⚡ Ecuador (1pt) y Türkiye (0pts) eliminados. Costa de Marfil (Gpo E, 3pts) vs Paraguay (3pts, mejor 3°). Amad Diallo impone jerarquía." },
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
-  { id:"r32-14", round:"r32", home:"Suecia", away:"Egipto", homeFlag:"🇸🇪", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Suecia", winnerFlag:"🇸🇪", status:"upcoming" },
-  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"played", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32", result:"home" },
+  { id:"r32-14", round:"r32", home:"Japón", away:"Egipto", homeFlag:"🇯🇵", awayFlag:"🇪🇬", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, extra:"PEN", winner:"Japón", winnerFlag:"🇯🇵", status:"upcoming", notes:"Suecia perdió 1-5 vs Países Bajos → Japón toma el 2° del Grupo F. Salah (4 pts, Egipto) vs Japón (4 pts). El duelo más parejo del r32 — penaltis." },
+  { id:"r32-15", round:"r32", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:1, winner:"USA", winnerFlag:"🇺🇸", status:"played", notes:"Los dos dominaron J1 — Australia sorprende al mundo. El duelo inesperado del r32" },
   { id:"r32-16", round:"r32", home:"Colombia", away:"Irán", homeFlag:"🇨🇴", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", notes:"Colombia aplastó 3-1 a Uzbekistán — Los Cafeteros son la revelación de J1. Irán solo empató 2-2. Colombia avanza con autoridad." },
   { id:"r16-1", round:"r16", home:"Argentina", away:"México", homeFlag:"🇦🇷", awayFlag:"🇲🇽", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming" },
   { id:"r16-2", round:"r16", home:"España", away:"Inglaterra", homeFlag:"🇪🇸", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET" },
@@ -416,8 +424,8 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r16-5", round:"r16", home:"Uruguay", away:"Colombia", homeFlag:"🇺🇾", awayFlag:"🇨🇴", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming" },
   { id:"r16-6", round:"r16", home:"Marruecos", away:"USA", homeFlag:"🇲🇦", awayFlag:"🇺🇸", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"r16-7", round:"r16", home:"Países Bajos", away:"Noruega", homeFlag:"🇳🇱", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming" },
-  { id:"r16-8", round:"r16", home:"Ecuador", away:"Suecia", homeFlag:"🇪🇨", awayFlag:"🇸🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, winner:"Suecia", winnerFlag:"🇸🇪", status:"upcoming", notes:"Suecia 5-1 es el mejor debut del torneo. Ecuador perdió J1 vs Marfil. CAMBIO ⚡" },
-  { id:"qf-1", round:"qf", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"España en crisis severa (0-0 Cabo Verde). Francia 3-1 vs Senegal. Favorita clara" },
+  { id:"r16-8", round:"r16", home:"Ecuador", away:"Japón", homeFlag:"🇪🇨", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:2, winner:"Japón", winnerFlag:"🇯🇵", status:"upcoming", notes:"Suecia cayó 1-5 vs Países Bajos → Japón toma el slot. Ecuador en crisis (0-0 vs Curazao en J2, 0 pts). Japón 4 pts domina al grupo. CAMBIO ⚡" },
+  { id:"qf-1", round:"qf", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", notes:"España se recuperó 4-0 vs Arabia Saudita — ya no está en crisis. Francia dominante (Mbappé histórico). El QF más atractivo del torneo." },
   { id:"qf-2", round:"qf", home:"Argentina", away:"Brasil", homeFlag:"🇦🇷", awayFlag:"🇧🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", notes:"Argentina 3-0 vs Argelia (Messi magistral) vs Brasil 1-1 vs Marruecos. El Superclásico de América — Argentina llega como favorita clara por forma y moral" },
   { id:"qf-3", round:"qf", home:"Marruecos", away:"Países Bajos", homeFlag:"🇲🇦", awayFlag:"🇳🇱", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming", notes:"Bounou imbatible" },
   { id:"qf-4", round:"qf", home:"Uruguay", away:"Suecia", homeFlag:"🇺🇾", awayFlag:"🇸🇪", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming", notes:"Suecia es la gran revelación — Uruguay lo resuelve en el alargue" },
