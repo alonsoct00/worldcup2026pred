@@ -217,11 +217,14 @@ function serializeGroups(groups: GroupLike[]): string {
   return `[\n${items.join(',\n')}\n]`
 }
 
+const KNOCKOUT_EXCLUDED_KEYS = new Set(['result', 'homeYellow', 'awayYellow', 'homeRed', 'awayRed', 'venue'])
+
 function serializeKnockout(matches: KnockoutLike[]): string {
   const items = matches.map(m => {
     const parts: string[] = []
     for (const [k, v] of Object.entries(m)) {
       if (v === undefined) continue
+      if (KNOCKOUT_EXCLUDED_KEYS.has(k)) continue
       parts.push(`${k}:${typeof v === 'string' ? JSON.stringify(v) : v === null ? 'null' : v}`)
     }
     return `  { ${parts.join(', ')} }`
