@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-22T23:18:44.277Z
+// Auto-synced: 2026-06-23T01:29:48.008Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,21 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-22T23:18:44.277Z"
+export const LAST_UPDATED = "2026-06-23T01:29:48.008Z"
 
 export const news: NewsItem[] = [
+  { id:"n27", date:"2026-06-22", tag:"resultado",
+    title:"Nueva Zelanda 1–3 Egipto",
+    body:"Egipto suma 3 puntos con marcador 1–3."
+  },
+  { id:"n28", date:"2026-06-22", tag:"resultado",
+    title:"Argentina 2–0 Austria",
+    body:"Argentina suma 3 puntos con marcador 2–0."
+  },
+  { id:"n29", date:"2026-06-22", tag:"resultado",
+    title:"Francia 3–0 Iraq",
+    body:"Francia suma 3 puntos con marcador 3–0."
+  },
   { id:"n25", date:"2026-06-20", tag:"resultado",
     title:"Brasil 3–0 Haití",
     body:"Brasil suma 3 puntos con marcador 3–0."
@@ -154,18 +166,6 @@ export const news: NewsItem[] = [
   { id:"n5", date:"2026-06-14", tag:"sorpresa",
     title:"Australia 2–0 Türkiye: shock en el Grupo D",
     body:"Irankunda (27') y Metcalfe (75') voltearon el pronóstico. Türkiye y Paraguay quedan con 0 puntos. Australia comparte liderato con USA."
-  },
-  { id:"n6", date:"2026-06-14", tag:"resultado",
-    title:"Alemania 7–1 Curazao: declaración de intenciones",
-    body:"La goleada más amplia del torneo. Havertz x2, Musiala, Schlotterbeck entre los goleadores. Alemania arranca como favorita del Grupo E."
-  },
-  { id:"n7", date:"2026-06-14", tag:"sorpresa",
-    title:"Costa de Marfil 1–0 Ecuador en el minuto 90",
-    body:"Amad Diallo (sub) marcó el gol de la victoria. Ecuador falló dos veces en el palo. Ecuador sin puntos y en crisis."
-  },
-  { id:"n9", date:"2026-06-13", tag:"resultado",
-    title:"USA 4–1 Paraguay: mejor debut americano en historia del Mundial",
-    body:"Balogun doblete, gol propio en el 7' y Gio Reyna al final. La selección más goleadora del torneo hasta ahora."
   }
 ]
 
@@ -319,17 +319,17 @@ export const groups: Group[] = [
   {
     id: "I", label: "Grupo I",
     teams: [
-      { name: "Francia", flag: "🇫🇷", played: 1, w: 1, d: 0, l: 0, gf: 3, ga: 1, pts: 3 },
+      { name: "Francia", flag: "🇫🇷", played: 2, w: 2, d: 0, l: 0, gf: 6, ga: 1, pts: 6 },
       { name: "Noruega", flag: "🇳🇴", played: 1, w: 1, d: 0, l: 0, gf: 4, ga: 1, pts: 3 },
       { name: "Senegal", flag: "🇸🇳", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 3, pts: 0 },
-      { name: "Iraq", flag: "🇮🇶", played: 1, w: 0, d: 0, l: 1, gf: 1, ga: 4, pts: 0 },
+      { name: "Iraq", flag: "🇮🇶", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 7, pts: 0 },
     ],
     projected: ["🇫🇷 Francia (1°)","🇳🇴 Noruega (2°)"],
     matches: [
       { id:"I1", home:"Francia", away:"Senegal", homeFlag:"🇫🇷", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"MetLife Stadium, NJ", status:"played", result:"home", notes:"Mbappé x2 → máximo goleador histórico de Francia. Olise estelar." },
       { id:"I2", home:"Iraq", away:"Noruega", homeFlag:"🇮🇶", awayFlag:"🇳🇴", homeScore:1, awayScore:4, homePrediction:0, awayPrediction:2, date:"16 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away", notes:"Haaland doblete en 1ª parte. Noruega goleó en su regreso al Mundial." },
-      { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:1, awayScore:0, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"live", result:null },
-      { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"upcoming", result:null },
+      { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:3, awayScore:0, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home" },
+      { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"live", result:null },
       { id:"I5", home:"Noruega", away:"Francia", homeFlag:"🇳🇴", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Gillette Stadium, Boston", status:"upcoming", result:null },
       { id:"I6", home:"Senegal", away:"Iraq", homeFlag:"🇸🇳", awayFlag:"🇮🇶", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"26 jun", venue:"BMO Field, Toronto", status:"upcoming", result:null },
     ]
@@ -402,7 +402,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-7", round:"r32", home:"Alemania", away:"Japón", homeFlag:"🇩🇪", awayFlag:"🇯🇵", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", extra:"AET" },
   { id:"r32-8", round:"r32", home:"Marruecos", away:"C. de Marfil", homeFlag:"🇲🇦", awayFlag:"🇨🇮", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Marruecos", winnerFlag:"🇲🇦", status:"upcoming" },
   { id:"r32-9", round:"r32", home:"Uruguay", away:"Canadá", homeFlag:"🇺🇾", awayFlag:"🇨🇦", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Uruguay", winnerFlag:"🇺🇾", status:"upcoming" },
-  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"upcoming", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia" },
+  { id:"r32-10", round:"r32", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:1, homePrediction:3, awayPrediction:0, winner:"Noruega", winnerFlag:"🇳🇴", status:"live", notes:"Haaland en modo destrucción (2G vs Iraq). Senegal goleado 1-3 por Francia", result:null },
   { id:"r32-11", round:"r32", home:"Países Bajos", away:"Bélgica", homeFlag:"🇳🇱", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Países Bajos", winnerFlag:"🇳🇱", status:"upcoming" },
   { id:"r32-12", round:"r32", home:"Ecuador", away:"Türkiye", homeFlag:"🇪🇨", awayFlag:"🇹🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"Ecuador", winnerFlag:"🇪🇨", status:"upcoming" },
   { id:"r32-13", round:"r32", home:"México", away:"Chequia", homeFlag:"🇲🇽", awayFlag:"🇨🇿", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming" },
