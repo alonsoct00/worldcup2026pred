@@ -81,9 +81,57 @@ interface NewsItem {
   title: string; body: string
 }
 
-// ── Fetch from football-data.org ──────────────────────────────────────────────
+// ── Fetch from ESPN (primary — no API key required) ──────────────────────────
 
-async function fetchMatches(): Promise<APIMatch[]> {
+async function fetchMatchesFromESPN(): Promise<APIMatch[]> {
+  const ranges = ['20260611-20260627', '20260628-20260719']
+  const allMatches: APIMatch[] = []
+
+  for (const range of ranges) {
+    const res = await fetch(
+      `https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${range}`,
+      { next: { revalidate: 0 } }
+    )
+    if (!res.ok) throw new Error(`ESPN returned ${res.status} for range ${range}`)
+    const data = await res.json() as any
+
+    for (const event of (data.events ?? [])) {
+      const comp = event.competitions?.[0]
+      if (!comp) continue
+      const espnStatus: string = comp.status?.type?.name ?? ''
+      const state: string = comp.status?.type?.state ?? ''
+
+      let status: APIMatch['status']
+      if (state === 'post') status = 'played'
+      else if (state === 'in') status = 'live'
+      else status = 'upcoming'
+
+      let extra: 'AET' | 'PEN' | undefined
+      if (espnStatus.includes('AET') || espnStatus.includes('EXTRA_TIME') || comp.status?.period === 3 || comp.status?.period === 4) extra = 'AET'
+      if (espnStatus.includes('PEN') || espnStatus.includes('SHOOTOUT') || comp.status?.period === 5) extra = 'PEN'
+
+      const home = (comp.competitors ?? []).find((c: any) => c.homeAway === 'home')
+      const away = (comp.competitors ?? []).find((c: any) => c.homeAway === 'away')
+      if (!home || !away) continue
+
+      const match: APIMatch = {
+        home: normalizeTeam(home.team?.displayName ?? ''),
+        away: normalizeTeam(away.team?.displayName ?? ''),
+        homeScore: status !== 'upcoming' ? (parseInt(home.score ?? '') || 0) : null,
+        awayScore: status !== 'upcoming' ? (parseInt(away.score ?? '') || 0) : null,
+        status,
+        utcDate: event.date,
+      }
+      if (extra) match.extra = extra
+      allMatches.push(match)
+    }
+  }
+  return allMatches
+}
+
+// ── Fetch from football-data.org (fallback) ───────────────────────────────────
+
+async function fetchMatchesFromFootballData(): Promise<APIMatch[]> {
   const res = await fetch('https://api.football-data.org/v4/competitions/WC/matches?season=2026', {
     headers: { 'X-Auth-Token': FOOTBALL_DATA_TOKEN },
     next: { revalidate: 0 },
@@ -109,6 +157,17 @@ async function fetchMatches(): Promise<APIMatch[]> {
     if (extra) match.extra = extra
     return match
   })
+}
+
+async function fetchMatches(): Promise<{ matches: APIMatch[]; source: string }> {
+  try {
+    const matches = await fetchMatchesFromESPN()
+    return { matches, source: 'espn' }
+  } catch (espnErr) {
+    console.warn(`[sync] ESPN failed: ${(espnErr as Error).message} — falling back to football-data.org`)
+    const matches = await fetchMatchesFromFootballData()
+    return { matches, source: 'football-data' }
+  }
 }
 
 // ── GitHub helpers ────────────────────────────────────────────────────────────
@@ -399,7 +458,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const apiMatches = await fetchMatches()
+    const { matches: apiMatches, source } = await fetchMatches()
     const played = apiMatches.filter(m => m.status === 'played').length
     const live = apiMatches.filter(m => m.status === 'live').length
 
@@ -411,11 +470,12 @@ export async function POST(req: Request) {
       const parts: string[] = []
       if (updated > 0) parts.push(`${updated} score(s)`)
       if (newNews > 0) parts.push(`${newNews} news`)
-      await commitFile(newContent, sha, `sync: update ${parts.join(', ')} [auto]`)
+      await commitFile(newContent, sha, `sync: ${parts.join(', ')} via ${source} [auto]`)
     }
 
     return NextResponse.json({
       ok: true,
+      source,
       matchesFetched: apiMatches.length,
       playedMatches: played,
       liveMatches: live,
