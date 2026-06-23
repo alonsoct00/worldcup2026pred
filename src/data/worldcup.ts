@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-23T09:51:00.378Z
+// Auto-synced: 2026-06-23T13:02:59.189Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-23T09:51:00.378Z"
+export const LAST_UPDATED = "2026-06-23T13:02:59.189Z"
 
 export const news: NewsItem[] = [
+  { id:"n35", date:"2026-06-23", tag:"resultado",
+    title:"Jordania 1–2 Argelia",
+    body:"Argelia suma 3 puntos con marcador 1–2."
+  },
   { id:"n34", date:"2026-06-23", tag:"resultado",
     title:"Noruega 3–2 Senegal",
     body:"Noruega suma 3 puntos con marcador 3–2."
@@ -162,10 +166,6 @@ export const news: NewsItem[] = [
   { id:"n12", date:"2026-06-16", tag:"resultado",
     title:"Francia 3–1 Senegal",
     body:"Francia suma 3 puntos con marcador 3–1."
-  },
-  { id:"n1", date:"2026-06-16", tag:"estadistica",
-    title:"Mbappé: máximo goleador histórico de Francia",
-    body:"Con su doblete vs Senegal (3–1), Mbappé superó el récord de goles de Francia en Mundiales y se convirtió en el máximo goleador histórico de la selección."
   }
 ]
 
