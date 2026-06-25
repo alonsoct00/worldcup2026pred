@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-25T18:11:01.717Z
+// Auto-synced: 2026-06-25T18:36:07.296Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-25T23:00:00.000Z"
+export const LAST_UPDATED = "2026-06-25T18:36:07.296Z"
 
 export const news: NewsItem[] = [
+  { id:"n46", date:"2026-06-25", tag:"resultado",
+    title:"Chequia 0–3 México",
+    body:"México suma 3 puntos con marcador 0–3."
+  },
   { id:"n42", date:"2026-06-25", tag:"sorpresa",
     title:"SORPRESA MUNDIAL: Sudáfrica elimina a Corea del Sur y clasifica al r32",
     body:"Bafana Bafana 1-0 con gol de Tau (67'). Corea del Sur, que llegó con 3 pts, queda ELIMINADA. Sudáfrica termina 2°A con 4 pts y será el rival de España en el r32. La mayor sorpresa del Grupo A y una de las más grandes del torneo."
@@ -74,6 +78,18 @@ export const news: NewsItem[] = [
   { id:"n41", date:"2026-06-25", tag:"estadistica",
     title:"México perfecto: 9 pts, 6-0 GF-GA, mejor equipo de los 12 grupos",
     body:"Goleada 3-0 a Chequia (Quiñones x2, Jiménez). México es el único equipo con 9 pts en el torneo. La Selección llega al r32 como el equipo más en forma de la fase de grupos fuera de Argentina."
+  },
+  { id:"n43", date:"2026-06-24", tag:"resultado",
+    title:"Colombia 1–0 RD Congo",
+    body:"Colombia suma 3 puntos con marcador 1–0."
+  },
+  { id:"n44", date:"2026-06-24", tag:"resultado",
+    title:"Bosnia 3–1 Qatar",
+    body:"Bosnia suma 3 puntos con marcador 3–1."
+  },
+  { id:"n45", date:"2026-06-24", tag:"resultado",
+    title:"Marruecos 4–2 Haití",
+    body:"Marruecos suma 3 puntos con marcador 4–2."
   },
   { id:"n40", date:"2026-06-24", tag:"resultado",
     title:"Grupo C cerrado: Brasil 1° y Marruecos 2° — Escocia eliminada",
