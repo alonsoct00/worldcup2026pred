@@ -343,9 +343,9 @@ function KnockoutView({ round }: { round: string }) {
         {/* Podium */}
         <div className="grid grid-cols-3 gap-3 mt-6">
           {[
-            { pos: '🥈', team: 'Marruecos', flag: '🇲🇦', note: 'Solidez vs Brasil (1-1)' },
-            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico' },
-            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: 'Messi en modo campeón' },
+            { pos: '🥈', team: 'Marruecos', flag: '🇲🇦', note: '2°C ✅ — 7 pts, Ziyech imbatible' },
+            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico — 1°I pendiente' },
+            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: '9 pts totales, Messi campeón' },
           ].map(p => (
             <div key={p.team} className={`rounded-xl p-3 text-center border ${
               p.pos === '🏆' ? 'bg-gold/10 border-gold/30' : 'bg-pitch-mid border-white/5'
@@ -567,7 +567,7 @@ export default function Home() {
           </span>
           <span className="flex items-center gap-1 text-red-400">
             <AlertCircle size={10} />
-            España y Portugal en crisis
+            Sudáfrica ⚡ elimina a Corea del Sur
           </span>
         </div>
       </header>
