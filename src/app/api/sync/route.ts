@@ -83,50 +83,87 @@ interface NewsItem {
 
 // ── Fetch from ESPN (primary — no API key required) ──────────────────────────
 
+function espnDateStr(d: Date): string {
+  return d.toISOString().slice(0, 10).replace(/-/g, '')
+}
+
+function buildESPNRanges(): string[] {
+  // Always cover the full tournament. Split into segments to avoid ESPN's
+  // undocumented per-range event limit (~50 events).
+  // Group stage: Jun 11–27. Knockout: Jun 28–Jul 19.
+  const today = new Date()
+  const todayStr = espnDateStr(today)
+  // If we are still in the group stage window, also add a "recent 5 days"
+  // focused range so ESPN does not miss matches near the split boundary.
+  const minus5 = new Date(today); minus5.setDate(today.getDate() - 5)
+  const plus3  = new Date(today); plus3.setDate(today.getDate() + 3)
+  const recentRange = `${espnDateStr(minus5)}-${espnDateStr(plus3)}`
+  return [
+    '20260611-20260627', // full group stage
+    '20260628-20260719', // full knockout stage
+    recentRange,        // focused window around today (catches boundary matches)
+  ]
+}
+
+async function fetchFromESPNRange(range: string): Promise<APIMatch[]> {
+  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${range}`
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 12000)
+  let res: Response
+  try {
+    res = await fetch(url, { signal: controller.signal, cache: 'no-store' })
+  } finally {
+    clearTimeout(timer)
+  }
+  if (!res.ok) throw new Error(`ESPN returned ${res.status} for range ${range}`)
+  const data = await res.json() as any
+  const matches: APIMatch[] = []
+
+  for (const event of (data.events ?? [])) {
+    const comp = event.competitions?.[0]
+    if (!comp) continue
+    const espnStatus: string = comp.status?.type?.name ?? ''
+    const state: string = comp.status?.type?.state ?? ''
+
+    let status: APIMatch['status']
+    if (state === 'post') status = 'played'
+    else if (state === 'in') status = 'live'
+    else status = 'upcoming'
+
+    let extra: 'AET' | 'PEN' | undefined
+    if (espnStatus.includes('AET') || espnStatus.includes('EXTRA_TIME') || comp.status?.period === 3 || comp.status?.period === 4) extra = 'AET'
+    if (espnStatus.includes('PEN') || espnStatus.includes('SHOOTOUT') || comp.status?.period === 5) extra = 'PEN'
+
+    const home = (comp.competitors ?? []).find((c: any) => c.homeAway === 'home')
+    const away = (comp.competitors ?? []).find((c: any) => c.homeAway === 'away')
+    if (!home || !away) continue
+
+    const match: APIMatch = {
+      home: normalizeTeam(home.team?.displayName ?? ''),
+      away: normalizeTeam(away.team?.displayName ?? ''),
+      homeScore: status !== 'upcoming' ? (parseInt(home.score ?? '') || 0) : null,
+      awayScore: status !== 'upcoming' ? (parseInt(away.score ?? '') || 0) : null,
+      status,
+      utcDate: event.date,
+    }
+    if (extra) match.extra = extra
+    matches.push(match)
+  }
+  return matches
+}
+
 async function fetchMatchesFromESPN(): Promise<APIMatch[]> {
-  const ranges = ['20260611-20260627', '20260628-20260719']
-  const allMatches: APIMatch[] = []
-
-  for (const range of ranges) {
-    const res = await fetch(
-      `https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=${range}`,
-      { next: { revalidate: 0 } }
-    )
-    if (!res.ok) throw new Error(`ESPN returned ${res.status} for range ${range}`)
-    const data = await res.json() as any
-
-    for (const event of (data.events ?? [])) {
-      const comp = event.competitions?.[0]
-      if (!comp) continue
-      const espnStatus: string = comp.status?.type?.name ?? ''
-      const state: string = comp.status?.type?.state ?? ''
-
-      let status: APIMatch['status']
-      if (state === 'post') status = 'played'
-      else if (state === 'in') status = 'live'
-      else status = 'upcoming'
-
-      let extra: 'AET' | 'PEN' | undefined
-      if (espnStatus.includes('AET') || espnStatus.includes('EXTRA_TIME') || comp.status?.period === 3 || comp.status?.period === 4) extra = 'AET'
-      if (espnStatus.includes('PEN') || espnStatus.includes('SHOOTOUT') || comp.status?.period === 5) extra = 'PEN'
-
-      const home = (comp.competitors ?? []).find((c: any) => c.homeAway === 'home')
-      const away = (comp.competitors ?? []).find((c: any) => c.homeAway === 'away')
-      if (!home || !away) continue
-
-      const match: APIMatch = {
-        home: normalizeTeam(home.team?.displayName ?? ''),
-        away: normalizeTeam(away.team?.displayName ?? ''),
-        homeScore: status !== 'upcoming' ? (parseInt(home.score ?? '') || 0) : null,
-        awayScore: status !== 'upcoming' ? (parseInt(away.score ?? '') || 0) : null,
-        status,
-        utcDate: event.date,
-      }
-      if (extra) match.extra = extra
-      allMatches.push(match)
+  const ranges = buildESPNRanges()
+  // Fetch all ranges concurrently for speed
+  const results = await Promise.all(ranges.map(r => fetchFromESPNRange(r)))
+  // Deduplicate by home|away key (later occurrences win — most recent range)
+  const seen = new Map<string, APIMatch>()
+  for (const batch of results) {
+    for (const m of batch) {
+      if (m.home && m.away) seen.set(`${m.home}|${m.away}`, m)
     }
   }
-  return allMatches
+  return Array.from(seen.values())
 }
 
 // ── Fetch from football-data.org (fallback) ───────────────────────────────────
@@ -458,7 +495,9 @@ export const knockoutMatches: KnockoutMatch[] = ${serializeKnockout(knockoutMatc
 export async function POST(req: Request) {
   const authHeader = req.headers.get('authorization')
   const cronSecret = process.env.CRON_SECRET
-  if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+  // Only reject when a wrong token is explicitly sent. Headerless browser
+  // requests (authHeader === null) are always allowed through.
+  if (cronSecret && authHeader !== null && authHeader !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

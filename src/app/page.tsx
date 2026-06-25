@@ -497,15 +497,15 @@ export default function Home() {
   const totalGroupMatches = groups.flatMap(g => g.matches).length
   const hasAnyLive = groups.some(g => g.matches.some(m => m.status === 'live'))
 
-  // Auto-poll every 5 min when there are live matches
+  // Auto-poll: every 60 s when live, every 2 min otherwise
   useEffect(() => {
-    if (!hasAnyLive) return
+    const interval = hasAnyLive ? 60 * 1000 : 2 * 60 * 1000
     const id = setInterval(() => {
       fetch('/api/sync', { method: 'POST' })
         .then(r => r.json())
         .then(d => { if (d.committed) window.location.reload() })
         .catch(() => {})
-    }, 5 * 60 * 1000)
+    }, interval)
     return () => clearInterval(id)
   }, [hasAnyLive])
 
