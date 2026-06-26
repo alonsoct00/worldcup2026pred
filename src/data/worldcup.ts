@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-25T23:16:34.761Z
+// Auto-synced: 2026-06-26T09:35:32.427Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-25T23:16:34.761Z"
+export const LAST_UPDATED = "2026-06-26T09:35:32.427Z"
 
 export const news: NewsItem[] = [
   { id:"n46", date:"2026-06-25", tag:"resultado",
@@ -221,10 +221,10 @@ export const groups: Group[] = [
   {
     id: "D", label: "Grupo D",
     teams: [
-      { name: "USA", flag: "🇺🇸", played: 2, w: 2, d: 0, l: 0, gf: 6, ga: 1, pts: 6 },
-      { name: "Australia", flag: "🇦🇺", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 2, pts: 3 },
-      { name: "Türkiye", flag: "🇹🇷", played: 2, w: 0, d: 0, l: 2, gf: 0, ga: 3, pts: 0 },
-      { name: "Paraguay", flag: "🇵🇾", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 4, pts: 3 },
+      { name: "USA", flag: "🇺🇸", played: 3, w: 2, d: 0, l: 1, gf: 8, ga: 4, pts: 6 },
+      { name: "Australia", flag: "🇦🇺", played: 3, w: 1, d: 1, l: 1, gf: 2, ga: 2, pts: 4 },
+      { name: "Türkiye", flag: "🇹🇷", played: 3, w: 1, d: 0, l: 2, gf: 3, ga: 5, pts: 3 },
+      { name: "Paraguay", flag: "🇵🇾", played: 3, w: 1, d: 1, l: 1, gf: 2, ga: 4, pts: 4 },
     ],
     projected: ["🇺🇸 USA (1°)","🇦🇺 Australia (2°) ⚡sorpresa"],
     matches: [
@@ -232,8 +232,8 @@ export const groups: Group[] = [
       { id:"D2", home:"Australia", away:"Türkiye", homeFlag:"🇦🇺", awayFlag:"🇹🇷", homeScore:2, awayScore:0, homePrediction:0, awayPrediction:2, date:"13 jun", venue:"BC Place, Vancouver", status:"played", result:"home", notes:"Irankunda (27') + Metcalfe (75'). Gran sorpresa del torneo." },
       { id:"D3", home:"USA", away:"Australia", homeFlag:"🇺🇸", awayFlag:"🇦🇺", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"19 jun", venue:"Lumen Field, Seattle", status:"played", result:"home", notes:"Pulisic en duda (pantorrilla)." },
       { id:"D4", home:"Türkiye", away:"Paraguay", homeFlag:"🇹🇷", awayFlag:"🇵🇾", homeScore:0, awayScore:1, homePrediction:1, awayPrediction:1, date:"19 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"away" },
-      { id:"D5", home:"Türkiye", away:"USA", homeFlag:"🇹🇷", awayFlag:"🇺🇸", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"25 jun", venue:"SoFi Stadium, Los Ángeles", status:"upcoming", result:null },
-      { id:"D6", home:"Paraguay", away:"Australia", homeFlag:"🇵🇾", awayFlag:"🇦🇺", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, date:"25 jun", venue:"Levi's Stadium, San Francisco", status:"upcoming", result:null },
+      { id:"D5", home:"Türkiye", away:"USA", homeFlag:"🇹🇷", awayFlag:"🇺🇸", homeScore:3, awayScore:2, homePrediction:0, awayPrediction:1, date:"25 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"home" },
+      { id:"D6", home:"Paraguay", away:"Australia", homeFlag:"🇵🇾", awayFlag:"🇦🇺", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:1, date:"25 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"draw" },
     ]
   },
   {
