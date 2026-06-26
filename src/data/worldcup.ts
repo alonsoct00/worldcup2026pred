@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-26T09:35:32.427Z
+// Auto-synced: 2026-06-26T21:25:33.544Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,37 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-26T09:35:32.427Z"
+export const LAST_UPDATED = "2026-06-26T21:25:33.544Z"
 
 export const news: NewsItem[] = [
+  { id:"n51", date:"2026-06-26", tag:"resultado",
+    title:"Paraguay 0–0 Australia: empate",
+    body:"El partido terminó igualado 0–0. Ambos equipos suman 1 punto."
+  },
+  { id:"n52", date:"2026-06-26", tag:"resultado",
+    title:"Türkiye 3–2 USA",
+    body:"Türkiye suma 3 puntos con marcador 3–2."
+  },
+  { id:"n53", date:"2026-06-26", tag:"sorpresa",
+    title:"Senegal 5–0 Iraq",
+    body:"Senegal suma 3 puntos con marcador 5–0."
+  },
+  { id:"n47", date:"2026-06-25", tag:"resultado",
+    title:"Curazao 0–2 Costa de Marfil",
+    body:"Costa de Marfil suma 3 puntos con marcador 0–2."
+  },
+  { id:"n48", date:"2026-06-25", tag:"resultado",
+    title:"Ecuador 2–1 Alemania",
+    body:"Ecuador suma 3 puntos con marcador 2–1."
+  },
+  { id:"n49", date:"2026-06-25", tag:"resultado",
+    title:"Japón 1–1 Suecia: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
+  { id:"n50", date:"2026-06-25", tag:"resultado",
+    title:"Túnez 1–3 Países Bajos",
+    body:"Países Bajos suma 3 puntos con marcador 1–3."
+  },
   { id:"n46", date:"2026-06-25", tag:"resultado",
     title:"Chequia 0–3 México",
     body:"México suma 3 puntos con marcador 0–3."
@@ -138,26 +166,6 @@ export const news: NewsItem[] = [
   { id:"n27", date:"2026-06-21", tag:"resultado",
     title:"Egipto 3–1 Nueva Zelanda: Salah comanda el Grupo G",
     body:"Mohamed Salah 1G+1A. Egipto con 4 pts lidera el Grupo G sin haber perdido. El boleto del 2° se decide en J3: Bélgica vs NZ e Irán vs Egipto."
-  },
-  { id:"n26", date:"2026-06-20", tag:"resultado",
-    title:"Türkiye 0–1 Paraguay: Türkiye eliminada",
-    body:"Paraguay suma 3 puntos. Türkiye queda con 0 pts y eliminada del Grupo D."
-  },
-  { id:"n23", date:"2026-06-19", tag:"resultado",
-    title:"México 1–0 Corea del Sur: El Tri asegura el liderato del Grupo A",
-    body:"México suma 3 puntos con marcador 1–0."
-  },
-  { id:"n22", date:"2026-06-18", tag:"sorpresa",
-    title:"Canadá 6–0 Qatar: goleada histórica",
-    body:"Canadá marca 6 goles a Qatar. La mayor goleada de los grupos del Mundial 2026."
-  },
-  { id:"n19", date:"2026-06-18", tag:"estadistica",
-    title:"J1 completa: los favoritos confirmados y las crisis reveladas",
-    body:"Mejor debut: Alemania 7-1, Argentina 3-0, Inglaterra 4-2, Noruega 5-1, USA 4-1. En crisis: España 0-0 vs Cabo Verde, Portugal 1-1 vs RD Congo, Brasil 1-1 vs Marruecos. El torneo ya tiene ganadores y sorpresas claras."
-  },
-  { id:"n18", date:"2026-06-18", tag:"sorpresa",
-    title:"Colombia 3–1 a Uzbekistán: Los Cafeteros lideran el Grupo K sobre Portugal",
-    body:"Luis Díaz y Córdoba brillaron. Colombia aplastó con juego vistoso y ocupa el 1° del Grupo K mientras Portugal solo empató 1-1 vs RD Congo. Los Cafeteros son la revelación sudamericana del torneo junto a Argentina."
   }
 ]
 
@@ -311,10 +319,10 @@ export const groups: Group[] = [
   {
     id: "I", label: "Grupo I",
     teams: [
-      { name: "Francia", flag: "🇫🇷", played: 2, w: 2, d: 0, l: 0, gf: 6, ga: 1, pts: 6 },
-      { name: "Noruega", flag: "🇳🇴", played: 2, w: 2, d: 0, l: 0, gf: 7, ga: 3, pts: 6 },
-      { name: "Senegal", flag: "🇸🇳", played: 2, w: 0, d: 0, l: 2, gf: 3, ga: 6, pts: 0 },
-      { name: "Iraq", flag: "🇮🇶", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 7, pts: 0 },
+      { name: "Francia", flag: "🇫🇷", played: 3, w: 3, d: 0, l: 0, gf: 10, ga: 2, pts: 9 },
+      { name: "Noruega", flag: "🇳🇴", played: 3, w: 2, d: 0, l: 1, gf: 8, ga: 7, pts: 6 },
+      { name: "Senegal", flag: "🇸🇳", played: 3, w: 1, d: 0, l: 2, gf: 8, ga: 6, pts: 3 },
+      { name: "Iraq", flag: "🇮🇶", played: 3, w: 0, d: 0, l: 3, gf: 1, ga: 12, pts: 0 },
     ],
     projected: ["🇫🇷 Francia (1°)","🇳🇴 Noruega (2°)"],
     matches: [
@@ -322,8 +330,8 @@ export const groups: Group[] = [
       { id:"I2", home:"Iraq", away:"Noruega", homeFlag:"🇮🇶", awayFlag:"🇳🇴", homeScore:1, awayScore:4, homePrediction:0, awayPrediction:2, date:"16 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away", notes:"Haaland doblete en 1ª parte. Noruega goleó en su regreso al Mundial." },
       { id:"I3", home:"Francia", away:"Iraq", homeFlag:"🇫🇷", awayFlag:"🇮🇶", homeScore:3, awayScore:0, homePrediction:3, awayPrediction:0, date:"22 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home" },
       { id:"I4", home:"Noruega", away:"Senegal", homeFlag:"🇳🇴", awayFlag:"🇸🇳", homeScore:3, awayScore:2, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"MetLife Stadium, NJ", status:"played", result:"home" },
-      { id:"I5", home:"Noruega", away:"Francia", homeFlag:"🇳🇴", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Gillette Stadium, Boston", status:"upcoming", result:null },
-      { id:"I6", home:"Senegal", away:"Iraq", homeFlag:"🇸🇳", awayFlag:"🇮🇶", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, date:"26 jun", venue:"BMO Field, Toronto", status:"upcoming", result:null },
+      { id:"I5", home:"Noruega", away:"Francia", homeFlag:"🇳🇴", awayFlag:"🇫🇷", homeScore:1, awayScore:4, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Gillette Stadium, Boston", status:"played", result:"away" },
+      { id:"I6", home:"Senegal", away:"Iraq", homeFlag:"🇸🇳", awayFlag:"🇮🇶", homeScore:5, awayScore:0, homePrediction:2, awayPrediction:0, date:"26 jun", venue:"BMO Field, Toronto", status:"played", result:"home" },
     ]
   },
   {
