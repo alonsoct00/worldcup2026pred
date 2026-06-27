@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-27T08:41:51.975Z
+// Auto-synced: 2026-06-27T15:51:27.265Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,21 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-27T08:41:51.975Z"
+export const LAST_UPDATED = "2026-06-27T15:51:27.265Z"
 
 export const news: NewsItem[] = [
+  { id:"n54", date:"2026-06-27", tag:"resultado",
+    title:"Cabo Verde 0–0 Arabia Saudita: empate",
+    body:"El partido terminó igualado 0–0. Ambos equipos suman 1 punto."
+  },
+  { id:"n55", date:"2026-06-27", tag:"resultado",
+    title:"Egipto 1–1 Irán: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
+  { id:"n56", date:"2026-06-27", tag:"sorpresa",
+    title:"Nueva Zelanda 1–5 Bélgica",
+    body:"Bélgica suma 3 puntos con marcador 1–5."
+  },
   { id:"n51", date:"2026-06-26", tag:"resultado",
     title:"Paraguay 0–0 Australia: empate",
     body:"El partido terminó igualado 0–0. Ambos equipos suman 1 punto."
@@ -154,18 +166,6 @@ export const news: NewsItem[] = [
   { id:"n30", date:"2026-06-21", tag:"sorpresa",
     title:"España 4–0 Arabia Saudita: La Furia vuelve con venganza",
     body:"Morata x2, Yamal y Pedri. España borró el mal sabor del 0-0 vs Cabo Verde con una goleada demoledora. 4 pts, GD +4, liderato del Grupo H. La Roja sigue viva en su camino al r32."
-  },
-  { id:"n29", date:"2026-06-21", tag:"sorpresa",
-    title:"Uruguay 2–2 Cabo Verde: La Celeste al borde, necesita vencer a España",
-    body:"Cabo Verde volvió a empatar a los favoritos. Uruguay tiene 2 puntos en 2 juegos y necesita vencer a España en J3 para asegurar el pase. Sin victoria en fase de grupos, Uruguay roza la eliminación."
-  },
-  { id:"n28", date:"2026-06-21", tag:"sorpresa",
-    title:"Bélgica 0–0 Irán: 180 minutos sin marcar, De Bruyne impotente",
-    body:"Bélgica suma su segundo partido sin gol (1-1 y 0-0). De Bruyne jugó sin espacios. Bélgica e Irán, con 2 pts cada uno, lo juegan todo en J3. La 'Generación Dorada' puede quedar fuera."
-  },
-  { id:"n27", date:"2026-06-21", tag:"resultado",
-    title:"Egipto 3–1 Nueva Zelanda: Salah comanda el Grupo G",
-    body:"Mohamed Salah 1G+1A. Egipto con 4 pts lidera el Grupo G sin haber perdido. El boleto del 2° se decide en J3: Bélgica vs NZ e Irán vs Egipto."
   }
 ]
 
