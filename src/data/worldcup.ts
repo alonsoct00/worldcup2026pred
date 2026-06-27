@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-27T15:51:27.265Z
+// Auto-synced: 2026-06-27T19:39:35.882Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-27T15:51:27.265Z"
+export const LAST_UPDATED = "2026-06-27T19:39:35.882Z"
 
 export const news: NewsItem[] = [
+  { id:"n57", date:"2026-06-27", tag:"resultado",
+    title:"Uruguay 0–1 España",
+    body:"España suma 3 puntos con marcador 0–1."
+  },
   { id:"n54", date:"2026-06-27", tag:"resultado",
     title:"Cabo Verde 0–0 Arabia Saudita: empate",
     body:"El partido terminó igualado 0–0. Ambos equipos suman 1 punto."
@@ -162,10 +166,6 @@ export const news: NewsItem[] = [
   { id:"n31", date:"2026-06-21", tag:"estadistica",
     title:"Argentina clasifica en 2 juegos: 6 pts, 5 goles a favor, 0 en contra",
     body:"Victoria 2-0 vs Austria. Argentina es el primer equipo en clasificar del torneo. Messi + Di María + Álvarez indeteniables. La mejor defensa entre los 12 grupos. Con J3 vs Jordania de descanso, llegan frescos al r32."
-  },
-  { id:"n30", date:"2026-06-21", tag:"sorpresa",
-    title:"España 4–0 Arabia Saudita: La Furia vuelve con venganza",
-    body:"Morata x2, Yamal y Pedri. España borró el mal sabor del 0-0 vs Cabo Verde con una goleada demoledora. 4 pts, GD +4, liderato del Grupo H. La Roja sigue viva en su camino al r32."
   }
 ]
 
