@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-27T19:39:35.882Z
+// Auto-synced: 2026-06-27T23:00:20.039Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-27T19:39:35.882Z"
+export const LAST_UPDATED = "2026-06-27T23:00:20.039Z"
 
 export const news: NewsItem[] = [
   { id:"n57", date:"2026-06-27", tag:"resultado",
@@ -373,10 +373,10 @@ export const groups: Group[] = [
   {
     id: "L", label: "Grupo L",
     teams: [
-      { name: "Inglaterra", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 2, pts: 4 },
-      { name: "Croacia", flag: "🇭🇷", played: 2, w: 1, d: 0, l: 1, gf: 3, ga: 4, pts: 3 },
-      { name: "Ghana", flag: "🇬🇭", played: 2, w: 1, d: 1, l: 0, gf: 1, ga: 0, pts: 4 },
-      { name: "Panamá", flag: "🇵🇦", played: 2, w: 0, d: 0, l: 2, gf: 0, ga: 2, pts: 0 },
+      { name: "Inglaterra", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", played: 3, w: 2, d: 1, l: 0, gf: 6, ga: 2, pts: 7 },
+      { name: "Croacia", flag: "🇭🇷", played: 3, w: 2, d: 0, l: 1, gf: 5, ga: 5, pts: 6 },
+      { name: "Ghana", flag: "🇬🇭", played: 3, w: 1, d: 1, l: 1, gf: 2, ga: 2, pts: 4 },
+      { name: "Panamá", flag: "🇵🇦", played: 3, w: 0, d: 0, l: 3, gf: 0, ga: 4, pts: 0 },
     ],
     projected: ["🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra (1°)","🇬🇭 Ghana (2°) ⚡","🇭🇷 Croacia (3°)* ⚠️"],
     matches: [
@@ -384,8 +384,8 @@ export const groups: Group[] = [
       { id:"L2", home:"Ghana", away:"Panamá", homeFlag:"🇬🇭", awayFlag:"🇵🇦", homeScore:1, awayScore:0, homePrediction:1, awayPrediction:1, date:"17 jun", venue:"BMO Field, Toronto", status:"played", result:"home" },
       { id:"L3", home:"Inglaterra", away:"Ghana", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇬🇭", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"Gillette Stadium, Boston", status:"played", result:"draw" },
       { id:"L4", home:"Panamá", away:"Croacia", homeFlag:"🇵🇦", awayFlag:"🇭🇷", homeScore:0, awayScore:1, homePrediction:0, awayPrediction:2, date:"23 jun", venue:"BMO Field, Toronto", status:"played", result:"away" },
-      { id:"L5", home:"Panamá", away:"Inglaterra", homeFlag:"🇵🇦", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:4, date:"27 jun", venue:"MetLife Stadium, NJ", status:"upcoming", result:null },
-      { id:"L6", home:"Croacia", away:"Ghana", homeFlag:"🇭🇷", awayFlag:"🇬🇭", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Lincoln Financial, Philadelphia", status:"upcoming", result:null },
+      { id:"L5", home:"Panamá", away:"Inglaterra", homeFlag:"🇵🇦", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:0, awayScore:2, homePrediction:0, awayPrediction:4, date:"27 jun", venue:"MetLife Stadium, NJ", status:"played", result:"away" },
+      { id:"L6", home:"Croacia", away:"Ghana", homeFlag:"🇭🇷", awayFlag:"🇬🇭", homeScore:2, awayScore:1, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Lincoln Financial, Philadelphia", status:"played", result:"home" },
     ]
   }
 ]
