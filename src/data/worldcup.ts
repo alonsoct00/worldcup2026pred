@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-26T23:03:46.755Z
+// Auto-synced: 2026-06-27T08:41:51.975Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-26T23:03:46.755Z"
+export const LAST_UPDATED = "2026-06-27T08:41:51.975Z"
 
 export const news: NewsItem[] = [
   { id:"n51", date:"2026-06-26", tag:"resultado",
@@ -283,10 +283,10 @@ export const groups: Group[] = [
   {
     id: "G", label: "Grupo G",
     teams: [
-      { name: "Bélgica", flag: "🇧🇪", played: 2, w: 0, d: 2, l: 0, gf: 1, ga: 1, pts: 2 },
-      { name: "Egipto", flag: "🇪🇬", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 2, pts: 4 },
-      { name: "Irán", flag: "🇮🇷", played: 2, w: 0, d: 2, l: 0, gf: 2, ga: 2, pts: 2 },
-      { name: "Nueva Zelanda", flag: "🇳🇿", played: 2, w: 0, d: 1, l: 1, gf: 3, ga: 5, pts: 1 },
+      { name: "Bélgica", flag: "🇧🇪", played: 3, w: 1, d: 2, l: 0, gf: 6, ga: 2, pts: 5 },
+      { name: "Egipto", flag: "🇪🇬", played: 3, w: 1, d: 2, l: 0, gf: 5, ga: 3, pts: 5 },
+      { name: "Irán", flag: "🇮🇷", played: 3, w: 0, d: 3, l: 0, gf: 3, ga: 3, pts: 3 },
+      { name: "Nueva Zelanda", flag: "🇳🇿", played: 3, w: 0, d: 1, l: 2, gf: 4, ga: 10, pts: 1 },
     ],
     projected: ["🇪🇬 Egipto (1°) ⚡","🇧🇪 Bélgica (2°) ⚠️","🇮🇷 Irán (3°)*"],
     matches: [
@@ -294,17 +294,17 @@ export const groups: Group[] = [
       { id:"G2", home:"Irán", away:"Nueva Zelanda", homeFlag:"🇮🇷", awayFlag:"🇳🇿", homeScore:2, awayScore:2, homePrediction:1, awayPrediction:0, date:"15 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw", notes:"Rezaeian: gol + asistencia, 1er iraní con G+A en Mundiales. Just: 2 goles NZ." },
       { id:"G3", home:"Bélgica", away:"Irán", homeFlag:"🇧🇪", awayFlag:"🇮🇷", homeScore:0, awayScore:0, homePrediction:2, awayPrediction:1, date:"21 jun", venue:"SoFi Stadium, Los Ángeles", status:"played", result:"draw", notes:"180 min sin gol para Bélgica. De Bruyne impotente. 'Generación Dorada' al borde." },
       { id:"G4", home:"Nueva Zelanda", away:"Egipto", homeFlag:"🇳🇿", awayFlag:"🇪🇬", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:1, date:"21 jun", venue:"BC Place, Vancouver", status:"played", result:"away", notes:"Salah 1G+1A. Egipto lidera el Grupo G con 4 pts." },
-      { id:"G5", home:"Egipto", away:"Irán", homeFlag:"🇪🇬", awayFlag:"🇮🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"26 jun", venue:"Lumen Field, Seattle", status:"upcoming", result:null },
-      { id:"G6", home:"Nueva Zelanda", away:"Bélgica", homeFlag:"🇳🇿", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"26 jun", venue:"BC Place, Vancouver", status:"upcoming", result:null },
+      { id:"G5", home:"Egipto", away:"Irán", homeFlag:"🇪🇬", awayFlag:"🇮🇷", homeScore:1, awayScore:1, homePrediction:1, awayPrediction:1, date:"26 jun", venue:"Lumen Field, Seattle", status:"played", result:"draw" },
+      { id:"G6", home:"Nueva Zelanda", away:"Bélgica", homeFlag:"🇳🇿", awayFlag:"🇧🇪", homeScore:1, awayScore:5, homePrediction:0, awayPrediction:3, date:"26 jun", venue:"BC Place, Vancouver", status:"played", result:"away" },
     ]
   },
   {
     id: "H", label: "Grupo H 🔥",
     teams: [
-      { name: "España", flag: "🇪🇸", played: 2, w: 1, d: 1, l: 0, gf: 4, ga: 0, pts: 4 },
-      { name: "Cabo Verde", flag: "🇨🇻", played: 2, w: 0, d: 2, l: 0, gf: 2, ga: 2, pts: 2 },
-      { name: "Arabia Saudita", flag: "🇸🇦", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 5, pts: 1 },
-      { name: "Uruguay", flag: "🇺🇾", played: 2, w: 0, d: 2, l: 0, gf: 3, ga: 3, pts: 2 },
+      { name: "España", flag: "🇪🇸", played: 3, w: 2, d: 1, l: 0, gf: 5, ga: 0, pts: 7 },
+      { name: "Cabo Verde", flag: "🇨🇻", played: 3, w: 0, d: 3, l: 0, gf: 2, ga: 2, pts: 3 },
+      { name: "Arabia Saudita", flag: "🇸🇦", played: 3, w: 0, d: 2, l: 1, gf: 1, ga: 5, pts: 2 },
+      { name: "Uruguay", flag: "🇺🇾", played: 3, w: 0, d: 2, l: 1, gf: 3, ga: 4, pts: 2 },
     ],
     projected: ["🇪🇸 España (1°) ✅","🇺🇾 Uruguay (2°) ⚠️","🇨🇻 Cabo Verde (3°)*"],
     matches: [
@@ -312,8 +312,8 @@ export const groups: Group[] = [
       { id:"H2", home:"Arabia Saudita", away:"Uruguay", homeFlag:"🇸🇦", awayFlag:"🇺🇾", homeScore:1, awayScore:1, homePrediction:0, awayPrediction:2, date:"15 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw", notes:"Olivera (Uruguay) 106 toques: récord uruguayo en Mundiales." },
       { id:"H3", home:"España", away:"Arabia Saudita", homeFlag:"🇪🇸", awayFlag:"🇸🇦", homeScore:4, awayScore:0, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"home", notes:"Morata x2, Yamal, Pedri. La Furia regresa con venganza. Borran el 0-0 vs Cabo Verde." },
       { id:"H4", home:"Uruguay", away:"Cabo Verde", homeFlag:"🇺🇾", awayFlag:"🇨🇻", homeScore:2, awayScore:2, homePrediction:2, awayPrediction:0, date:"21 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw", notes:"Segundo empate de Uruguay. 2 pts en 2 juegos — NECESITA ganar J3 vs España." },
-      { id:"H5", home:"Cabo Verde", away:"Arabia Saudita", homeFlag:"🇨🇻", awayFlag:"🇸🇦", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:1, date:"26 jun", venue:"NRG Stadium, Houston", status:"upcoming", result:null },
-      { id:"H6", home:"Uruguay", away:"España", homeFlag:"🇺🇾", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Estadio Akron, Guadalajara", status:"upcoming", result:null },
+      { id:"H5", home:"Cabo Verde", away:"Arabia Saudita", homeFlag:"🇨🇻", awayFlag:"🇸🇦", homeScore:0, awayScore:0, homePrediction:0, awayPrediction:1, date:"26 jun", venue:"NRG Stadium, Houston", status:"played", result:"draw" },
+      { id:"H6", home:"Uruguay", away:"España", homeFlag:"🇺🇾", awayFlag:"🇪🇸", homeScore:0, awayScore:1, homePrediction:1, awayPrediction:2, date:"26 jun", venue:"Estadio Akron, Guadalajara", status:"played", result:"away" },
     ]
   },
   {
