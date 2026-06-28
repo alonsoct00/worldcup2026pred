@@ -343,9 +343,9 @@ function KnockoutView({ round }: { round: string }) {
         {/* Podium */}
         <div className="grid grid-cols-3 gap-3 mt-6">
           {[
-            { pos: '🥈', team: 'Marruecos', flag: '🇲🇦', note: '2°C ✅ — 7 pts, Ziyech imbatible' },
-            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico — 1°I pendiente' },
-            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: '9 pts totales, Messi campeón' },
+            { pos: '🥈', team: 'España', flag: '🇪🇸', note: '1°H ✅ — 7 pts, Yamal imparable' },
+            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico — 1°I, 10 GF' },
+            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: '9 pts, Messi despide con bronce' },
           ].map(p => (
             <div key={p.team} className={`rounded-xl p-3 text-center border ${
               p.pos === '🏆' ? 'bg-gold/10 border-gold/30' : 'bg-pitch-mid border-white/5'
@@ -559,7 +559,7 @@ export default function Home() {
           </span>
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />
-            Marruecos — 🥈
+            España — 🥈
           </span>
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
@@ -567,7 +567,7 @@ export default function Home() {
           </span>
           <span className="flex items-center gap-1 text-red-400">
             <AlertCircle size={10} />
-            Sudáfrica ⚡ elimina a Corea del Sur
+            Canadá 1-0 Sudáfrica · 16vos iniciados
           </span>
         </div>
       </header>
