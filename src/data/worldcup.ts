@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-27T23:00:20.039Z
+// Auto-synced: 2026-06-28T09:17:07.595Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-27T23:00:20.039Z"
+export const LAST_UPDATED = "2026-06-28T09:17:07.595Z"
 
 export const news: NewsItem[] = [
   { id:"n57", date:"2026-06-27", tag:"resultado",
@@ -337,10 +337,10 @@ export const groups: Group[] = [
   {
     id: "J", label: "Grupo J",
     teams: [
-      { name: "Argentina", flag: "🇦🇷", played: 2, w: 2, d: 0, l: 0, gf: 5, ga: 0, pts: 6 },
-      { name: "Austria", flag: "🇦🇹", played: 2, w: 1, d: 0, l: 1, gf: 3, ga: 3, pts: 3 },
-      { name: "Argelia", flag: "🇩🇿", played: 2, w: 1, d: 0, l: 1, gf: 2, ga: 4, pts: 3 },
-      { name: "Jordania", flag: "🇯🇴", played: 2, w: 0, d: 0, l: 2, gf: 2, ga: 5, pts: 0 },
+      { name: "Argentina", flag: "🇦🇷", played: 3, w: 3, d: 0, l: 0, gf: 8, ga: 1, pts: 9 },
+      { name: "Austria", flag: "🇦🇹", played: 3, w: 1, d: 1, l: 1, gf: 6, ga: 6, pts: 4 },
+      { name: "Argelia", flag: "🇩🇿", played: 3, w: 1, d: 1, l: 1, gf: 5, ga: 7, pts: 4 },
+      { name: "Jordania", flag: "🇯🇴", played: 3, w: 0, d: 0, l: 3, gf: 3, ga: 8, pts: 0 },
     ],
     projected: ["🇦🇷 Argentina (1°)","🇦🇹 Austria (2°)"],
     matches: [
@@ -348,17 +348,17 @@ export const groups: Group[] = [
       { id:"J2", home:"Austria", away:"Jordania", homeFlag:"🇦🇹", awayFlag:"🇯🇴", homeScore:3, awayScore:1, homePrediction:2, awayPrediction:0, date:"16 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"home" },
       { id:"J3", home:"Argentina", away:"Austria", homeFlag:"🇦🇷", awayFlag:"🇦🇹", homeScore:2, awayScore:0, homePrediction:2, awayPrediction:0, date:"22 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"home", notes:"Argentina CLASIFICA. 6 pts, 5 GF, 0 GA. 1er equipo en asegurar el pase al torneo." },
       { id:"J4", home:"Jordania", away:"Argelia", homeFlag:"🇯🇴", awayFlag:"🇩🇿", homeScore:1, awayScore:2, homePrediction:1, awayPrediction:1, date:"22 jun", venue:"Levi's Stadium, San Francisco", status:"played", result:"away" },
-      { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"upcoming", result:null },
-      { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"upcoming", result:null },
+      { id:"J5", home:"Jordania", away:"Argentina", homeFlag:"🇯🇴", awayFlag:"🇦🇷", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:3, date:"27 jun", venue:"AT&T Stadium, Dallas", status:"played", result:"away" },
+      { id:"J6", home:"Argelia", away:"Austria", homeFlag:"🇩🇿", awayFlag:"🇦🇹", homeScore:3, awayScore:3, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Arrowhead, Kansas City", status:"played", result:"draw" },
     ]
   },
   {
     id: "K", label: "Grupo K",
     teams: [
-      { name: "Portugal", flag: "🇵🇹", played: 2, w: 1, d: 1, l: 0, gf: 6, ga: 1, pts: 4 },
-      { name: "Colombia", flag: "🇨🇴", played: 2, w: 2, d: 0, l: 0, gf: 4, ga: 1, pts: 6 },
-      { name: "RD Congo", flag: "🇨🇩", played: 2, w: 0, d: 1, l: 1, gf: 1, ga: 2, pts: 1 },
-      { name: "Uzbekistán", flag: "🇺🇿", played: 2, w: 0, d: 0, l: 2, gf: 1, ga: 8, pts: 0 },
+      { name: "Portugal", flag: "🇵🇹", played: 3, w: 1, d: 2, l: 0, gf: 6, ga: 1, pts: 5 },
+      { name: "Colombia", flag: "🇨🇴", played: 3, w: 2, d: 1, l: 0, gf: 4, ga: 1, pts: 7 },
+      { name: "RD Congo", flag: "🇨🇩", played: 3, w: 1, d: 1, l: 1, gf: 4, ga: 3, pts: 4 },
+      { name: "Uzbekistán", flag: "🇺🇿", played: 3, w: 0, d: 0, l: 3, gf: 2, ga: 11, pts: 0 },
     ],
     projected: ["🇨🇴 Colombia (1°) ✅","🇵🇹 Portugal (2°) ✅"],
     matches: [
@@ -366,8 +366,8 @@ export const groups: Group[] = [
       { id:"K2", home:"Uzbekistán", away:"Colombia", homeFlag:"🇺🇿", awayFlag:"🇨🇴", homeScore:1, awayScore:3, homePrediction:0, awayPrediction:2, date:"17 jun", venue:"Estadio Azteca, CDMX", status:"played", result:"away" },
       { id:"K3", home:"Portugal", away:"Uzbekistán", homeFlag:"🇵🇹", awayFlag:"🇺🇿", homeScore:5, awayScore:0, homePrediction:2, awayPrediction:0, date:"23 jun", venue:"NRG Stadium, Houston", status:"played", result:"home" },
       { id:"K4", home:"Colombia", away:"RD Congo", homeFlag:"🇨🇴", awayFlag:"🇨🇩", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:1, date:"23 jun", venue:"Estadio BBVA, Guadalajara", status:"played", result:"home" },
-      { id:"K5", home:"Colombia", away:"Portugal", homeFlag:"🇨🇴", awayFlag:"🇵🇹", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Hard Rock Stadium, Miami", status:"upcoming", result:null },
-      { id:"K6", home:"RD Congo", away:"Uzbekistán", homeFlag:"🇨🇩", awayFlag:"🇺🇿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Mercedes-Benz, Atlanta", status:"upcoming", result:null },
+      { id:"K5", home:"Colombia", away:"Portugal", homeFlag:"🇨🇴", awayFlag:"🇵🇹", homeScore:0, awayScore:0, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Hard Rock Stadium, Miami", status:"played", result:"draw" },
+      { id:"K6", home:"RD Congo", away:"Uzbekistán", homeFlag:"🇨🇩", awayFlag:"🇺🇿", homeScore:3, awayScore:1, homePrediction:1, awayPrediction:1, date:"27 jun", venue:"Mercedes-Benz, Atlanta", status:"played", result:"home" },
     ]
   },
   {
