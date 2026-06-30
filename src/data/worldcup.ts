@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-06-30T09:47:12.871Z
+// Auto-synced: 2026-06-30T23:10:15.325Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-06-30T09:47:12.871Z"
+export const LAST_UPDATED = "2026-06-30T23:10:15.325Z"
 
 export const news: NewsItem[] = [
   { id:"n68", date:"2026-06-29", tag:"resultado",
@@ -397,8 +397,8 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-2", round:"r32", home:"Brasil", away:"Japón", homeFlag:"🇧🇷", awayFlag:"🇯🇵", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:0, winner:"Brasil", winnerFlag:"🇧🇷", status:"played", date:"29 jun", notes:"Brasil 1°C (7 pts, 5 GF, Vinícius Jr. + Rodrygo) vs Japón 2°F (5 pts, 6 GF, Kubo). Japón eliminó a Alemania en Qatar 2022 — otro upset posible, pero Brasil tiene demasiada profundidad." },
   { id:"r32-3", round:"r32", home:"Alemania", away:"Paraguay", homeFlag:"🇩🇪", awayFlag:"🇵🇾", homeScore:1, awayScore:1, homePrediction:2, awayPrediction:1, winner:"Alemania", winnerFlag:"🇩🇪", status:"played", date:"29 jun", notes:"Alemania 1°E (6 pts, GD +6) — SOBREVIVIÓ derrota 2-1 vs Ecuador en J3. Paraguay 3°D (4 pts) clasificó como mejor 3ro. Die Mannschaft debe corregir sus errores defensivos o caerá de nuevo.", extra:"PEN" },
   { id:"r32-4", round:"r32", home:"Países Bajos", away:"Marruecos", homeFlag:"🇳🇱", awayFlag:"🇲🇦", homeScore:1, awayScore:1, homePrediction:0, awayPrediction:1, winner:"Marruecos", winnerFlag:"🇲🇦", status:"played", extra:"PEN", date:"30 jun", notes:"⚡ PREDICCIÓN UPSET: Marruecos 1-0 PB (prórroga). Bounou infranqueable, Ziyech decisivo. PB 1°F (7 pts, 10 GF, favorito absoluto) — pero los Leones del Atlas son maestros de los upsets." },
-  { id:"r32-5", round:"r32", home:"C. de Marfil", away:"Noruega", homeFlag:"🇨🇮", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Noruega", winnerFlag:"🇳🇴", status:"upcoming", date:"30 jun", notes:"CdI 2°E (6 pts, GD +2, Haller + Pépé) vs Noruega 2°I (6 pts, Haaland x4). El duelo más parejo del r32 — Haaland es la diferencia." },
-  { id:"r32-6", round:"r32", home:"Francia", away:"Suecia", homeFlag:"🇫🇷", awayFlag:"🇸🇪", homeScore:null, awayScore:null, homePrediction:3, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", date:"30 jun", notes:"Francia IMPARABLE: 9 pts, 10 GF (Mbappé x4, Griezmann x2, Dembélé). Suecia 3°F (4 pts, Isak + Gyökeres). Mismatch total — Les Bleus en modo final desde el primer minuto." },
+  { id:"r32-5", round:"r32", home:"C. de Marfil", away:"Noruega", homeFlag:"🇨🇮", awayFlag:"🇳🇴", homeScore:1, awayScore:2, homePrediction:1, awayPrediction:2, winner:"Noruega", winnerFlag:"🇳🇴", status:"played", date:"30 jun", notes:"CdI 2°E (6 pts, GD +2, Haller + Pépé) vs Noruega 2°I (6 pts, Haaland x4). El duelo más parejo del r32 — Haaland es la diferencia." },
+  { id:"r32-6", round:"r32", home:"Francia", away:"Suecia", homeFlag:"🇫🇷", awayFlag:"🇸🇪", homeScore:3, awayScore:0, homePrediction:3, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"played", date:"30 jun", notes:"Francia IMPARABLE: 9 pts, 10 GF (Mbappé x4, Griezmann x2, Dembélé). Suecia 3°F (4 pts, Isak + Gyökeres). Mismatch total — Les Bleus en modo final desde el primer minuto." },
   { id:"r32-7", round:"r32", home:"México", away:"Ecuador", homeFlag:"🇲🇽", awayFlag:"🇪🇨", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"México", winnerFlag:"🇲🇽", status:"upcoming", date:"1 jul", notes:"¡EL DUELO CONTINENTAL! México 1°A (9 pts perfectos) vs Ecuador 3°E (4 pts) — SORPRESA del torneo que venció a Alemania 2-1. El Tri favorito en casa virtual, pero Ecuador llega con moral máxima. Quiñones vs Valencia." },
   { id:"r32-8", round:"r32", home:"Inglaterra", away:"RD Congo", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇨🇩", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Inglaterra", winnerFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", status:"upcoming", date:"1 jul", notes:"Inglaterra 1°L (7 pts, Bellingham dominante) vs RD Congo 3°K (4 pts, revelación africana). Los Leones avanzan sin complicaciones — la brecha de calidad es demasiado grande." },
   { id:"r32-9", round:"r32", home:"Bélgica", away:"Senegal", homeFlag:"🇧🇪", awayFlag:"🇸🇳", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Bélgica", winnerFlag:"🇧🇪", status:"upcoming", date:"1 jul", notes:"Bélgica 1°G (5 pts, GD +4, generación dorada) vs Senegal 3°I (3 pts, GD +2). De Bruyne y Lukaku en modo final — última oportunidad de la 'Generación Dorada' de Bélgica." },
