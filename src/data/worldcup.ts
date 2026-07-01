@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-01T19:10:07.858Z
+// Auto-synced: 2026-07-01T19:11:20.866Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,25 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-01T19:10:07.858Z"
+export const LAST_UPDATED = "2026-07-01T19:11:20.866Z"
 
 export const news: NewsItem[] = [
+  { id:"n72", date:"2026-07-01", tag:"resultado",
+    title:"Inglaterra 2–1 RD Congo",
+    body:"Inglaterra suma 3 puntos con marcador 2–1."
+  },
+  { id:"n69", date:"2026-06-30", tag:"resultado",
+    title:"Países Bajos 1–1 Marruecos: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
+  { id:"n70", date:"2026-06-30", tag:"resultado",
+    title:"Costa de Marfil 1–2 Noruega",
+    body:"Noruega suma 3 puntos con marcador 1–2."
+  },
+  { id:"n71", date:"2026-06-30", tag:"resultado",
+    title:"Francia 3–0 Suecia",
+    body:"Francia suma 3 puntos con marcador 3–0."
+  },
   { id:"n68", date:"2026-06-29", tag:"resultado",
     title:"Brasil 2–1 Japón",
     body:"Brasil suma 3 puntos con marcador 2–1."
@@ -150,22 +166,6 @@ export const news: NewsItem[] = [
   { id:"n48", date:"2026-06-25", tag:"resultado",
     title:"Paraguay 0–0 Australia: Grupo D cierra — USA 1° y Australia 2° van al r32",
     body:"Partido sin goles con clasificaciones ya definidas. USA 1°D (6 pts) y Australia 2°D (4 pts, GD 0 sobre Paraguay GD -2). Paraguay 3°D con 4 pts entra en carrera de mejores terceros."
-  },
-  { id:"n46", date:"2026-06-25", tag:"resultado",
-    title:"Chequia 0–3 México",
-    body:"México suma 3 puntos con marcador 0–3."
-  },
-  { id:"n42", date:"2026-06-25", tag:"sorpresa",
-    title:"SORPRESA MUNDIAL: Sudáfrica elimina a Corea del Sur y clasifica al r32",
-    body:"Bafana Bafana 1-0 con gol de Tau (67'). Corea del Sur, que llegó con 3 pts, queda ELIMINADA. Sudáfrica termina 2°A con 4 pts y será el rival de España en el r32. La mayor sorpresa del Grupo A y una de las más grandes del torneo."
-  },
-  { id:"n41", date:"2026-06-25", tag:"estadistica",
-    title:"México perfecto: 9 pts, 6-0 GF-GA, mejor equipo de los 12 grupos",
-    body:"Goleada 3-0 a Chequia (Quiñones x2, Jiménez). México es el único equipo con 9 pts en el torneo. La Selección llega al r32 como el equipo más en forma de la fase de grupos fuera de Argentina."
-  },
-  { id:"n43", date:"2026-06-24", tag:"resultado",
-    title:"Colombia 1–0 RD Congo",
-    body:"Colombia suma 3 puntos con marcador 1–0."
   }
 ]
 
