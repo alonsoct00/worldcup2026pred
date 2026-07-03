@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-03T09:25:30.720Z
+// Auto-synced: 2026-07-03T13:23:58.367Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,25 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-03T09:25:30.720Z"
+export const LAST_UPDATED = "2026-07-03T13:23:58.367Z"
 
 export const news: NewsItem[] = [
+  { id:"n76", date:"2026-07-03", tag:"resultado",
+    title:"Suiza 2–0 Argelia",
+    body:"Suiza suma 3 puntos con marcador 2–0."
+  },
+  { id:"n73", date:"2026-07-02", tag:"resultado",
+    title:"USA 2–0 Bosnia",
+    body:"USA suma 3 puntos con marcador 2–0."
+  },
+  { id:"n74", date:"2026-07-02", tag:"resultado",
+    title:"España 3–0 Austria",
+    body:"España suma 3 puntos con marcador 3–0."
+  },
+  { id:"n75", date:"2026-07-02", tag:"resultado",
+    title:"Portugal 2–1 Croacia",
+    body:"Portugal suma 3 puntos con marcador 2–1."
+  },
   { id:"n72", date:"2026-07-01", tag:"resultado",
     title:"Inglaterra 2–1 RD Congo",
     body:"Inglaterra suma 3 puntos con marcador 2–1."
@@ -150,22 +166,6 @@ export const news: NewsItem[] = [
   { id:"n52", date:"2026-06-26", tag:"sorpresa",
     title:"SORPRESA: Türkiye 3–2 USA en la despedida — pero USA llega al r32 como 1°D",
     body:"Türkiye, ya eliminada, goleó 3-2 a USA en el cierre del Grupo D. Los anfitriones encajaron su primera derrota del torneo pero igualmente avanzan como 1°D con 6 pts. Australia confirma el 2°D (4 pts). El resultado levantó dudas sobre la solidez defensiva de USMNT de cara al r32."
-  },
-  { id:"n51", date:"2026-06-26", tag:"estadistica",
-    title:"Francia 4–1 Noruega: Mbappé HISTÓRICO — Les Bleus terminan grupo con 9 pts y 10 GF",
-    body:"Francia destruyó a Noruega 4-1 (Mbappé x2, Griezmann, Dembélé) en el partido más esperado de J3. Francia 1°I con 9 pts y 10 goles — la mejor ofensiva del torneo junto a Argentina. Noruega 2°I con 6 pts (Haaland con 4 goles en el torneo) también avanza. El partido más entretenido de la fase de grupos."
-  },
-  { id:"n50", date:"2026-06-25", tag:"sorpresa",
-    title:"SORPRESA COLOSAL: Ecuador 2–1 Alemania — Die Mannschaft humillada en el cierre del Grupo E",
-    body:"Ecuador venció 2-1 a Alemania en J3 del Grupo E. Alemania sobrevive (1°E por GD: +6 vs +2 de CdI) pero fue humillada por el equipo que empató 0-0 con Curazao. Ecuador 3°E con 4 pts (GD 0) es uno de los mejores candidatos para el top-8 de terceros. Enner Valencia fue el héroe ecuatoriano."
-  },
-  { id:"n49", date:"2026-06-25", tag:"resultado",
-    title:"Grupo F cerrado: Países Bajos 1° (7pts) y Japón 2° (5pts) — Suecia 3°F en la pelea",
-    body:"PB 3-1 Túnez y Japón 1-1 Suecia cierran el Grupo F. Países Bajos domina con 7 pts y GD +6. Japón 5 pts, GD +4. Suecia 4 pts como 3°F con GD 0 — uno de los 8 mejores terceros candidatos."
-  },
-  { id:"n48", date:"2026-06-25", tag:"resultado",
-    title:"Paraguay 0–0 Australia: Grupo D cierra — USA 1° y Australia 2° van al r32",
-    body:"Partido sin goles con clasificaciones ya definidas. USA 1°D (6 pts) y Australia 2°D (4 pts, GD 0 sobre Paraguay GD -2). Paraguay 3°D con 4 pts entra en carrera de mejores terceros."
   }
 ]
 
