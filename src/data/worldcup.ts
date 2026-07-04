@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-04T08:43:16.447Z
+// Auto-synced: 2026-07-04T14:36:51.719Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,17 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-04T08:43:16.447Z"
+export const LAST_UPDATED = "2026-07-04T14:36:51.719Z"
 
 export const news: NewsItem[] = [
+  { id:"n78", date:"2026-07-04", tag:"resultado",
+    title:"Colombia 1–0 Ghana",
+    body:"Colombia suma 3 puntos con marcador 1–0."
+  },
+  { id:"n77", date:"2026-07-03", tag:"resultado",
+    title:"Australia 1–1 Egipto: empate",
+    body:"El partido terminó igualado 1–1. Ambos equipos suman 1 punto."
+  },
   { id:"n76", date:"2026-07-03", tag:"resultado",
     title:"Suiza 2–0 Argelia",
     body:"Suiza suma 3 puntos con marcador 2–0."
@@ -158,14 +166,6 @@ export const news: NewsItem[] = [
   { id:"n54", date:"2026-06-27", tag:"resultado",
     title:"Colombia 0–0 Portugal: empate estratégico, ambos clasificados y en forma",
     body:"Colombia 1°K (7 pts, GD +3) y Portugal 2°K (5 pts) se guardan para el r32. Colombia llegó con la Jornada 3 asegurada y Falcao la sentó en el banco. RD Congo 4 pts como 3°K pelea por los mejores terceros."
-  },
-  { id:"n53", date:"2026-06-26", tag:"sorpresa",
-    title:"Senegal 5–0 Iraq: Mané descata — Senegal 3°I con 3 pts busca el top-8 de terceros",
-    body:"Senegal aplastó 5-0 a Iraq para acabar con el mejor average goleador de los terceros. Con 8 GF y 6 GA (GD +2, 3 pts), Senegal 3°I es candidato fuerte a calificar como uno de los 8 mejores terceros del torneo."
-  },
-  { id:"n52", date:"2026-06-26", tag:"sorpresa",
-    title:"SORPRESA: Türkiye 3–2 USA en la despedida — pero USA llega al r32 como 1°D",
-    body:"Türkiye, ya eliminada, goleó 3-2 a USA en el cierre del Grupo D. Los anfitriones encajaron su primera derrota del torneo pero igualmente avanzan como 1°D con 6 pts. Australia confirma el 2°D (4 pts). El resultado levantó dudas sobre la solidez defensiva de USMNT de cara al r32."
   }
 ]
 
