@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-03T23:01:01.498Z
+// Auto-synced: 2026-07-04T08:43:16.447Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-03T23:01:01.498Z"
+export const LAST_UPDATED = "2026-07-04T08:43:16.447Z"
 
 export const news: NewsItem[] = [
   { id:"n76", date:"2026-07-03", tag:"resultado",
@@ -407,8 +407,8 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-12", round:"r32", home:"Portugal", away:"Croacia", homeFlag:"🇵🇹", awayFlag:"🇭🇷", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:1, winner:"Portugal", winnerFlag:"🇵🇹", status:"played", extra:"AET", date:"2 jul", notes:"DUELO EUROPEO: Portugal 2°K (5 pts, Ronaldo + Bruno Fernandes) vs Croacia 2°L (6 pts, Modrić magistral, W2). Los Vatreni son maduros en eliminatorias — Portugal avanza en prórroga." },
   { id:"r32-13", round:"r32", home:"Suiza", away:"Argelia", homeFlag:"🇨🇭", awayFlag:"🇩🇿", homeScore:2, awayScore:0, homePrediction:1, awayPrediction:0, winner:"Suiza", winnerFlag:"🇨🇭", status:"played", date:"3 jul", notes:"Suiza 1°B (7 pts, Xhaka capitán, organización suiza) vs Argelia 3°J (4 pts — casi elimina Austria 3-3). La Nati sólida y sólida — Argelia llega con energía pero Suiza no pierde fácil." },
   { id:"r32-14", round:"r32", home:"Australia", away:"Egipto", homeFlag:"🇦🇺", awayFlag:"🇪🇬", homeScore:1, awayScore:1, homePrediction:1, awayPrediction:2, winner:"Egipto", winnerFlag:"🇪🇬", status:"played", date:"3 jul", notes:"⚡ PREDICCIÓN UPSET: Egipto 2-1 Australia. Salah (3 goles en grupos, mejor del mundo en forma) decide el partido. Australia 2°D llegó fuerte (2-0 Türkiye) pero con Salah al frente, Egipto pasa.", extra:"PEN" },
-  { id:"r32-15", round:"r32", home:"Argentina", away:"Cabo Verde", homeFlag:"🇦🇷", awayFlag:"🇨🇻", homeScore:1, awayScore:0, homePrediction:4, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"live", date:"3 jul", notes:"MISMATCH HISTÓRICO: Argentina 1°J (9 pts, 8 GF — Messi x3, Di María x2) vs Cabo Verde 2°H (3 pts, 3 empates sin marcar). El campeón defensor aplasta. Messi busca el hat-trick de torneos." },
-  { id:"r32-16", round:"r32", home:"Colombia", away:"Ghana", homeFlag:"🇨🇴", awayFlag:"🇬🇭", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", date:"4 jul", notes:"Colombia 1°K (7 pts, invicta — Luis Díaz imparable, Falcao Jr. vigente) vs Ghana 3°L (4 pts, Kudus brillante). Los Cafeteros avanzan con autoridad. Luis Díaz define antes del min 70." },
+  { id:"r32-15", round:"r32", home:"Argentina", away:"Cabo Verde", homeFlag:"🇦🇷", awayFlag:"🇨🇻", homeScore:3, awayScore:2, homePrediction:4, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"played", date:"3 jul", notes:"MISMATCH HISTÓRICO: Argentina 1°J (9 pts, 8 GF — Messi x3, Di María x2) vs Cabo Verde 2°H (3 pts, 3 empates sin marcar). El campeón defensor aplasta. Messi busca el hat-trick de torneos.", extra:"AET" },
+  { id:"r32-16", round:"r32", home:"Colombia", away:"Ghana", homeFlag:"🇨🇴", awayFlag:"🇬🇭", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:0, winner:"Colombia", winnerFlag:"🇨🇴", status:"played", date:"4 jul", notes:"Colombia 1°K (7 pts, invicta — Luis Díaz imparable, Falcao Jr. vigente) vs Ghana 3°L (4 pts, Kudus brillante). Los Cafeteros avanzan con autoridad. Luis Díaz define antes del min 70." },
   { id:"r16-1", round:"r16", home:"Canadá", away:"Alemania", homeFlag:"🇨🇦", awayFlag:"🇩🇪", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", date:"4 jul", notes:"Jonathan David vs Müller — el r16 más inesperado del torneo. Canadá histórico (1er partido de eliminación ganado) vs Alemania que corrige errores. Die Mannschaft tienen demasiada experiencia." },
   { id:"r16-2", round:"r16", home:"Brasil", away:"Noruega", homeFlag:"🇧🇷", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming", date:"4 jul", notes:"Vinícius Jr. vs Haaland — el duelo más atractivo del r16. Brasil 1°C (7 pts) tiene más profundidad: Rodrygo, Raphinha, Paquetá. Haaland hace daño pero Brasil tiene más recursos colectivos." },
   { id:"r16-3", round:"r16", home:"Marruecos", away:"Francia", homeFlag:"🇲🇦", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", date:"5 jul", notes:"REVANCHA DE QATAR 2022: Marruecos eliminó a Francia en semis. Les Bleus buscan venganza — Mbappé (4 goles) vs Bounou en el partido del torneo. Francia avanza en prórroga, sufriendo." },
