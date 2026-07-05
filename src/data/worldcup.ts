@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-05T09:11:38.212Z
+// Auto-synced: 2026-07-05T22:59:47.478Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-05T09:11:38.212Z"
+export const LAST_UPDATED = "2026-07-05T22:59:47.478Z"
 
 export const news: NewsItem[] = [
   { id:"n78", date:"2026-07-04", tag:"resultado",
@@ -410,7 +410,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r32-15", round:"r32", home:"Argentina", away:"Cabo Verde", homeFlag:"🇦🇷", awayFlag:"🇨🇻", homeScore:3, awayScore:2, homePrediction:4, awayPrediction:0, winner:"Argentina", winnerFlag:"🇦🇷", status:"played", date:"3 jul", notes:"MISMATCH HISTÓRICO: Argentina 1°J (9 pts, 8 GF — Messi x3, Di María x2) vs Cabo Verde 2°H (3 pts, 3 empates sin marcar). El campeón defensor aplasta. Messi busca el hat-trick de torneos.", extra:"AET" },
   { id:"r32-16", round:"r32", home:"Colombia", away:"Ghana", homeFlag:"🇨🇴", awayFlag:"🇬🇭", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:0, winner:"Colombia", winnerFlag:"🇨🇴", status:"played", date:"4 jul", notes:"Colombia 1°K (7 pts, invicta — Luis Díaz imparable, Falcao Jr. vigente) vs Ghana 3°L (4 pts, Kudus brillante). Los Cafeteros avanzan con autoridad. Luis Díaz define antes del min 70." },
   { id:"r16-1", round:"r16", home:"Canadá", away:"Alemania", homeFlag:"🇨🇦", awayFlag:"🇩🇪", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Alemania", winnerFlag:"🇩🇪", status:"upcoming", date:"4 jul", notes:"Jonathan David vs Müller — el r16 más inesperado del torneo. Canadá histórico (1er partido de eliminación ganado) vs Alemania que corrige errores. Die Mannschaft tienen demasiada experiencia." },
-  { id:"r16-2", round:"r16", home:"Brasil", away:"Noruega", homeFlag:"🇧🇷", awayFlag:"🇳🇴", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming", date:"4 jul", notes:"Vinícius Jr. vs Haaland — el duelo más atractivo del r16. Brasil 1°C (7 pts) tiene más profundidad: Rodrygo, Raphinha, Paquetá. Haaland hace daño pero Brasil tiene más recursos colectivos." },
+  { id:"r16-2", round:"r16", home:"Brasil", away:"Noruega", homeFlag:"🇧🇷", awayFlag:"🇳🇴", homeScore:1, awayScore:2, homePrediction:2, awayPrediction:1, winner:"Brasil", winnerFlag:"🇧🇷", status:"played", date:"4 jul", notes:"Vinícius Jr. vs Haaland — el duelo más atractivo del r16. Brasil 1°C (7 pts) tiene más profundidad: Rodrygo, Raphinha, Paquetá. Haaland hace daño pero Brasil tiene más recursos colectivos." },
   { id:"r16-3", round:"r16", home:"Marruecos", away:"Francia", homeFlag:"🇲🇦", awayFlag:"🇫🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", date:"5 jul", notes:"REVANCHA DE QATAR 2022: Marruecos eliminó a Francia en semis. Les Bleus buscan venganza — Mbappé (4 goles) vs Bounou en el partido del torneo. Francia avanza en prórroga, sufriendo." },
   { id:"r16-4", round:"r16", home:"México", away:"Inglaterra", homeFlag:"🇲🇽", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:0, winner:"México", winnerFlag:"🇲🇽", status:"upcoming", date:"6 jul", notes:"¡EL PARTIDO DE MÉXICO! El Tri (9 pts perfectos) vs Inglaterra (7 pts, Bellingham). Ambiente de final en territorio norteamericano — el pueblo mexicano lleva décadas esperando este octavo histórico. Quiñones decide." },
   { id:"r16-5", round:"r16", home:"España", away:"Portugal", homeFlag:"🇪🇸", awayFlag:"🇵🇹", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET", date:"6 jul", notes:"DERBI IBÉRICO: España 1°H (7 pts, GD +5) vs Portugal 2°K (5 pts, Ronaldo). Yamal vs la leyenda — la nueva generación contra la última oportunidad de Cristiano. España más sólida colectivamente. Prórroga intensa." },
