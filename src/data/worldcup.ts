@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-06T10:45:40.124Z
+// Auto-synced: 2026-07-06T13:20:21.630Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,17 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-06T10:45:40.124Z"
+export const LAST_UPDATED = "2026-07-06T13:20:21.630Z"
 
 export const news: NewsItem[] = [
+  { id:"n80", date:"2026-07-06", tag:"resultado",
+    title:"México 2–3 Inglaterra",
+    body:"Inglaterra suma 3 puntos con marcador 2–3."
+  },
+  { id:"n79", date:"2026-07-05", tag:"resultado",
+    title:"Brasil 1–2 Noruega",
+    body:"Noruega suma 3 puntos con marcador 1–2."
+  },
   { id:"n78", date:"2026-07-04", tag:"resultado",
     title:"Colombia 1–0 Ghana",
     body:"Colombia suma 3 puntos con marcador 1–0."
@@ -158,14 +166,6 @@ export const news: NewsItem[] = [
   { id:"n56", date:"2026-06-27", tag:"estadistica",
     title:"Bélgica 5–1 Nueva Zelanda: la Generación Dorada revive y toma el 1°G sobre Egipto",
     body:"Bélgica goleó 5-1 a NZ (De Bruyne x2, Lukaku x2, Trossard) en J3 y termina 1°G con 5 pts y GD +4, superando a Egipto (5 pts, GD +2) por diferencia de goles. La 'Generación Dorada' que parecía muerta después de 180 min sin gol en J1-J2 entra al r32 como primera del grupo."
-  },
-  { id:"n55", date:"2026-06-27", tag:"resultado",
-    title:"Egipto 1–1 Irán: ambos con 5 pts — Salah lidera pero Irán sobrevive",
-    body:"Empate agridulce para Egipto: termina 2°G (5 pts, GD +2) detrás de Bélgica. Irán con 3 pts y GD 0 entra a la pelea de los mejores terceros."
-  },
-  { id:"n54", date:"2026-06-27", tag:"resultado",
-    title:"Colombia 0–0 Portugal: empate estratégico, ambos clasificados y en forma",
-    body:"Colombia 1°K (7 pts, GD +3) y Portugal 2°K (5 pts) se guardan para el r32. Colombia llegó con la Jornada 3 asegurada y Falcao la sentó en el banco. RD Congo 4 pts como 3°K pelea por los mejores terceros."
   }
 ]
 
