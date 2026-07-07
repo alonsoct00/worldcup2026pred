@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-07T09:50:03.727Z
+// Auto-synced: 2026-07-07T14:59:43.701Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,17 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-07T09:50:03.727Z"
+export const LAST_UPDATED = "2026-07-07T14:59:43.701Z"
 
 export const news: NewsItem[] = [
+  { id:"n82", date:"2026-07-07", tag:"resultado",
+    title:"USA 1–4 Bélgica",
+    body:"Bélgica suma 3 puntos con marcador 1–4."
+  },
+  { id:"n81", date:"2026-07-06", tag:"resultado",
+    title:"Portugal 0–1 España",
+    body:"España suma 3 puntos con marcador 0–1."
+  },
   { id:"n80", date:"2026-07-06", tag:"resultado",
     title:"México 2–3 Inglaterra",
     body:"Inglaterra suma 3 puntos con marcador 2–3."
@@ -158,14 +166,6 @@ export const news: NewsItem[] = [
   { id:"n58", date:"2026-06-27", tag:"sorpresa",
     title:"Croacia 2–1 Ghana: los balkánicos remontan y son 2°L con 6 pts",
     body:"Croacia revive en el último partido del Grupo L. Con 6 pts (W2, L1), Croacia termina 2°L sobre Ghana (4 pts). Los Vatreni muestran el carácter de sus grandes generaciones. Ghana 3°L — aún con 4 pts puede pelear como mejor 3°."
-  },
-  { id:"n57", date:"2026-06-27", tag:"sorpresa",
-    title:"Uruguay 0–1 España y ELIMINADO — Cabo Verde es el inesperado 2°H",
-    body:"España 1-0 a Uruguay con gol de Morata (34'). Uruguay queda ELIMINADO con solo 2 pts en 3 juegos — la mayor decepción sudamericana del torneo. Cabo Verde, que empató los 3 partidos (0-0 España, 2-2 Uruguay, 0-0 Arabia), termina inesperadamente 2°H con 3 pts. Los Tubarões Azuis al r32 por primera vez en la historia."
-  },
-  { id:"n56", date:"2026-06-27", tag:"estadistica",
-    title:"Bélgica 5–1 Nueva Zelanda: la Generación Dorada revive y toma el 1°G sobre Egipto",
-    body:"Bélgica goleó 5-1 a NZ (De Bruyne x2, Lukaku x2, Trossard) en J3 y termina 1°G con 5 pts y GD +4, superando a Egipto (5 pts, GD +2) por diferencia de goles. La 'Generación Dorada' que parecía muerta después de 180 min sin gol en J1-J2 entra al r32 como primera del grupo."
   }
 ]
 
