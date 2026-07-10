@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-10T09:42:33.577Z
+// Auto-synced: 2026-07-10T22:58:11.597Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-10T09:42:33.577Z"
+export const LAST_UPDATED = "2026-07-10T22:58:11.597Z"
 
 export const news: NewsItem[] = [
   { id:"n82", date:"2026-07-07", tag:"resultado",
@@ -418,7 +418,7 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"r16-7", round:"r16", home:"Egipto", away:"Colombia", homeFlag:"🇪🇬", awayFlag:"🇨🇴", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Colombia", winnerFlag:"🇨🇴", status:"upcoming", date:"7 jul", notes:"SALAH VS LUIS DÍAZ — el duelo de estrellas del torneo. Egipto sorprendió Australia; Colombia llega invicta. Luis Díaz ha sido el más desequilibrante del Mundial. Colombia avanza con sufrimiento." },
   { id:"r16-8", round:"r16", home:"Suiza", away:"Argentina", homeFlag:"🇨🇭", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:0, awayPrediction:3, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", date:"7 jul", notes:"Messi vs Xhaka — el mismatch más claro del r16. Argentina 9 pts (8 GF), Suiza sólida pero sin capacidad de frenar a Messi. Campeón defensor aplana cualquier resistencia. Hat-trick de Messi proyectado." },
   { id:"qf-1", round:"qf", home:"Alemania", away:"Brasil", homeFlag:"🇩🇪", awayFlag:"🇧🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Brasil", winnerFlag:"🇧🇷", status:"upcoming", extra:"AET", date:"9 jul", notes:"LA REVANCHA DEL 7-1: Brasil 1-7 Alemania en 2014 fue la vergüenza nacional. La Canarinha busca redención en suelo norteamericano. Vinícius Jr. (2 goles en r16) vs Müller. Brasil avanza en prórroga." },
-  { id:"qf-2", round:"qf", home:"España", away:"Bélgica", homeFlag:"🇪🇸", awayFlag:"🇧🇪", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", date:"10 jul", notes:"La Roja invicta vs la Generación Dorada de Bélgica. Yamal, Morata y Pedri son una maquinaria bien engrasada. De Bruyne lo intenta todo, pero España es superior en todos los aspectos. Final desde el minuto 1." },
+  { id:"qf-2", round:"qf", home:"España", away:"Bélgica", homeFlag:"🇪🇸", awayFlag:"🇧🇪", homeScore:2, awayScore:1, homePrediction:2, awayPrediction:0, winner:"España", winnerFlag:"🇪🇸", status:"played", date:"10 jul", notes:"La Roja invicta vs la Generación Dorada de Bélgica. Yamal, Morata y Pedri son una maquinaria bien engrasada. De Bruyne lo intenta todo, pero España es superior en todos los aspectos. Final desde el minuto 1." },
   { id:"qf-3", round:"qf", home:"Francia", away:"México", homeFlag:"🇫🇷", awayFlag:"🇲🇽", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:0, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", date:"11 jul", notes:"Mbappé vs El Tri — el encuentro que todos los mexicanos temían. Francia imparable (5 goles en fase KO). Quiñones lo intenta, pero Les Bleus tienen demasiada profundidad. La fiesta termina para México." },
   { id:"qf-4", round:"qf", home:"Colombia", away:"Argentina", homeFlag:"🇨🇴", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", extra:"AET", date:"12 jul", notes:"EL CLÁSICO SUDAMERICANO: Colombia invicta (Luis Díaz imparable) vs Argentina campeón defensor (Messi). El mejor QF del torneo — Messi decide en prórroga. La diferencia de experiencia en eliminatorias." },
   { id:"sf-1", round:"sf", home:"Brasil", away:"España", homeFlag:"🇧🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET", date:"14 jul", notes:"Brasil vs España — el duelo de estilos. Vinícius Jr. vs Yamal en el 1v1 más esperado del torneo. España más sólida colectivamente, Brasil más explosivo. La Roja avanza a su primera final desde 2010." },
