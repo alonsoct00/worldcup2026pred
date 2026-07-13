@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-13T09:35:22.268Z
+// Auto-synced: 2026-07-13T15:56:04.204Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,9 +64,13 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-13T09:35:22.268Z"
+export const LAST_UPDATED = "2026-07-13T15:56:04.204Z"
 
 export const news: NewsItem[] = [
+  { id:"n83", date:"2026-07-12", tag:"resultado",
+    title:"Argentina 3–1 Suiza (p.e.)",
+    body:"Argentina suma 3 puntos con marcador 3–1  (p.e.)."
+  },
   { id:"n82", date:"2026-07-07", tag:"resultado",
     title:"USA 1–4 Bélgica",
     body:"Bélgica suma 3 puntos con marcador 1–4."
@@ -162,10 +166,6 @@ export const news: NewsItem[] = [
   { id:"n66", date:"2026-06-27", tag:"resultado",
     title:"RD Congo 3–1 Uzbekistán",
     body:"RD Congo suma 3 puntos con marcador 3–1."
-  },
-  { id:"n58", date:"2026-06-27", tag:"sorpresa",
-    title:"Croacia 2–1 Ghana: los balkánicos remontan y son 2°L con 6 pts",
-    body:"Croacia revive en el último partido del Grupo L. Con 6 pts (W2, L1), Croacia termina 2°L sobre Ghana (4 pts). Los Vatreni muestran el carácter de sus grandes generaciones. Ghana 3°L — aún con 4 pts puede pelear como mejor 3°."
   }
 ]
 
