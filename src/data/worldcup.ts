@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-14T08:15:03.383Z
+// Auto-synced: 2026-07-14T22:55:12.037Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-14T08:15:03.383Z"
+export const LAST_UPDATED = "2026-07-14T22:55:12.037Z"
 
 export const news: NewsItem[] = [
   { id:"n83", date:"2026-07-12", tag:"resultado",
@@ -424,5 +424,5 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"sf-1", round:"sf", home:"Brasil", away:"España", homeFlag:"🇧🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:1, awayPrediction:2, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET", date:"14 jul", notes:"Brasil vs España — el duelo de estilos. Vinícius Jr. vs Yamal en el 1v1 más esperado del torneo. España más sólida colectivamente, Brasil más explosivo. La Roja avanza a su primera final desde 2010." },
   { id:"sf-2", round:"sf", home:"Francia", away:"Argentina", homeFlag:"🇫🇷", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", date:"15 jul", notes:"LA REVANCHA DE QATAR 2022: Argentina ganó 3-3 (AET) + PEN. Francia busca la venganza — Mbappé máximo goleador del torneo (6+ goles). Messi da el alma pero Mbappé es el mejor jugador del mundo. Les Bleus se vengan." },
   { id:"third", round:"third", home:"Argentina", away:"Brasil", homeFlag:"🇦🇷", awayFlag:"🇧🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Argentina", winnerFlag:"🇦🇷", status:"upcoming", date:"18 jul", notes:"EL SUPERCLÁSICO del tercer lugar — Argentina vs Brasil en el duelo más apasionante del continente. Messi se despide del Mundial con el bronce: el adiós más épico de la historia." },
-  { id:"final", round:"final", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"upcoming", extra:"AET", date:"19 jul", notes:"MetLife Stadium, Nueva Jersey. Mbappé 28' · Griezmann 99' — Yamal 71'. Francia bicampeón del mundo — la era Mbappé consolida su legado histórico." }
+  { id:"final", round:"final", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:0, awayScore:2, homePrediction:2, awayPrediction:1, winner:"Francia", winnerFlag:"🇫🇷", status:"played", extra:"AET", date:"19 jul", notes:"MetLife Stadium, Nueva Jersey. Mbappé 28' · Griezmann 99' — Yamal 71'. Francia bicampeón del mundo — la era Mbappé consolida su legado histórico." }
 ]
