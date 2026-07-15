@@ -130,26 +130,32 @@ function parseCurrentData(src: string): { groups: GroupLike[]; knockoutMatches: 
 
 // ── Match updating ────────────────────────────────────────────────────────────
 
-function applyApiMatch(match: MatchLike, api: APIMatch, isKnockout = false): boolean {
+function applyApiMatch(match: MatchLike, api: APIMatch, isKnockout = false, swapped = false): boolean {
   if (api.status !== 'played' && api.status !== 'live') return false
   if (api.homeScore == null || api.awayScore == null) return false
 
-  match.homeScore = api.homeScore
-  match.awayScore = api.awayScore
+  const homeScore = swapped ? api.awayScore : api.homeScore
+  const awayScore = swapped ? api.homeScore : api.awayScore
+  match.homeScore = homeScore
+  match.awayScore = awayScore
   match.status = api.status
   if (!isKnockout) {
     match.result = api.status === 'played'
-      ? (api.homeScore > api.awayScore ? 'home' : api.awayScore > api.homeScore ? 'away' : 'draw')
+      ? (homeScore > awayScore ? 'home' : awayScore > homeScore ? 'away' : 'draw')
       : null
-    if (api.homeYellow != null) match.homeYellow = api.homeYellow
-    if (api.awayYellow != null) match.awayYellow = api.awayYellow
-    if (api.homeRed != null) match.homeRed = api.homeRed
-    if (api.awayRed != null) match.awayRed = api.awayRed
+    const homeYellow = swapped ? api.awayYellow : api.homeYellow
+    const awayYellow = swapped ? api.homeYellow : api.awayYellow
+    const homeRed = swapped ? api.awayRed : api.homeRed
+    const awayRed = swapped ? api.homeRed : api.awayRed
+    if (homeYellow != null) match.homeYellow = homeYellow
+    if (awayYellow != null) match.awayYellow = awayYellow
+    if (homeRed != null) match.homeRed = homeRed
+    if (awayRed != null) match.awayRed = awayRed
   }
   if (api.extra) match.extra = api.extra
-  if (isKnockout && api.status === 'played' && api.homeScore !== api.awayScore) {
+  if (isKnockout && api.status === 'played' && homeScore !== awayScore) {
     const km = match as unknown as KnockoutLike
-    const homeWon = api.homeScore > api.awayScore
+    const homeWon = homeScore > awayScore
     km.winner = homeWon ? km.home : km.away
     km.winnerFlag = homeWon ? km.homeFlag : km.awayFlag
   }
@@ -298,8 +304,11 @@ export async function writeWorldcupTs(
   for (const group of groups) {
     for (const match of group.matches) {
       const key = matchKey(match.home, match.away)
+      const reverseKey = matchKey(match.away, match.home)
       const api = apiByKey.get(key)
+      const apiReversed = !api ? apiByKey.get(reverseKey) : undefined
       if (api && applyApiMatch(match, api)) matchesUpdated++
+      else if (apiReversed && applyApiMatch(match, apiReversed, false, true)) matchesUpdated++
     }
   }
 
@@ -307,9 +316,12 @@ export async function writeWorldcupTs(
   const now = new Date()
   for (const match of knockoutMatches) {
     const key = matchKey(match.home, match.away)
+    const reverseKey = matchKey(match.away, match.home)
     const api = apiByKey.get(key)
-    if (!api || isFutureFixture(match.date, now)) continue
-    if (applyApiMatch(match, api, true)) matchesUpdated++
+    const apiReversed = !api ? apiByKey.get(reverseKey) : undefined
+    if (isFutureFixture(match.date, now)) continue
+    if (api && applyApiMatch(match, api, true)) matchesUpdated++
+    else if (apiReversed && applyApiMatch(match, apiReversed, true, true)) matchesUpdated++
   }
 
   // Recalculate standings

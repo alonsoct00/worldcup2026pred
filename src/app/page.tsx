@@ -343,9 +343,9 @@ function KnockoutView({ round }: { round: string }) {
         {/* Podium */}
         <div className="grid grid-cols-3 gap-3 mt-6">
           {[
-            { pos: '🥈', team: 'España', flag: '🇪🇸', note: '1°H ✅ — 7 pts, Yamal imparable' },
-            { pos: '🏆', team: 'Francia', flag: '🇫🇷', note: 'Mbappé histórico — 1°I, 10 GF' },
-            { pos: '🥉', team: 'Argentina', flag: '🇦🇷', note: '9 pts, Messi despide con bronce' },
+            { pos: '🏆', team: 'España', flag: '🇪🇸', note: 'Invicta todo el torneo — venció a Francia 2-0 en semis' },
+            { pos: '🥈', team: 'Argentina', flag: '🇦🇷', note: 'Campeón defensor — pendiente sf vs Inglaterra' },
+            { pos: '🥉', team: 'Francia', flag: '🇫🇷', note: 'Eliminada por España en semis' },
           ].map(p => (
             <div key={p.team} className={`rounded-xl p-3 text-center border ${
               p.pos === '🏆' ? 'bg-gold/10 border-gold/30' : 'bg-pitch-mid border-white/5'
