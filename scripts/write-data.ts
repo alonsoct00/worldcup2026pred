@@ -19,6 +19,26 @@ function matchKey(home: string, away: string): string {
   return `${normalizeTeam(home)}|${normalizeTeam(away)}`
 }
 
+const SPANISH_MONTHS: Record<string, number> = {
+  ene: 0, feb: 1, mar: 2, abr: 3, may: 4, jun: 5,
+  jul: 6, ago: 7, sep: 8, oct: 9, nov: 10, dic: 11,
+}
+
+// Guards against upstream API feeds (or ID collisions with unrelated fixtures)
+// falsely reporting a "played" result for a match whose scheduled date hasn't
+// arrived yet — this happened with the 2026-07-19 final showing as played
+// while the semifinals were still upcoming.
+function isFutureFixture(dateLabel: string | undefined, now: Date): boolean {
+  if (!dateLabel) return false
+  const [dayStr, monAbbr] = dateLabel.trim().split(/\s+/)
+  const month = SPANISH_MONTHS[monAbbr?.toLowerCase()]
+  const day = Number(dayStr)
+  if (month == null || Number.isNaN(day)) return false
+  const fixtureDate = new Date(now.getFullYear(), month, day)
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  return fixtureDate.getTime() > today.getTime()
+}
+
 interface MatchLike {
   home: string
   away: string
@@ -127,6 +147,12 @@ function applyApiMatch(match: MatchLike, api: APIMatch, isKnockout = false): boo
     if (api.awayRed != null) match.awayRed = api.awayRed
   }
   if (api.extra) match.extra = api.extra
+  if (isKnockout && api.status === 'played' && api.homeScore !== api.awayScore) {
+    const km = match as unknown as KnockoutLike
+    const homeWon = api.homeScore > api.awayScore
+    km.winner = homeWon ? km.home : km.away
+    km.winnerFlag = homeWon ? km.homeFlag : km.awayFlag
+  }
   return true
 }
 
@@ -278,10 +304,12 @@ export async function writeWorldcupTs(
   }
 
   // Update knockout matches
+  const now = new Date()
   for (const match of knockoutMatches) {
     const key = matchKey(match.home, match.away)
     const api = apiByKey.get(key)
-    if (api && applyApiMatch(match, api, true)) matchesUpdated++
+    if (!api || isFutureFixture(match.date, now)) continue
+    if (applyApiMatch(match, api, true)) matchesUpdated++
   }
 
   // Recalculate standings
