@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-15T01:44:37.406Z
+// Auto-synced: 2026-07-15T08:21:19.990Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,12 +64,16 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-15T01:44:37.406Z"
+export const LAST_UPDATED = "2026-07-15T08:21:19.990Z"
 
 export const news: NewsItem[] = [
   { id:"n88", date:"2026-07-14", tag:"resultado",
     title:"¡ESPAÑA A LA FINAL! España 2–0 Francia en semifinales",
     body:"La Roja vence a Francia en la semifinal (sf-1) y llega invicta a su primera final desde 2010. Yamal fue decisivo ante Mbappé. España espera rival: Inglaterra o Argentina (sf-2, 15 jul)."
+  },
+  { id:"n83", date:"2026-07-12", tag:"resultado",
+    title:"Argentina 3–1 Suiza (p.e.)",
+    body:"Argentina suma 3 puntos con marcador 3–1  (p.e.)."
   },
   { id:"n87", date:"2026-07-11", tag:"resultado",
     title:"Inglaterra 2–1 Noruega (p.e.): Haaland eliminado en cuartos",
@@ -79,17 +83,9 @@ export const news: NewsItem[] = [
     title:"Francia 2–0 Marruecos: la revancha de Qatar 2022, pero en cuartos",
     body:"Francia se venga del semifinalista de 2022 y avanza a semifinales sin necesidad de prórroga. Mbappé sigue intratable en la fase eliminatoria."
   },
-  { id:"n83", date:"2026-07-12", tag:"resultado",
-    title:"Argentina 3–1 Suiza (p.e.)",
-    body:"Argentina suma 3 puntos con marcador 3–1  (p.e.)."
-  },
   { id:"n85", date:"2026-07-07", tag:"sorpresa",
     title:"Suiza elimina a Colombia por penales en octavos (0-0)",
     body:"Colombia, invicta hasta ese punto, cae en la tanda de penales ante Suiza tras un 0-0 sin goles. Una de las mayores sorpresas silenciosas del cuadro."
-  },
-  { id:"n84", date:"2026-07-04", tag:"sorpresa",
-    title:"Marruecos 3–0 Canadá: termina el cuento de hadas canadiense",
-    body:"Los Leones del Atlas golean a Canadá en octavos y confirman por qué son especialistas en la fase eliminatoria — avanzan a cuartos a enfrentar a Francia."
   },
   { id:"n82", date:"2026-07-07", tag:"resultado",
     title:"USA 1–4 Bélgica",
@@ -106,6 +102,10 @@ export const news: NewsItem[] = [
   { id:"n79", date:"2026-07-05", tag:"resultado",
     title:"Brasil 1–2 Noruega",
     body:"Noruega suma 3 puntos con marcador 1–2."
+  },
+  { id:"n84", date:"2026-07-04", tag:"sorpresa",
+    title:"Marruecos 3–0 Canadá: termina el cuento de hadas canadiense",
+    body:"Los Leones del Atlas golean a Canadá en octavos y confirman por qué son especialistas en la fase eliminatoria — avanzan a cuartos a enfrentar a Francia."
   },
   { id:"n78", date:"2026-07-04", tag:"resultado",
     title:"Colombia 1–0 Ghana",
@@ -166,26 +166,6 @@ export const news: NewsItem[] = [
   { id:"n61", date:"2026-06-28", tag:"resultado",
     title:"Bracket real r32: Argentina vs Cabo Verde, no vs Irán — mismatch histórico",
     body:"El cuadro real del Mundial reveló que Argentina (1°J, 9 pts, 8 GF) enfrenta a Cabo Verde (2°H, 3 pts, 3 empates sin marcar). Es el mismatch más claro de toda la fase knockout. Messi, Di María y compañía ante el equipo que nunca ganó un partido en la fase de grupos. Proyección: Argentina 4-0 Cabo Verde, con hat-trick de Messi."
-  },
-  { id:"n60", date:"2026-06-28", tag:"sorpresa",
-    title:"Canadá 1–0 Sudáfrica: primer shock del r32 — los Bafana Bafana eliminados",
-    body:"Canadá derrota a Sudáfrica en el debut del r32. La mayor sorpresa de la fase eliminatoria hasta ahora: Sudáfrica, que eliminó a Corea del Sur en grupos y llegó con 4 pts, cae ante la hornada dorada de Canadá (Jonathan David, Buchanan). Los norteamericanos son el equipo con más goles de la fase de grupos (8) y ahora están en los 16 mejores del mundo."
-  },
-  { id:"n59", date:"2026-06-28", tag:"sorpresa",
-    title:"Argelia 3–3 Austria: drama total — Austria 2°J en el descuento",
-    body:"Partido de infarto en el cierre del Grupo J. Austria empató 3-3 vs Argelia y termina 2°J por mejor GD (0 vs -2). Argelia queda 3°J con 4 pts y entra en la carrera de los mejores terceros."
-  },
-  { id:"n64", date:"2026-06-27", tag:"resultado",
-    title:"Cabo Verde 0–0 Arabia Saudita: empate",
-    body:"El partido terminó igualado 0–0. Ambos equipos suman 1 punto."
-  },
-  { id:"n65", date:"2026-06-27", tag:"resultado",
-    title:"Panamá 0–2 Inglaterra",
-    body:"Inglaterra suma 3 puntos con marcador 0–2."
-  },
-  { id:"n66", date:"2026-06-27", tag:"resultado",
-    title:"RD Congo 3–1 Uzbekistán",
-    body:"RD Congo suma 3 puntos con marcador 3–1."
   }
 ]
 
