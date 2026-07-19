@@ -149,14 +149,13 @@ groups → r32 → r16 → qf → sf → third → final → news
 
 ### Desde GitHub Actions (cron)
 - 06:00 UTC y 22:00 UTC diario
-- Corre `npm run sync` (CLI con Claude extraction + web scraping)
+- Corre `npm run sync` (CLI con API fetch + web scraping, sin LLM)
 - Commit automático si cambia worldcup.ts
 
 ### Variables de entorno necesarias
 ```
 FOOTBALL_DATA_TOKEN   — API football-data.org
 GH_PAT                — GitHub Personal Access Token (repo write)
-ANTHROPIC_API_KEY     — Para claude-extract en sync local
 CRON_SECRET           — Opcional, protege /api/sync
 ```
 
@@ -165,7 +164,7 @@ CRON_SECRET           — Opcional, protege /api/sync
 ```bash
 npm run dev           # Next.js dev server
 npm run build         # Build estático
-npm run sync          # Sync completo (API + scraping + Claude)
+npm run sync          # Sync completo (API + scraping)
 npm run sync:dry      # Dry run (preview sin escribir)
 npm run sync:debug    # Con logs verbose
 ```

@@ -42,7 +42,6 @@ jobs:
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
           OPENFOOTBALL_TOKEN: ${{ secrets.OPENFOOTBALL_TOKEN }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Commit and push if worldcup.ts changed
         run: |

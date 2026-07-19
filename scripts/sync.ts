@@ -4,7 +4,7 @@ import { resolve } from 'path'
 config({ path: resolve(process.cwd(), '.env.local') })
 import { fetchMatchResults } from './api-fetch.js'
 import { scrapeWebSources } from './web-scraper.js'
-import { extractWithClaude, type Extraction } from './claude-extract.js'
+import { EMPTY_EXTRACTION, type Extraction } from './claude-extract.js'
 import { writeWorldcupTs } from './write-data.js'
 
 const isDryRun = process.argv.includes('--dry-run')
@@ -37,20 +37,8 @@ async function main() {
     console.warn(`   ⚠ Web scraping failed: ${(err as Error).message} — continuing without news enrichment`)
   }
 
-  // Step 3: Claude extraction
-  console.log('3/4 🤖 Extracting structured data with Claude...')
-  let extracted: Extraction = { injuries: [], suspensions: [], upsets: [], hatTricks: [], newsItems: [] }
-  if (scrapedText && process.env.ANTHROPIC_API_KEY) {
-    try {
-      extracted = await extractWithClaude(scrapedText, apiMatches)
-      console.log(`   ✓ Injuries: ${extracted.injuries.length} | Suspensions: ${extracted.suspensions.length} | News: ${extracted.newsItems.length} | Upsets: ${extracted.upsets.length}`)
-      if (isDebug) console.log('   [DEBUG] Extracted:', JSON.stringify(extracted, null, 2))
-    } catch (err) {
-      console.warn(`   ⚠ Claude extraction failed: ${(err as Error).message} — skipping news enrichment`)
-    }
-  } else {
-    console.log('   ⚠ Skipped (no ANTHROPIC_API_KEY or no scraped text)')
-  }
+  // Step 3: structured extraction (disabled — no LLM dependency)
+  const extracted: Extraction = EMPTY_EXTRACTION
 
   // Step 4: Write
   console.log(`4/4 💾 ${isDryRun ? 'Previewing' : 'Writing'} worldcup.ts...`)

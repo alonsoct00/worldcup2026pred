@@ -1,8 +1,10 @@
 const RSS_FEEDS = [
   'https://www.espn.com/espn/rss/soccer/news',
-  'https://www.goal.com/feeds/en/news',
   'https://feeds.bbci.co.uk/sport/football/rss.xml',
   'https://www.fourfourtwo.com/rss',
+  'https://e00-marca.uecdn.es/rss/futbol/mundial.xml',
+  'https://www.skysports.com/rss/12040',
+  'https://www.theguardian.com/football/rss',
 ]
 
 const PAGES = [
