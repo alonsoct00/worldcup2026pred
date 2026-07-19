@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-07-19T08:26:18.115Z
+// Auto-synced: 2026-07-19T22:49:36.838Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-07-19T08:26:18.115Z"
+export const LAST_UPDATED = "2026-07-19T22:49:36.838Z"
 
 export const news: NewsItem[] = [
   { id:"n88", date:"2026-07-14", tag:"resultado",
@@ -424,5 +424,5 @@ export const knockoutMatches: KnockoutMatch[] = [
   { id:"sf-1", round:"sf", home:"Francia", away:"España", homeFlag:"🇫🇷", awayFlag:"🇪🇸", homeScore:0, awayScore:2, homePrediction:1, awayPrediction:2, winner:"España", winnerFlag:"🇪🇸", status:"played", date:"14 jul", notes:"RESULTADO REAL: España 2–0 Francia. Yamal vs Mbappé en el duelo más esperado del torneo — La Roja, invicta en todo el camino, avanza a su primera final desde 2010." },
   { id:"sf-2", round:"sf", home:"Inglaterra", away:"Argentina", homeFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", awayFlag:"🇦🇷", homeScore:1, awayScore:2, homePrediction:1, awayPrediction:2, winner:"Argentina", winnerFlag:"🇦🇷", status:"played", extra:"AET", date:"15 jul", notes:"ACTUALIZADO: el cruce real no es Francia vs Argentina (Francia ya quedó eliminado en la sf-1 ante España) — es Bellingham vs Messi. Argentina, campeón defensor, es favorito pero Inglaterra ha sido letal en la fase KO." },
   { id:"third", round:"third", home:"Francia", away:"Inglaterra", homeFlag:"🇫🇷", awayFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", homeScore:4, awayScore:6, homePrediction:2, awayPrediction:1, winner:"Inglaterra", winnerFlag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", status:"played", date:"18 jul", notes:"ACTUALIZADO: el tercer lugar depende de quién pierda la sf-2. Predicción: Francia (eliminada por España en semis) vs el perdedor de Inglaterra-Argentina. Mbappé se despide con el bronce." },
-  { id:"final", round:"final", home:"España", away:"Argentina", homeFlag:"🇪🇸", awayFlag:"🇦🇷", homeScore:null, awayScore:null, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"upcoming", extra:"AET", date:"19 jul", notes:"ACTUALIZADO: España ya es finalista confirmada (venció a Francia 2-0 en semis). El rival depende de la sf-2 Inglaterra-Argentina; predicción: España vs Argentina. Yamal vs Messi — La Roja, invicta todo el torneo, favorita para el título." }
+  { id:"final", round:"final", home:"España", away:"Argentina", homeFlag:"🇪🇸", awayFlag:"🇦🇷", homeScore:1, awayScore:0, homePrediction:2, awayPrediction:1, winner:"España", winnerFlag:"🇪🇸", status:"played", extra:"AET", date:"19 jul", notes:"ACTUALIZADO: España ya es finalista confirmada (venció a Francia 2-0 en semis). El rival depende de la sf-2 Inglaterra-Argentina; predicción: España vs Argentina. Yamal vs Messi — La Roja, invicta todo el torneo, favorita para el título." }
 ]
