@@ -1,5 +1,5 @@
 // src/data/worldcup.ts
-// Auto-synced: 2026-08-09T07:02:14.285Z
+// Auto-synced: 2026-08-09T22:28:21.778Z
 // DO NOT EDIT SCORES MANUALLY — run npm run sync
 
 export type MatchStatus = "played" | "live" | "upcoming"
@@ -64,7 +64,7 @@ export interface NewsItem {
 
 // ─── NEWS / NOVEDADES ───────────────────────────────────────────────────────
 
-export const LAST_UPDATED = "2026-08-09T07:02:14.285Z"
+export const LAST_UPDATED = "2026-08-09T22:28:21.778Z"
 
 export const news: NewsItem[] = [
   { id:"n88", date:"2026-07-14", tag:"resultado",
